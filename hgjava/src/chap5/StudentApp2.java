@@ -3,6 +3,7 @@ package chap5;
 import java.util.Scanner;
 
 public class StudentApp2 {
+	
 	//addStudent메소드에도 변수 내용 사용해야 되니까 main 메소드에 있던 거 중 밖에서도 사용해야 되는 건 옮기기
 	static Scanner scn = new Scanner(System.in); // static타입이 되어야 사용 가능해서 static붙임
 	static Student[] students = null;
@@ -83,11 +84,13 @@ public class StudentApp2 {
 			if(!exists) {
 				System.out.println("찾는 이름이 없습니다.");
 			}
-		}//end modify
+		}//end for
 		
 		
 		
 	}//end of modify()
+	
+	
 	
 	
 	public static void main(String[] args) {

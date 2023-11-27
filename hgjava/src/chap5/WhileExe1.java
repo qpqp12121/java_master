@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 public class WhileExe1 {
 	public static void main(String[] args) {
-		// for : 반복횟수가 정해져 있는 경우 사용
+	
+	// for : 반복횟수가 정해져 있는 경우 사용
 		
 		
-		// while : 조건을 만족하는 동안 반복
+	// while : 조건을 만족하는 동안 반복
 		
+     //Q. 문자를 입력받아라. 만약 quit 문자를 만나면 종료해라	
 		Scanner scn = new Scanner(System.in); //System-키보드로 입력하는
 		
 		while(true) {
