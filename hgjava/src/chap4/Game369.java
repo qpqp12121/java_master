@@ -67,7 +67,11 @@ public class Game369 {
 	// 1.if (mynum == com ){ 축하합니다 break;	
 		//if( mynum > sc ){ down} else{up
 	 
-
+		
+		//for.. 추가함
+		for(int i=0; i<=10; i++) {
+			System.out.println("ddd");
+		}
 	
 	 
 	 
