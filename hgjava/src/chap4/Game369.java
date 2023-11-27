@@ -69,11 +69,11 @@ public class Game369 {
 	 
 		
 		//for.. Ãß°¡ÇÔ
-		for(int i=0; i<=10; i++) {
-			System.out.println("ddd");
-		}
+//		for(int i=0; i<=10; i++) {
+//			System.out.println("ddd");
+//		}
 	
-	 
+	    
 	 
 		  
 
