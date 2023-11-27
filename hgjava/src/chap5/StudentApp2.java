@@ -77,13 +77,13 @@ public class StudentApp2 {
 			// 이름 가지고 있으면 변경점수 입력
 			if(name.equals(students[i].name)) {
 				System.out.print("변경할 점수 입력: ");
-				students[i]
+				students[i].score = Integer.parseInt(scn.nextLine());
 				exists = true;
 			}
 			if(!exists) {
 				System.out.println("찾는 이름이 없습니다.");
 			}
-		}
+		}//end modify
 		
 		
 		
