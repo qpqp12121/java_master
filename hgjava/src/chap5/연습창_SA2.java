@@ -2,9 +2,9 @@ package chap5;
 
 import java.util.Scanner;
 
-public class ¿¬½ÀÃ¢_SA2 {
+public class ì—°ìŠµì°½_SA2 {
 
- // StudentApp2. ¿©·¯ ¸Þ¼Òµåµé ¸¸µé±â Àü ÄÚµå		
+ // StudentApp2. ì—¬ëŸ¬ ë©”ì†Œë“œë“¤ ë§Œë“¤ê¸° ì „ ì½”ë“œ		
 			
 	public static void main(String[] args) {
 		
@@ -14,95 +14,92 @@ public class ¿¬½ÀÃ¢_SA2 {
 		int studentNum = 0; 
 	
 		while(run) {
-			System.out.println(" 1.ÇÐ»ý¼ö 2.ÇÐ»ýÀÌ¸§,Á¡¼öÀÔ·Â 3.Á¶È¸ 4.ºÐ¼®(Æò±Õ) 5.¼öÁ¤ 6.Á¾·á");
+			System.out.println(" 1.í•™ìƒìˆ˜ 2.í•™ìƒì´ë¦„,ì ìˆ˜ìž…ë ¥ 3.ì¡°íšŒ 4.ë¶„ì„(í‰ê· ) 5.ìˆ˜ì • 6.ì¢…ë£Œ");
 			int menu = scn.nextInt(); 
 			scn.nextLine();   
 			
 			switch(menu) {
 			case 1 :
-				System.out.print("ÇÐ»ý¼ö ÀÔ·Â>> ");
+				System.out.print("í•™ìƒìˆ˜ ìž…ë ¥>> ");
 				studentNum = Integer.parseInt(scn.nextLine()); 
-				students = new Student[studentNum]; //¹è¿­ Å©±â ÁöÁ¤ÇÏ±â
+				students = new Student[studentNum]; //ë°°ì—´ í¬ê¸° ì§€ì •í•˜ê¸°
 				break;
 				
 			case 2 :
-				System.out.println("ÇÐ»ýÁ¤º¸ ÀÔ·Â>> ");
+				System.out.println("í•™ìƒì •ë³´ ìž…ë ¥>> ");
 				for(int i = 0; i < students.length; i++) {
 					Student student = new Student(); 
 					
-					System.out.print("- ÀÌ¸§: ");
+					System.out.print("- ì´ë¦„: ");
 					student.name = scn.nextLine();
-					System.out.print("- Á¡¼ö: ");
+					System.out.print("- ì ìˆ˜: ");
 					student.score = Integer.parseInt(scn.nextLine());
-					System.out.print("- ³²/¿©: ");
+					System.out.print("- ë‚¨/ì—¬: ");
 					student.gender = scn.nextLine(); 
 					
-					students[i] = student; //students º¯¼ö¿¡ .nameÀÌ¶û.score´ãÀº °Í ¹è¿­¿¡ µé¾î°¡°Ô
+					students[i] = student; //students ë³€ìˆ˜ì— .nameì´ëž‘.scoreë‹´ì€ ê²ƒ ë°°ì—´ì— ë“¤ì–´ê°€ê²Œ
 				}	
 				break;
 				
-			case 3 : // " ÇÐ»ýÀÌ¸§ - Á¡¼ö " ÇüÅÂ·Î Ãâ·Â
-				System.out.print("Á¶È¸ÇÒ ÀÌ¸§ÀÔ·Â>> ");
+			case 3 : // " í•™ìƒì´ë¦„ - ì ìˆ˜ " í˜•íƒœë¡œ ì¶œë ¥
+				System.out.print("ì¡°íšŒí•  ì´ë¦„ìž…ë ¥>> ");
 				String name = scn.nextLine();
 				boolean exists = false;
 				
 				for(Student stdn : students) { 	                           
 					if(name.equals(stdn.name)) {
-						System.out.println(" : ÀÌ¸§Àº " + stdn.name + ", Á¡¼ö´Â " + stdn.score +"Á¡");	
+						System.out.println(" : ì´ë¦„ì€ " + stdn.name + ", ì ìˆ˜ëŠ” " + stdn.score +"ì ");	
 						exists = true;
 					}
 											
-				}//for¹® ³¡
+				}//forë¬¸ ë
 				
 				if(!exists) {
-					System.out.println("Ã£´Â ÀÌ¸§ÀÌ ¾ø½À´Ï´Ù.");
+					System.out.println("ì°¾ëŠ” ì´ë¦„ì´ ì—†ìŠµë‹ˆë‹¤.");
 				}
 				break;
 				
 			 case 4 :
-				 System.out.println("ºÐ¼®>> ");
+				 System.out.println("ë¶„ì„>> ");
 				 int sumOfMen = 0, cntOfMen = 0;  
 				 int sumOfWomen = 0, cntOfWomen = 0;
 					
 				 for(Student stn : students) {
-					if(stn.gender.equals("³²")) {
+					if(stn.gender.equals("ë‚¨")) {
 					   sumOfMen += stn.score;
 					   cntOfMen ++;
 					}
-					else if(stn.gender.equals("¿©")) {
+					else if(stn.gender.equals("ì—¬")) {
 						 sumOfWomen += stn.score;
 						 cntOfWomen ++;
 					}
 				 }
-				 System.out.println("³²ÇÐ»ýÀÇ Æò±Õ: " + (sumOfMen * 1.0 / cntOfMen)); 
-				 System.out.println("¿©ÇÐ»ýÀÇ Æò±Õ: " + (sumOfWomen * 1.0 / cntOfWomen));
+				 System.out.println("ë‚¨í•™ìƒì˜ í‰ê· : " + (sumOfMen * 1.0 / cntOfMen)); 
+				 System.out.println("ì—¬í•™ìƒì˜ í‰ê· : " + (sumOfWomen * 1.0 / cntOfWomen));
 				 break;
 			 case 5 :
-				 System.out.print("Á¶È¸ÇÒ ÀÌ¸§ÀÔ·Â>> ");
+				 System.out.print("ì¡°íšŒí•  ì´ë¦„ìž…ë ¥>> ");
 				 String name = scn.nextLine();
 				 boolean exists = false;
 					
 				 for(int i = 0; i < students.length; i++) {
-					// ÀÌ¸§ °¡Áö°í ÀÖÀ¸¸é º¯°æÁ¡¼ö ÀÔ·Â
+					// ì´ë¦„ ê°€ì§€ê³  ìžˆìœ¼ë©´ ë³€ê²½ì ìˆ˜ ìž…ë ¥
 				   if(name.equals(students[i].name)) {
-					 System.out.print("º¯°æÇÒ Á¡¼ö ÀÔ·Â: ");
+					 System.out.print("ë³€ê²½í•  ì ìˆ˜ ìž…ë ¥: ");
 					 students[i].score = Integer.parseInt(scn.nextLine());
 					 exists = true;
 					}
 						
 				   if(!exists) {
-					 System.out.println("Ã£´Â ÀÌ¸§ÀÌ ¾ø½À´Ï´Ù.");
+					 System.out.println("ì°¾ëŠ” ì´ë¦„ì´ ì—†ìŠµë‹ˆë‹¤.");
 				   }
 				 }
 				 break;
 				 
 			 case 6 :
-				 System.out.println("Á¾·áÇÕ´Ï´Ù.");
+				 System.out.println("ì¢…ë£Œí•©ë‹ˆë‹¤.");
 				 run = false;				
 			}// end of switch.
 		}// end of while.
 	  }//end main
 }//end class
-	
-	
-	

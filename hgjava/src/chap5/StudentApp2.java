@@ -4,85 +4,85 @@ import java.util.Scanner;
 
 public class StudentApp2 {
 	
-	//addStudent¸Ş¼Òµå¿¡µµ º¯¼ö ³»¿ë »ç¿ëÇØ¾ß µÇ´Ï±î main ¸Ş¼Òµå¿¡ ÀÖ´ø °Å Áß ¹Û¿¡¼­µµ »ç¿ëÇØ¾ß µÇ´Â °Ç ¿Å±â±â
-	static Scanner scn = new Scanner(System.in); // staticÅ¸ÀÔÀÌ µÇ¾î¾ß »ç¿ë °¡´ÉÇØ¼­ staticºÙÀÓ
+	//addStudentë©”ì†Œë“œì—ë„ ë³€ìˆ˜ ë‚´ìš© ì‚¬ìš©í•´ì•¼ ë˜ë‹ˆê¹Œ main ë©”ì†Œë“œì— ìˆë˜ ê±° ì¤‘ ë°–ì—ì„œë„ ì‚¬ìš©í•´ì•¼ ë˜ëŠ” ê±´ ì˜®ê¸°ê¸°
+	static Scanner scn = new Scanner(System.in); // staticíƒ€ì…ì´ ë˜ì–´ì•¼ ì‚¬ìš© ê°€ëŠ¥í•´ì„œ staticë¶™ì„
 	static Student[] students = null;
 	
-	//switch case 2 : ÄÚµå ³Ê¹« ±æ¾î¼­ addStudent ¸Ş¼Òµå() ¸¸µé¾î¼­ ¾È¿¡ ³ÖÀ½
-	//break ¾Õ ÄÚµå±îÁö
+	//switch case 2 : ì½”ë“œ ë„ˆë¬´ ê¸¸ì–´ì„œ addStudent ë©”ì†Œë“œ() ë§Œë“¤ì–´ì„œ ì•ˆì— ë„£ìŒ
+	//break ì• ì½”ë“œê¹Œì§€
 	public static void addStudent() {
-		System.out.println("ÇĞ»ıÁ¤º¸ ÀÔ·Â>> ");
+		System.out.println("í•™ìƒì •ë³´ ì…ë ¥>> ");
 		for(int i = 0; i < students.length; i++) {
-			Student student = new Student(); //ÇĞ»ıÁ¤º¸ ÀÔ·ÂÇÒ º¯¼ö // Student ÄÁÆ®·Ñ ´©¸£°í Å¬¸¯ÇÏ¸é studentµ¥ÀÌÅÍ µé¾îÀÖ´Â ¹æÀ¸·Î ¿Å°ÜÁü
-			// Student : µ¥ÀÌÅÍ Å¸ÀÔ -- int num = 60; ÇüÅÂ¶û °°À½ ( µ¥ÀÌÅÍ Ãß°¡ÇÏ°í ½ÍÀ¸¸é StudentÅ¬·¡½º ¹æ °¡¼­ ÀÔ·Â)
-			System.out.print("- ÀÌ¸§: ");
+			Student student = new Student(); //í•™ìƒì •ë³´ ì…ë ¥í•  ë³€ìˆ˜ // Student ì»¨íŠ¸ë¡¤ ëˆ„ë¥´ê³  í´ë¦­í•˜ë©´ studentë°ì´í„° ë“¤ì–´ìˆëŠ” ë°©ìœ¼ë¡œ ì˜®ê²¨ì§
+			// Student : ë°ì´í„° íƒ€ì… -- int num = 60; í˜•íƒœë‘ ê°™ìŒ ( ë°ì´í„° ì¶”ê°€í•˜ê³  ì‹¶ìœ¼ë©´ Studentí´ë˜ìŠ¤ ë°© ê°€ì„œ ì…ë ¥)
+			System.out.print("- ì´ë¦„: ");
 			student.name = scn.nextLine();
-			System.out.print("- Á¡¼ö: ");
+			System.out.print("- ì ìˆ˜: ");
 			student.score = Integer.parseInt(scn.nextLine());
-			System.out.print("- ³²/¿©: ");
-			student.gender = scn.nextLine(); //StudentÅ¬·¡½º ¾È¿¡ name, score, gender ¼Ó¼º°¡Áö°í ÀÖÀ½
+			System.out.print("- ë‚¨/ì—¬: ");
+			student.gender = scn.nextLine(); //Studentí´ë˜ìŠ¤ ì•ˆì— name, score, gender ì†ì„±ê°€ì§€ê³  ìˆìŒ
 			
-			students[i] = student; //students º¯¼ö¿¡ .nameÀÌ¶û.score´ãÀº °Í ¹è¿­¿¡ µé¾î°¡°Ô
+			students[i] = student; //students ë³€ìˆ˜ì— .nameì´ë‘.scoreë‹´ì€ ê²ƒ ë°°ì—´ì— ë“¤ì–´ê°€ê²Œ
 		}
 	}//end of addStudent()
 	
 	//case3
 	public static void searchStudent() {
-		System.out.print("Á¶È¸ÇÒ ÀÌ¸§ÀÔ·Â>> ");
+		System.out.print("ì¡°íšŒí•  ì´ë¦„ì…ë ¥>> ");
 		String name = scn.nextLine();
 		boolean exists = false;
 		
-		for(Student stdn : students) { // StudentÅ¬·¡½º(µ¥ÀÌÅÍ µé¾îÀÖ´Â ¹æ) //students¹æ¿¡ studentÀÔ·Â¹ŞÀº °Å ³Ö¾î³ùÀ¸´Ï±î
-			                           // students¹è¿­¿¡ ÀúÀåµÈ °ªÀ» ¸Å ¹İº¹¸¶´Ù ÇÏ³ª¾¿ ¼ø¼­´ë·Î ÀĞ°í º¯¼ö¿¡ ÀúÀåÇØ¶ó 
+		for(Student stdn : students) { // Studentí´ë˜ìŠ¤(ë°ì´í„° ë“¤ì–´ìˆëŠ” ë°©) //studentsë°©ì— studentì…ë ¥ë°›ì€ ê±° ë„£ì–´ë†¨ìœ¼ë‹ˆê¹Œ
+			                           // studentsë°°ì—´ì— ì €ì¥ëœ ê°’ì„ ë§¤ ë°˜ë³µë§ˆë‹¤ í•˜ë‚˜ì”© ìˆœì„œëŒ€ë¡œ ì½ê³  ë³€ìˆ˜ì— ì €ì¥í•´ë¼ 
 			if(name.equals(stdn.name)) {
-				System.out.println(" : ÀÌ¸§Àº " + stdn.name + ", Á¡¼ö´Â " + stdn.score +"Á¡");	
+				System.out.println(" : ì´ë¦„ì€ " + stdn.name + ", ì ìˆ˜ëŠ” " + stdn.score +"ì ");	
 				exists = true;
 			}
 									
-		}//for¹® ³¡
+		}//forë¬¸ ë
 		if(!exists) {
-			System.out.println("Ã£´Â ÀÌ¸§ÀÌ ¾ø½À´Ï´Ù.");
+			System.out.println("ì°¾ëŠ” ì´ë¦„ì´ ì—†ìŠµë‹ˆë‹¤.");
 		}
 	}//end of searchStudent
 	
 	//case4
 	public static void analysis() {
-		System.out.println("ºĞ¼®>> ");
-		int sumOfMen = 0, cntOfMen = 0;  //³²ÇĞ»ı ¿©ÇĞ»ı Á¡¼ö µû·Î ´©Àû// ³²³à¸í¼öµµ ¾Ë¾Æ¾ß Æò±Õ ±¸ÇÒ ¼ö ÀÖÀ¸´Ï cout¹æ ¸¸µé°í
+		System.out.println("ë¶„ì„>> ");
+		int sumOfMen = 0, cntOfMen = 0;  //ë‚¨í•™ìƒ ì—¬í•™ìƒ ì ìˆ˜ ë”°ë¡œ ëˆ„ì // ë‚¨ë…€ëª…ìˆ˜ë„ ì•Œì•„ì•¼ í‰ê·  êµ¬í•  ìˆ˜ ìˆìœ¼ë‹ˆ coutë°© ë§Œë“¤ê³ 
 		int sumOfWomen = 0, cntOfWomen = 0;
 		
-		// ÀÎµ¦½º °ª ÇÊ¿äÇÏ¸é for¹® »ç¿ëÇÏ°í, ÀÎµ¦½º°ª ÇÊ¿ä¾øÀ¸¸é È®Àåfor »ç¿ëÀÌ ÆíÇÔ
+		// ì¸ë±ìŠ¤ ê°’ í•„ìš”í•˜ë©´ forë¬¸ ì‚¬ìš©í•˜ê³ , ì¸ë±ìŠ¤ê°’ í•„ìš”ì—†ìœ¼ë©´ í™•ì¥for ì‚¬ìš©ì´ í¸í•¨
 		for(Student stn : students) {
-			if(stn.gender.equals("³²")) {
+			if(stn.gender.equals("ë‚¨")) {
 				sumOfMen += stn.score;
 				cntOfMen ++;
 			}
-			else if(stn.gender.equals("¿©")) {
+			else if(stn.gender.equals("ì—¬")) {
 				sumOfWomen += stn.score;
 				cntOfWomen ++;
 			}
 		}
-		System.out.println("³²ÇĞ»ıÀÇ Æò±Õ: " + (sumOfMen * 1.0 / cntOfMen)); // ¼Ò¼öÁ¡±îÁö º¸·Á¸é *1.0 ¼Ò¼öÁ¡ ÇÏ³ª ¸¸µé¾î ÁÖ¸é µÊ
-		System.out.println("¿©ÇĞ»ıÀÇ Æò±Õ: " + (sumOfWomen * 1.0 / cntOfWomen));
+		System.out.println("ë‚¨í•™ìƒì˜ í‰ê· : " + (sumOfMen * 1.0 / cntOfMen)); // ì†Œìˆ˜ì ê¹Œì§€ ë³´ë ¤ë©´ *1.0 ì†Œìˆ˜ì  í•˜ë‚˜ ë§Œë“¤ì–´ ì£¼ë©´ ë¨
+		System.out.println("ì—¬í•™ìƒì˜ í‰ê· : " + (sumOfWomen * 1.0 / cntOfWomen));
 	}//end of analysis
 	
 	
-	public static void modify() { //ÀÌ¸§ÀÔ·Â ÇÏ°í - ÀÖÀ¸¸é (¾Õ¿¡¼­ Àß¸ø ³ÖÀº)Á¡¼ö º¯°æÇØ¼­ ³Ö±â
-		                          //È®Àåfor¾²¸é ÀÎµ¦½º °ª ¸ø Ã£¾Æ¼­ for¹®À¸·Î
+	public static void modify() { //ì´ë¦„ì…ë ¥ í•˜ê³  - ìˆìœ¼ë©´ (ì•ì—ì„œ ì˜ëª» ë„£ì€)ì ìˆ˜ ë³€ê²½í•´ì„œ ë„£ê¸°
+		                          //í™•ì¥forì“°ë©´ ì¸ë±ìŠ¤ ê°’ ëª» ì°¾ì•„ì„œ forë¬¸ìœ¼ë¡œ
 
-		System.out.print("Á¶È¸ÇÒ ÀÌ¸§ÀÔ·Â>> ");
+		System.out.print("ì¡°íšŒí•  ì´ë¦„ì…ë ¥>> ");
 		String name = scn.nextLine();
 		boolean exists = false;
 		
 		for(int i = 0; i < students.length; i++) {
-			// ÀÌ¸§ °¡Áö°í ÀÖÀ¸¸é º¯°æÁ¡¼ö ÀÔ·Â
+			// ì´ë¦„ ê°€ì§€ê³  ìˆìœ¼ë©´ ë³€ê²½ì ìˆ˜ ì…ë ¥
 			if(name.equals(students[i].name)) {
-				System.out.print("º¯°æÇÒ Á¡¼ö ÀÔ·Â: ");
+				System.out.print("ë³€ê²½í•  ì ìˆ˜ ì…ë ¥: ");
 				students[i].score = Integer.parseInt(scn.nextLine());
 				exists = true;
 			}
 			if(!exists) {
-				System.out.println("Ã£´Â ÀÌ¸§ÀÌ ¾ø½À´Ï´Ù.");
+				System.out.println("ì°¾ëŠ” ì´ë¦„ì´ ì—†ìŠµë‹ˆë‹¤.");
 			}
 		}//end for
 		
@@ -94,28 +94,28 @@ public class StudentApp2 {
 	
 	
 	public static void main(String[] args) {
-		//StudentApp¿¡¼­ ÀÌ¸§,Á¡¼ö¸¦ µû·Î Ã³¸®Çß´Âµ¥ ºñÈ¿À²ÀûÀÌ¶ó ´Ù½Ã ÇÑ¹ø¿¡ ³Ö°Ô
-		//61¹ø ¶óÀÎ Âü°í
+		//StudentAppì—ì„œ ì´ë¦„,ì ìˆ˜ë¥¼ ë”°ë¡œ ì²˜ë¦¬í–ˆëŠ”ë° ë¹„íš¨ìœ¨ì ì´ë¼ ë‹¤ì‹œ í•œë²ˆì— ë„£ê²Œ
+		//61ë²ˆ ë¼ì¸ ì°¸ê³ 
 		
 		boolean run = true;
-		int studentNum = 0; //¹è¿­ÀÇ Å©±â¸¦ ÁöÁ¤ÇÏ±â À§ÇÑ ¿ëµµ·Î ¹æ ¸¸µê
+		int studentNum = 0; //ë°°ì—´ì˜ í¬ê¸°ë¥¼ ì§€ì •í•˜ê¸° ìœ„í•œ ìš©ë„ë¡œ ë°© ë§Œë“¦
 		
 		while(run) {
-			System.out.println(" 1.ÇĞ»ı¼ö 2.ÇĞ»ıÀÌ¸§,Á¡¼öÀÔ·Â 3.Á¶È¸ 4.ºĞ¼®(Æò±Õ) 5.¼öÁ¤ 6.Á¾·á");
+			System.out.println(" 1.í•™ìƒìˆ˜ 2.í•™ìƒì´ë¦„,ì ìˆ˜ì…ë ¥ 3.ì¡°íšŒ 4.ë¶„ì„(í‰ê· ) 5.ìˆ˜ì • 6.ì¢…ë£Œ");
 			int menu = scn.nextInt(); 
 			scn.nextLine();   
 			
 			switch(menu) {
 			case 1 :
-				System.out.print("ÇĞ»ı¼ö ÀÔ·Â>> ");
+				System.out.print("í•™ìƒìˆ˜ ì…ë ¥>> ");
 				studentNum = Integer.parseInt(scn.nextLine()); 
-				students = new Student[studentNum]; //¹è¿­ Å©±â ÁöÁ¤ÇÏ±â
+				students = new Student[studentNum]; //ë°°ì—´ í¬ê¸° ì§€ì •í•˜ê¸°
 				break;
 			case 2 :
 				addStudent();
 				
 				break;
-			case 3 : // " ÇĞ»ıÀÌ¸§ - Á¡¼ö " ÇüÅÂ·Î Ãâ·Â
+			case 3 : // " í•™ìƒì´ë¦„ - ì ìˆ˜ " í˜•íƒœë¡œ ì¶œë ¥
 				searchStudent();
 				break;
 			 case 4 :
@@ -125,7 +125,7 @@ public class StudentApp2 {
 				 modify();
 				 break;
 			 case 6 :
-				 System.out.println("Á¾·áÇÕ´Ï´Ù.");
+				 System.out.println("ì¢…ë£Œí•©ë‹ˆë‹¤.");
 				 run = false;				
 			}// end of switch.
 		}// end of while.

@@ -1,42 +1,42 @@
 package chap5;
 
-// "class »ç¿ë" 
-// : º¹ÇÕÀûÀÎ ÇüÅÂÀÇ µ¥ÀÌÅÍ ±¸Á¶¸¦ ¸¸µé°Ú´Ù --> µ¥ÀÌÅÍ¸¦ ´ãÀ» ¼ö ÀÖÀ½(´õ ¸¹Àº ±â´ÉÀÌ ÀÖÁö¸¸ ¿ì¼± ±âº»Å¸ÀÔÀÌ¶û ºñ±³ÇÏ¸é
+// "class ì‚¬ìš©" 
+// : ë³µí•©ì ì¸ í˜•íƒœì˜ ë°ì´í„° êµ¬ì¡°ë¥¼ ë§Œë“¤ê² ë‹¤ --> ë°ì´í„°ë¥¼ ë‹´ì„ ìˆ˜ ìžˆìŒ(ë” ë§Žì€ ê¸°ëŠ¥ì´ ìžˆì§€ë§Œ ìš°ì„  ê¸°ë³¸íƒ€ìž…ì´ëž‘ ë¹„êµí•˜ë©´
 
 class Friend{  
-	String name; //ÇÊµå
-	int age; //ÇÊµå
-	double height; //ÇÊµå	
+	String name; //í•„ë“œ
+	int age; //í•„ë“œ
+	double height; //í•„ë“œ	
 	}
 
 
 
-	//¿©±âºÎÅÍ ¿ø·¡´ë·Î class Á¦¸ñ, main ¸Þ¼Òµå ½ÇÇà µÊ
+	//ì—¬ê¸°ë¶€í„° ì›ëž˜ëŒ€ë¡œ class ì œëª©, main ë©”ì†Œë“œ ì‹¤í–‰ ë¨
 	public class ReferenceExe1 {
 		public static void main(String[] args) {
 			
 			
-    // < ±âº»Å¸ÀÔ >
+    // < ê¸°ë³¸íƒ€ìž… >
 		
 		int a = 10;
 		int b = a;
 		
-		a = 20; // °ª ¹Ù²Ù¸é a °ª ¹Ù²ñ 
-		        // ±Ùµ¥ b´Â À§¿¡¼­ a 10ÀÏ ¶§ ³Ö¾îÁáÀ¸´Ï ¹Ù²îÁö ¾Ê°í ±×´ë·Î 10
+		a = 20; // ê°’ ë°”ê¾¸ë©´ a ê°’ ë°”ë€œ 
+		        // ê·¼ë° bëŠ” ìœ„ì—ì„œ a 10ì¼ ë•Œ ë„£ì–´ì¤¬ìœ¼ë‹ˆ ë°”ë€Œì§€ ì•Šê³  ê·¸ëŒ€ë¡œ 10
 		
 		
-	// < ÂüÁ¶º¯¼ö > : ½ÇÁ¦ °ªÀ» ´ã´Â °Ô ¾Æ´Ñ, (½ÇÁ¦ °ªÀÇ) ÁÖ¼Ò¸¦ ´ã°í ÀÖ´Ù ---(´ëÇ¥ÀûÀ¸·Î Å¬·¡½º)
+	// < ì°¸ì¡°ë³€ìˆ˜ > : ì‹¤ì œ ê°’ì„ ë‹´ëŠ” ê²Œ ì•„ë‹Œ, (ì‹¤ì œ ê°’ì˜) ì£¼ì†Œë¥¼ ë‹´ê³  ìžˆë‹¤ ---(ëŒ€í‘œì ìœ¼ë¡œ í´ëž˜ìŠ¤)
 		
-		Friend myFriend = new Friend(); // new => °´Ã¼ »ý¼º. //Å¬·¡½ºµµ µ¥ÀÌÅÍÀ¯ÇüÀÌ¶ó Friend°¡ À¯Çü
-		myFriend.name = "±èÃ¶¼ö";
+		Friend myFriend = new Friend(); // new => ê°ì²´ ìƒì„±. //í´ëž˜ìŠ¤ë„ ë°ì´í„°ìœ í˜•ì´ë¼ Friendê°€ ìœ í˜•
+		myFriend.name = "ê¹€ì² ìˆ˜";
 		myFriend.age = 20;
 		myFriend.height = 178.3;
 		
-//		Friend ourFriend = myFriend; //myFriend°¡ °¡Áö°í ÀÖ´Â ÁÖ¼Ò°ªÀ» ourFriend¿¡ ³ÖÀº °Í
+//		Friend ourFriend = myFriend; //myFriendê°€ ê°€ì§€ê³  ìžˆëŠ” ì£¼ì†Œê°’ì„ ourFriendì— ë„£ì€ ê²ƒ
 //		
-//		myFriend.name = "È«±æµ¿"; // myFriend¿¡ ÀÖ´Â name ¼Ó¼ºÀ» ¹Ù²Þ - Ãâ·ÂÇØº¸¸é ourFriendÀÇ °ªµµ ¹Ù²ãÁü
-//		                        // why? ¶È°°Àº ¸ñÀûÁö¸¦ º¸°íÀÖ±â ¶§¹®¿¡! Áï, ÁÖ¼Ò°ªÀ» ´ëÀÔÇÑ °Å¶ó (Âß µû¶ó°¡¸é "È«±æµ¿"ÀÌ ÀÖÀ½) 
-//		                       // À§¿¡ ±âº»Å¸ÀÔÀº ´ëÀÔ ÈÄ a °ªÀ» ¹Ù²ã b´Â ¹Ù²îÁö X 
+//		myFriend.name = "í™ê¸¸ë™"; // myFriendì— ìžˆëŠ” name ì†ì„±ì„ ë°”ê¿ˆ - ì¶œë ¥í•´ë³´ë©´ ourFriendì˜ ê°’ë„ ë°”ê¿”ì§
+//		                        // why? ë˜‘ê°™ì€ ëª©ì ì§€ë¥¼ ë³´ê³ ìžˆê¸° ë•Œë¬¸ì—! ì¦‰, ì£¼ì†Œê°’ì„ ëŒ€ìž…í•œ ê±°ë¼ (ì­‰ ë”°ë¼ê°€ë©´ "í™ê¸¸ë™"ì´ ìžˆìŒ) 
+//		                       // ìœ„ì— ê¸°ë³¸íƒ€ìž…ì€ ëŒ€ìž… í›„ a ê°’ì„ ë°”ê¿” bëŠ” ë°”ë€Œì§€ X 
 //		
 //		System.out.println(ourFriend.name);
 //		System.out.println(ourFriend.age);
@@ -44,43 +44,43 @@ class Friend{
 		
 		
 		
-		Friend yourFriend = new Friend(); // new => °´Ã¼ »ý¼º. //Å¬·¡½ºµµ µ¥ÀÌÅÍÀ¯ÇüÀÌ¶ó Friend°¡ À¯Çü
-		yourFriend.name = "±èÃ¶¼ö";
+		Friend yourFriend = new Friend(); // new => ê°ì²´ ìƒì„±. //í´ëž˜ìŠ¤ë„ ë°ì´í„°ìœ í˜•ì´ë¼ Friendê°€ ìœ í˜•
+		yourFriend.name = "ê¹€ì² ìˆ˜";
 		yourFriend.age = 20;
 		yourFriend.height = 178.3;
 		
-		// myFriend¿Í °ªÀÌ °°¾Æ º¸ÀÎ´Ù. ±×·¡¼­ myFriend¿Í yourFriend¸¦ ºñ±³ÇØº¸¾Ò´Ù
+		// myFriendì™€ ê°’ì´ ê°™ì•„ ë³´ì¸ë‹¤. ê·¸ëž˜ì„œ myFriendì™€ yourFriendë¥¼ ë¹„êµí•´ë³´ì•˜ë‹¤
 		System.out.println(myFriend == yourFriend); 
-		// ºñ±³ÇÏ´Ï "false" Ãâ·Â
-		// why? ÂüÁ¶º¯¼ö´Â ¾È¿¡ ÀÖ´Â °ªÀ» ºñ±³ÇÏ´Â°Ô ¾Æ´Ñ "ÁÖ¼Ò°ªÀ» ºñ±³ÇØ¼­" => "Ç×»ó false" °¡ ³ª¿È
-		// ±×·¡¼­ "°ªÀ» ºñ±³ÇÏ°í ½ÍÀ¸¸é" ¾ÈÀÇ .name, age, height "¼Ó¼ºµéÀ» ºñ±³" ÇØ¾ß µÊ
+		// ë¹„êµí•˜ë‹ˆ "false" ì¶œë ¥
+		// why? ì°¸ì¡°ë³€ìˆ˜ëŠ” ì•ˆì— ìžˆëŠ” ê°’ì„ ë¹„êµí•˜ëŠ”ê²Œ ì•„ë‹Œ "ì£¼ì†Œê°’ì„ ë¹„êµí•´ì„œ" => "í•­ìƒ false" ê°€ ë‚˜ì˜´
+		// ê·¸ëž˜ì„œ "ê°’ì„ ë¹„êµí•˜ê³  ì‹¶ìœ¼ë©´" ì•ˆì˜ .name, age, height "ì†ì„±ë“¤ì„ ë¹„êµ" í•´ì•¼ ë¨
 		
 		
-		//ÂüÁ¶ º¯¼ö´Â ±âº»°ªÀÌ null ??Ã£¾Æº¸±â
+		//ì°¸ì¡° ë³€ìˆ˜ëŠ” ê¸°ë³¸ê°’ì´ null ??ì°¾ì•„ë³´ê¸°
 		yourFriend = null;
 		System.out.println(myFriend.name);
-		try {       //10Àå¿¡¼­ ¹è¿ï ¿¹¿ÜÃ³¸® (¿¡·¯ ¹ß»ýÇÏ¸é ¿ø·¡ Áß´ÜÇÏ´Âµ¥ catchÇÁ·Î±×·¥ÀÇ ±¸¹®À» Ãâ·ÂÇÏ°í °è¼Ó ½ÇÇàÇØ¶ó
+		try {       //10ìž¥ì—ì„œ ë°°ìš¸ ì˜ˆì™¸ì²˜ë¦¬ (ì—ëŸ¬ ë°œìƒí•˜ë©´ ì›ëž˜ ì¤‘ë‹¨í•˜ëŠ”ë° catchí”„ë¡œê·¸ëž¨ì˜ êµ¬ë¬¸ì„ ì¶œë ¥í•˜ê³  ê³„ì† ì‹¤í–‰í•´ë¼
 		System.out.println(yourFriend.name);
 		} catch (Exception e) {
-			System.out.println("null°ªÀ» ÂüÁ¶ÇÕ´Ï´Ù.");
+			System.out.println("nullê°’ì„ ì°¸ì¡°í•©ë‹ˆë‹¤.");
 		}
 		
 		
 		
 			
 //-----------------------------------------------------------------------		
-		// ÂüÁ¶Å¸ÀÔ : ±× °ªÀ» ´ã°í ÀÖ´Â ÁÖ¼Ò°ªÀ» º¯¼ö¿¡ ÀúÀåÇÏ´Â °Í
-		String name = "½Å¿ë±Ç"; //½Å¿ë±ÇÀÌ¶ó´Â °´Ã¼ÀÇ ÁÖ¼Ò°ª : 16Áø¼ö·Î 23db~
-		String hobby = "µ¶¼­";
+		// ì°¸ì¡°íƒ€ìž… : ê·¸ ê°’ì„ ë‹´ê³  ìžˆëŠ” ì£¼ì†Œê°’ì„ ë³€ìˆ˜ì— ì €ìž¥í•˜ëŠ” ê²ƒ
+		String name = "ì‹ ìš©ê¶Œ"; //ì‹ ìš©ê¶Œì´ë¼ëŠ” ê°ì²´ì˜ ì£¼ì†Œê°’ : 16ì§„ìˆ˜ë¡œ 23db~
+		String hobby = "ë…ì„œ";
 		
-//		String name1 = name; //name1¿¡µµ ½Å¿ë±ÇÀÌ¶ó´Â ÁÖ¼Ò°ª ³Ö¾î µû¶ó°¡¸é ½Å¿ë±ÇÀÌ¶ó´Â °ª º¼ ¼ö ÀÖÀ½
-//		name1 = "±è¿ë±Ç";
+//		String name1 = name; //name1ì—ë„ ì‹ ìš©ê¶Œì´ë¼ëŠ” ì£¼ì†Œê°’ ë„£ì–´ ë”°ë¼ê°€ë©´ ì‹ ìš©ê¶Œì´ë¼ëŠ” ê°’ ë³¼ ìˆ˜ ìžˆìŒ
+//		name1 = "ê¹€ìš©ê¶Œ";
 		
-		String name1 = "½Å¿ë±Ç"; // new String("½Å¿ë±Ç")   //ºñ±³¿¬»êÀÚ == ·Î ºñ±³ÇÏ¸é true³ª¿È //**¹®ÀÚ¿­¸¸
+		String name1 = "ì‹ ìš©ê¶Œ"; // new String("ì‹ ìš©ê¶Œ")   //ë¹„êµì—°ì‚°ìž == ë¡œ ë¹„êµí•˜ë©´ trueë‚˜ì˜´ //**ë¬¸ìžì—´ë§Œ
 
 		System.out.println("name: " + name);
 		System.out.println("name1: " + name1);
-		System.out.println(name.equals(name1)); // ¹®ÀÚ¿­ °ª ºñ±³ÇÒ ¶§ equals ¸Þ¼Òµå È°¿ë
+		System.out.println(name.equals(name1)); // ë¬¸ìžì—´ ê°’ ë¹„êµí•  ë•Œ equals ë©”ì†Œë“œ í™œìš©
 	
 		
 		

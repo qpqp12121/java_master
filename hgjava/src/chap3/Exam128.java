@@ -1,82 +1,82 @@
 package chap3;
 
-import java.util.Scanner; //³ªÁß¿¡ ¿©·¯ À¯Æ¿ »ç¿ëÇÒ ¶§ ¸¹¾Æ¼­ import java.util.* (ÀüÃ¼·Î ¹Ù²Ù¸é ÆíÇÔ)
+import java.util.Scanner; //ë‚˜ì¤‘ì— ì—¬ëŸ¬ ìœ í‹¸ ì‚¬ìš©í•  ë•Œ ë§ì•„ì„œ import java.util.* (ì „ì²´ë¡œ ë°”ê¾¸ë©´ í¸í•¨)
 
 public class Exam128 {
 
 	public static void main(String[] args) {
-	 // < ¹®Á¦4 >
+	 // < ë¬¸ì œ4 >
 		int penNum = 534;
 		int stuNum = 30;
 		
-		//ÇĞ»ı1¸í °¡Áö´Â ¿¬ÇÊ °³¼ö
-		int ppsNum = penNum / stuNum; //³ª´©¾î¼­ ±× °ªÀ» Á¤¼ö¸¸ ¹Ş±â (¾Æ´Ï¸é ¼Ò¼ö±îÁö ³ª¿À´Ï±î)
-		//³²¾ÆÀÖ´Â ¿¬ÇÊ ¼ö
+		//í•™ìƒ1ëª… ê°€ì§€ëŠ” ì—°í•„ ê°œìˆ˜
+		int ppsNum = penNum / stuNum; //ë‚˜ëˆ„ì–´ì„œ ê·¸ ê°’ì„ ì •ìˆ˜ë§Œ ë°›ê¸° (ì•„ë‹ˆë©´ ì†Œìˆ˜ê¹Œì§€ ë‚˜ì˜¤ë‹ˆê¹Œ)
+		//ë‚¨ì•„ìˆëŠ” ì—°í•„ ìˆ˜
 		int rempNum = penNum % stuNum;
 		
-		System.out.printf("ÇĞ»ı´ç ¿¬ÇÊ ¼ö : %d, ³²Àº ¿¬ÇÊ ¼ö : %d \n", ppsNum, rempNum); //printlnÀ¸·Î ÇÏ¸é µÎ°³°ª ¹Ş±â º¹ÀâÇÏ´Ï
+		System.out.printf("í•™ìƒë‹¹ ì—°í•„ ìˆ˜ : %d, ë‚¨ì€ ì—°í•„ ìˆ˜ : %d \n", ppsNum, rempNum); //printlnìœ¼ë¡œ í•˜ë©´ ë‘ê°œê°’ ë°›ê¸° ë³µì¡í•˜ë‹ˆ
 		
-	 // < ¹®Á¦5 > °­Á¦Å¸ÀÔº¯È¯
+	 // < ë¬¸ì œ5 > ê°•ì œíƒ€ì…ë³€í™˜
 		
 		
-     // < ¹®Á¦6 >
+     // < ë¬¸ì œ6 >
 		int value = 356;
 		System.out.println(value/100*100);
 	
-	/* < ¹®Á¦7 > ºÎµ¿¼Ò¼öÁ¡ Ç¥Â¤¤¹æ½Ä¶§¹® 
-	    : (0.1Àº 0.1º¸´Ù Å« °ª ³ª¿À´Ï±î °­Á¦Å¸ÀÔº¯È¯ --> (float)0.1 */
+	/* < ë¬¸ì œ7 > ë¶€ë™ì†Œìˆ˜ì  í‘œí˜–ã„´ë°©ì‹ë•Œë¬¸ 
+	    : (0.1ì€ 0.1ë³´ë‹¤ í° ê°’ ë‚˜ì˜¤ë‹ˆê¹Œ ê°•ì œíƒ€ì…ë³€í™˜ --> (float)0.1 */
 	
-   // <¹®Á¦8> »ç´Ù¸®²Ã ³Êºñ = ( À­º¯ + ¾Æ·§º¯ ) * ³ôÀÌ / 2 ----->¼Ò¼ö ÀÚ¸´¼ö±îÁö ³ª¿Ã ¼ö ÀÖµµ·Ï
+   // <ë¬¸ì œ8> ì‚¬ë‹¤ë¦¬ê¼´ ë„ˆë¹„ = ( ìœ—ë³€ + ì•„ë«ë³€ ) * ë†’ì´ / 2 ----->ì†Œìˆ˜ ìë¦¿ìˆ˜ê¹Œì§€ ë‚˜ì˜¬ ìˆ˜ ìˆë„ë¡
 		int lenTop = 5;
 		int lenBottom = 10;
 		int height = 7;
-		double area = ((lenTop+lenBottom) * height / 2.0); // °ª ÇÏ³ª¸¦ ½Ç¼ö·Î ³Ö¾î¾ß µÇ´Ï±î
+		double area = ((lenTop+lenBottom) * height / 2.0); // ê°’ í•˜ë‚˜ë¥¼ ì‹¤ìˆ˜ë¡œ ë„£ì–´ì•¼ ë˜ë‹ˆê¹Œ
 		System.out.println(area);
 		
-	// <¹®Á¦9>
-		 // System.out.println(); ÀÚµ¿¿Ï¼º : syso + ctrl + space 
-		//º¹»ç : ctrl + alt + ¹æÇâÅ°¾Æ·¡
-		//ÇÑ ÁÙ Áö¿ì±â : ctrl + d
+	// <ë¬¸ì œ9>
+		 // System.out.println(); ìë™ì™„ì„± : syso + ctrl + space 
+		//ë³µì‚¬ : ctrl + alt + ë°©í–¥í‚¤ì•„ë˜
+		//í•œ ì¤„ ì§€ìš°ê¸° : ctrl + d
 		
-		Scanner sc = new Scanner(System.in); //À¯Æ¿¸ğµâ¿¡ ÀÖ¾î¼­ ctrl + shift + O
+		Scanner sc = new Scanner(System.in); //ìœ í‹¸ëª¨ë“ˆì— ìˆì–´ì„œ ctrl + shift + O
 		
-		System.out.print("Ã¹¹øÂ° ¼ö : ");
-		double num1 = sc.nextDouble(); //¿ø·¡ Scanner StringÀ¸·Î ¹Ş´Âµ¥ ¹Ş´Â ¼ö ½Ç¼ö´Ï±î double·Î ¹Ş´Â°É·ÎÇŞÀ½
+		System.out.print("ì²«ë²ˆì§¸ ìˆ˜ : ");
+		double num1 = sc.nextDouble(); //ì›ë˜ Scanner Stringìœ¼ë¡œ ë°›ëŠ”ë° ë°›ëŠ” ìˆ˜ ì‹¤ìˆ˜ë‹ˆê¹Œ doubleë¡œ ë°›ëŠ”ê±¸ë¡œí–‡ìŒ
 		
-		System.out.print("µÎ¹øÂ° ¼ö : ");
+		System.out.print("ë‘ë²ˆì§¸ ìˆ˜ : ");
 		double num2 = sc.nextDouble();
 		
-		if(num2 == 0) { //num2°¡ ´õºíÀÌ´Ï±î ¾Ë¾Æ¼­ 0.0À¸·Î ¹Ş´Â´Ù (±×·¡¼­ ±»ÀÌ num2 == 0 || num2 ==0.0)À¸·Î ÇÒ ÇÊ¿ä ¾øÀ½ °°±â¶§¹®¿¡ int·Î µé¾î°¡µµ double¸¸³ª¼­ ÀÚµ¿Çüº¯È¯µÇ´Ï±î
-			System.out.print("°á°ú: ¹«ÇÑ´ë");
+		if(num2 == 0) { //num2ê°€ ë”ë¸”ì´ë‹ˆê¹Œ ì•Œì•„ì„œ 0.0ìœ¼ë¡œ ë°›ëŠ”ë‹¤ (ê·¸ë˜ì„œ êµ³ì´ num2 == 0 || num2 ==0.0)ìœ¼ë¡œ í•  í•„ìš” ì—†ìŒ ê°™ê¸°ë•Œë¬¸ì— intë¡œ ë“¤ì–´ê°€ë„ doubleë§Œë‚˜ì„œ ìë™í˜•ë³€í™˜ë˜ë‹ˆê¹Œ
+			System.out.print("ê²°ê³¼: ë¬´í•œëŒ€");
 		}else {
-			System.out.println("°á°ú: "+ (num1 / num2));
+			System.out.println("ê²°ê³¼: "+ (num1 / num2));
 		}
 	
-		//<¹®Á¦10¹ø>
+		//<ë¬¸ì œ10ë²ˆ>
 		int var1 = 10;
 		int var2 = 3;
 		int var3 = 14;
 		double var4 = var1 * var1 * Double.parseDouble(var2 + "." + var3);
-		System.out.println("¿øÀÇ ³ĞÀÌ : " + var4);
+		System.out.println("ì›ì˜ ë„“ì´ : " + var4);
 		
-		//<¹®Á¦11¹ø>
+		//<ë¬¸ì œ11ë²ˆ>
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.print("¾ÆÀÌµğ: ");
+		System.out.print("ì•„ì´ë””: ");
 		String name = scanner.nextLine();
 		
-		System.out.print("ÆĞ½º¿öµå: ");
+		System.out.print("íŒ¨ìŠ¤ì›Œë“œ: ");
 		String strPassword = scanner.nextLine();
 		int password = Integer.parseInt(strPassword);
 		
 		if(name.equals("java")) {
 			if(password == 12345) {
-				System.out.println("·Î±×ÀÎ ¼º°ø");
+				System.out.println("ë¡œê·¸ì¸ ì„±ê³µ");
 			}else {
-				System.out.println("·Î±×ÀÎ ½ÇÆĞ: ÆĞ½º¿öµå°¡ Æ²¸²");
+				System.out.println("ë¡œê·¸ì¸ ì‹¤íŒ¨: íŒ¨ìŠ¤ì›Œë“œê°€ í‹€ë¦¼");
 			}
 		}else {
-			System.out.println("·Î±×ÀÎ ½ÇÆĞ: ¾ÆÀÌµğ Á¸ÀçÇÏÁö ¾ÊÀ½");
+			System.out.println("ë¡œê·¸ì¸ ì‹¤íŒ¨: ì•„ì´ë”” ì¡´ì¬í•˜ì§€ ì•ŠìŒ");
 		}
 		
 

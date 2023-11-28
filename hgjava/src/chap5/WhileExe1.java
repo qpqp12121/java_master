@@ -5,23 +5,23 @@ import java.util.Scanner;
 public class WhileExe1 {
 	public static void main(String[] args) {
 	
-	// for : ¹İº¹È½¼ö°¡ Á¤ÇØÁ® ÀÖ´Â °æ¿ì »ç¿ë
+	// for : ë°˜ë³µíšŸìˆ˜ê°€ ì •í•´ì ¸ ìˆëŠ” ê²½ìš° ì‚¬ìš©
 		
 		
-	// while : Á¶°ÇÀ» ¸¸Á·ÇÏ´Â µ¿¾È ¹İº¹
+	// while : ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” ë™ì•ˆ ë°˜ë³µ
 		
-     //Q. ¹®ÀÚ¸¦ ÀÔ·Â¹Ş¾Æ¶ó. ¸¸¾à quit ¹®ÀÚ¸¦ ¸¸³ª¸é Á¾·áÇØ¶ó	
-		Scanner scn = new Scanner(System.in); //System-Å°º¸µå·Î ÀÔ·ÂÇÏ´Â
+     //Q. ë¬¸ìë¥¼ ì…ë ¥ë°›ì•„ë¼. ë§Œì•½ quit ë¬¸ìë¥¼ ë§Œë‚˜ë©´ ì¢…ë£Œí•´ë¼	
+		Scanner scn = new Scanner(System.in); //System-í‚¤ë³´ë“œë¡œ ì…ë ¥í•˜ëŠ”
 		
 		while(true) {
-			System.out.print("¹®ÀÚ °ª ÀÔ·Â>>");
+			System.out.print("ë¬¸ì ê°’ ì…ë ¥>>");
 			
 			String txt = scn.nextLine();
-			if(txt.equals("quit")) { // quit ±¸¹® ¸¸³ª¸é
-				System.out.println("Á¾·áÇÕ´Ï´Ù.");
-				break; //¹İº¹¹® ºüÁ®³ª¿À±â
+			if(txt.equals("quit")) { // quit êµ¬ë¬¸ ë§Œë‚˜ë©´
+				System.out.println("ì¢…ë£Œí•©ë‹ˆë‹¤.");
+				break; //ë°˜ë³µë¬¸ ë¹ ì ¸ë‚˜ì˜¤ê¸°
 			}
-			System.out.println("ÀÔ·Â°ªÀº " + txt);
+			System.out.println("ì…ë ¥ê°’ì€ " + txt);
 		}
 		System.out.println("end of prog.");
 		

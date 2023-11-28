@@ -12,81 +12,81 @@ public class Hello {
 		int y = x + 10;
 		System.out.println(y);
 		
-		double z = 3.5; //½Ç¼ö¼±¾ğ --ÀÚ¹Ù¿¡¼± µ¥ÀÌÅÍ Å¸ÀÔ¿¡ ¸Â´Â º¯¼öµé »ç¿ë
+		double z = 3.5; //ì‹¤ìˆ˜ì„ ì–¸ --ìë°”ì—ì„  ë°ì´í„° íƒ€ì…ì— ë§ëŠ” ë³€ìˆ˜ë“¤ ì‚¬ìš©
 		System.out.println(z);
 		System.out.println("y = " + y);
 		
-		//º¯¼öÀÇ °ª ±³È¯
-		x = 3; //À§¿¡ ÀÌ¹Ì ¼±¾ğµÇ¾îÀÖ¾î int »©°í °ª¸¸
+		//ë³€ìˆ˜ì˜ ê°’ êµí™˜
+		x = 3; //ìœ„ì— ì´ë¯¸ ì„ ì–¸ë˜ì–´ìˆì–´ int ë¹¼ê³  ê°’ë§Œ
 		y = 10;
 		
-		//°ª ±³È¯
-		int temp = y; //x¸¦ y¿¡ Áı¾î³ÖÀ» °Å´Ï±î ¿ì¼± y¿ø·¡ °ª º¸Á¸À» À§ÇØ¼­ ÇÇ½Å
-		y = x; // ±×¸®°í x°ªÀ» y¿¡ ³ÖÀ¸¸é '3'µé¾î°¡°í
-		x = temp; //temp¿¡ ÀúÀåÇØ ³õÀº y ¿ø·¡ °ª '10'À» ´Ù½Ã x¿¡ ³Ö±â
+		//ê°’ êµí™˜
+		int temp = y; //xë¥¼ yì— ì§‘ì–´ë„£ì„ ê±°ë‹ˆê¹Œ ìš°ì„  yì›ë˜ ê°’ ë³´ì¡´ì„ ìœ„í•´ì„œ í”¼ì‹ 
+		y = x; // ê·¸ë¦¬ê³  xê°’ì„ yì— ë„£ìœ¼ë©´ '3'ë“¤ì–´ê°€ê³ 
+		x = temp; //tempì— ì €ì¥í•´ ë†“ì€ y ì›ë˜ ê°’ '10'ì„ ë‹¤ì‹œ xì— ë„£ê¸°
 		
-		//Ãâ·Â
+		//ì¶œë ¥
 		System.out.println("x = " + x + " y = "+ y);
 		
 		
-		//<±âº»Å¸ÀÔ>
-		//Å©±â¼ø¼­ : byte -> short -> char(À½¼öÇ¥ÇöX) -> int -> long
+		//<ê¸°ë³¸íƒ€ì…>
+		//í¬ê¸°ìˆœì„œ : byte -> short -> char(ìŒìˆ˜í‘œí˜„X) -> int -> long
 		char charData = 'a';
 		int intData = charData;
-		System.out.println("char: " + charData + ", int: " + intData); //(aÀÇ ÄÚµå°ªÀÌ 97ÀÓ)
+		System.out.println("char: " + charData + ", int: " + intData); //(aì˜ ì½”ë“œê°’ì´ 97ì„)
 		
 		char c1 = 'a';
-		int c2 = c1 + 2; // ÀÚµ¿Å¸ÀÔ º¯È¯ ----------c1ÀÌ 'a'´Ï±î c1+1 ÇÏ¸é b³ª¿À°í 
-		char c3 = (char)c2; // °­Á¦Å¸ÀÔ º¯È¯
-		System.out.printf("c2°ªÀº %d, c3°ªÀº %s \n",c2,c3); //charÅ¸ÀÔÀº ¹®ÀÚ·Î Ãâ·ÂµÇ´Ï %s·Î ¹Ş¾ÆÁÖ¸é µÊ --("format",º¯¼ö,º¯¼ö...)
+		int c2 = c1 + 2; // ìë™íƒ€ì… ë³€í™˜ ----------c1ì´ 'a'ë‹ˆê¹Œ c1+1 í•˜ë©´ bë‚˜ì˜¤ê³  
+		char c3 = (char)c2; // ê°•ì œíƒ€ì… ë³€í™˜
+		System.out.printf("c2ê°’ì€ %d, c3ê°’ì€ %s \n",c2,c3); //charíƒ€ì…ì€ ë¬¸ìë¡œ ì¶œë ¥ë˜ë‹ˆ %së¡œ ë°›ì•„ì£¼ë©´ ë¨ --("format",ë³€ìˆ˜,ë³€ìˆ˜...)
 		
 		x = 5;
 		y = 2;
-		double result = (double)x / y;  //87p 6¹ø
+		double result = (double)x / y;  //87p 6ë²ˆ
 		System.out.println(result);
 		
 		double v1 = 3.5;
 		double v2 = 2.7;
-		int result2 = (int)(v1 + v2); //87p 8¹ø
+		int result2 = (int)(v1 + v2); //87p 8ë²ˆ
 		System.out.println(result2);
 		
-		long var1 = 2L; //88p 9¹ø
+		long var1 = 2L; //88p 9ë²ˆ
 		float var2 = 1.8f;
 		double var3 = 2.5;
-		String var4 = "3.9"; //stringÀÌ´Ï±î ½Ç¼ö·Î ¹ş±â±â
+		String var4 = "3.9"; //stringì´ë‹ˆê¹Œ ì‹¤ìˆ˜ë¡œ ë²—ê¸°ê¸°
 		int result3 = (int)(var1 + var2 + var3) + (int)(Double.parseDouble(var4)); 
 		System.out.println(result3);		
 		
-		//Ç¥ÁØÀÔ·Â : Å°º¸µå = > System.in.read()
-		//ÇÑ±ÛÀÚ¸¸ ÀĞ¾îµéÀÓ
+		//í‘œì¤€ì…ë ¥ : í‚¤ë³´ë“œ = > System.in.read()
+		//í•œê¸€ìë§Œ ì½ì–´ë“¤ì„
 		
 //		int keyCode;
 //		while(true) {
-//			keyCode = System.in.read(); //»¡°£ÁÙ ¶ß´Âµ¥ ±×·³ throws·Î ÇØ¼­ IOException(7ÁÙÂü°í)
+//			keyCode = System.in.read(); //ë¹¨ê°„ì¤„ ëœ¨ëŠ”ë° ê·¸ëŸ¼ throwsë¡œ í•´ì„œ IOException(7ì¤„ì°¸ê³ )
 //			System.out.println("keyCode : " + keyCode);
-//			if(keyCode == 113) { //ÄÜ¼ÖÃ¢¿¡¼­ qÀÔ·ÂÇÏ¸é keycode°¡ 113ÀÌ¶ó ÀÌÁ¦ ÀÔ·ÂÁ¾·áµÊ
+//			if(keyCode == 113) { //ì½˜ì†”ì°½ì—ì„œ qì…ë ¥í•˜ë©´ keycodeê°€ 113ì´ë¼ ì´ì œ ì…ë ¥ì¢…ë£Œë¨
 //				break;
 //			}
 //		}
-//		System.out.println("Á¾·á"); //System.inÀ» ¿©±â¼­ »ç¿ëÇß´Âµ¥ ¹Ø¿¡¼­ ¶Ç »ı¼ºÇØ¼­ ÁÖ¼®Ã³¸®ÇØ³õÀ½
+//		System.out.println("ì¢…ë£Œ"); //System.inì„ ì—¬ê¸°ì„œ ì‚¬ìš©í–ˆëŠ”ë° ë°‘ì—ì„œ ë˜ ìƒì„±í•´ì„œ ì£¼ì„ì²˜ë¦¬í•´ë†“ìŒ
 		
-		//¹®ÀÚ¿­ ÀÔ·Â -> Scanner Å¬·¡½º -> °´Ã¼¸¦ »ı¼ºÇØ¼­ »ç¿ë
+		//ë¬¸ìì—´ ì…ë ¥ -> Scanner í´ë˜ìŠ¤ -> ê°ì²´ë¥¼ ìƒì„±í•´ì„œ ì‚¬ìš©
 		String scinput;
-		Scanner sc = new Scanner(System.in); //ctrl + shift + O : scannerÅ¬·¡½º »ç¿ëÇÏ±â À§ÇÑ ¸ğµâÀ» ºÒ·¯¿À´Â °Í 4ÇàÂüÁ¶)
+		Scanner sc = new Scanner(System.in); //ctrl + shift + O : scannerí´ë˜ìŠ¤ ì‚¬ìš©í•˜ê¸° ìœ„í•œ ëª¨ë“ˆì„ ë¶ˆëŸ¬ì˜¤ëŠ” ê²ƒ 4í–‰ì°¸ì¡°)
 		while(true) {
-			System.out.print("ÀÌ¸§ ÀÔ·Â :"); //printlnÇÏ¸é ´ÙÀ½ÁÙ¿¡ ÀÛ¼ºµÇ´Ï±î ±×³É print·Î
+			System.out.print("ì´ë¦„ ì…ë ¥ :"); //printlní•˜ë©´ ë‹¤ìŒì¤„ì— ì‘ì„±ë˜ë‹ˆê¹Œ ê·¸ëƒ¥ printë¡œ
 			scinput = sc.nextLine();
 			
 			if(scinput.equals("q")) {
 				break;
 			}
-			System.out.println("³» ÀÌ¸§Àº " + scinput);
+			System.out.println("ë‚´ ì´ë¦„ì€ " + scinput);
 		}
-		System.out.println("Á¾·á");
+		System.out.println("ì¢…ë£Œ");
 		
-		System.out.print("¼ö ÀÔ·Â : ");
+		System.out.print("ìˆ˜ ì…ë ¥ : ");
 		scinput = sc.nextLine();
-		System.out.println(Integer.parseInt(scinput) + 10); //±×³É ScannerÅ¬·¡½º¶ó scinput + 10ÇÏ¸é ¹®ÀÚ¿­·Î 1010³ª¿È.±×·¡¼­ ¼ıÀÚ·Î º¯Çü½ÃÅ°±â
+		System.out.println(Integer.parseInt(scinput) + 10); //ê·¸ëƒ¥ Scannerí´ë˜ìŠ¤ë¼ scinput + 10í•˜ë©´ ë¬¸ìì—´ë¡œ 1010ë‚˜ì˜´.ê·¸ë˜ì„œ ìˆ«ìë¡œ ë³€í˜•ì‹œí‚¤ê¸°
 		
 		
 		sc.close();
@@ -99,4 +99,4 @@ public class Hello {
 		
 	} // end main method
 
-} //end class ´İÈ÷´Â °Í(helloÅ¬·¡½º)
+} //end class ë‹«íˆëŠ” ê²ƒ(helloí´ë˜ìŠ¤)

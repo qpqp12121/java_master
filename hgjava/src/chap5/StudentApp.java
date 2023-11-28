@@ -5,47 +5,47 @@ import java.util.Scanner;
 public class StudentApp {
 	public static void main(String[] args) {
 		
-/*	Q. ¹øÈ£ ¼±ÅÃÇÏ¸é Á¤º¸ Ãâ·ÂµÇ°Ô ¸¸µé±â
-	  < 1.ÇĞ»ı¼ö 2.Á¡¼öÀÔ·Â 3.¸ñ·ÏÃâ·Â 4.ºĞ¼®(ÃÖ°íÁ¡¼ö, Æò±Õ) 5.Á¾·á > */
+/*	Q. ë²ˆí˜¸ ì„ íƒí•˜ë©´ ì •ë³´ ì¶œë ¥ë˜ê²Œ ë§Œë“¤ê¸°
+	  < 1.í•™ìƒìˆ˜ 2.ì ìˆ˜ì…ë ¥ 3.ëª©ë¡ì¶œë ¥ 4.ë¶„ì„(ìµœê³ ì ìˆ˜, í‰ê· ) 5.ì¢…ë£Œ > */
 		
 		Scanner scn = new Scanner(System.in);
 		int studentNum = 0;
-		int[] scores= null; //Á¡¼ö ¹è¿­ ¼±¾ğ¸¸ int[] scores; ÇßÀ» ¶§ ¿À·ù ¶¹À½ => int[] scores = null;°ª ³Ö¾îÁÜ
-		String[] names = null; //2¹ø Á¡¼öÀÔ·ÂÇÏ°í ´©±¸ Á¡¼öÀÎÁö ¸ğ¸£±â ¶§¹®¿¡ µû·Î ¹æ ¸¸µé¾î¼­ ÀÌ¸§±îÁö(Á¡¼ö ¹è¿­¼ö¸¸Å­ ³Ö±â)
+		int[] scores= null; //ì ìˆ˜ ë°°ì—´ ì„ ì–¸ë§Œ int[] scores; í–ˆì„ ë•Œ ì˜¤ë¥˜ ë–´ìŒ => int[] scores = null;ê°’ ë„£ì–´ì¤Œ
+		String[] names = null; //2ë²ˆ ì ìˆ˜ì…ë ¥í•˜ê³  ëˆ„êµ¬ ì ìˆ˜ì¸ì§€ ëª¨ë¥´ê¸° ë•Œë¬¸ì— ë”°ë¡œ ë°© ë§Œë“¤ì–´ì„œ ì´ë¦„ê¹Œì§€(ì ìˆ˜ ë°°ì—´ìˆ˜ë§Œí¼ ë„£ê¸°)
 		
 		
 		
 		boolean run = true;
 		while(run) {
-			System.out.println(" 1.ÇĞ»ı¼ö 2.Á¡¼öÀÔ·Â 3.¸ñ·ÏÃâ·Â 4.ºĞ¼®(ÃÖ°íÁ¡¼ö, Æò±Õ) 5.Á¾·á ");
-			int menu = scn.nextInt(); //»ç¿ëÀÚ°¡ 3 ÀÔ·Â ÈÄ Enter Ä¡¸é ÀÔ·ÂÇÑ 3À» ¹Ş¾ÆµéÀÌ´Â°Ô int
-			scn.nextLine();    //±Ùµ¥ enter´Â ¾ÆÁ÷ ¾È ¹Ş¾Æµé¿©¼­ ±â´Ù¸®Áö ¾Ê°í ¿¬´Ş¾Æ ³ª¿È--±×·¡¼­ enter±îÁö ¹Ş¾ÆµéÀÌ°Ô
+			System.out.println(" 1.í•™ìƒìˆ˜ 2.ì ìˆ˜ì…ë ¥ 3.ëª©ë¡ì¶œë ¥ 4.ë¶„ì„(ìµœê³ ì ìˆ˜, í‰ê· ) 5.ì¢…ë£Œ ");
+			int menu = scn.nextInt(); //ì‚¬ìš©ìê°€ 3 ì…ë ¥ í›„ Enter ì¹˜ë©´ ì…ë ¥í•œ 3ì„ ë°›ì•„ë“¤ì´ëŠ”ê²Œ int
+			scn.nextLine();    //ê·¼ë° enterëŠ” ì•„ì§ ì•ˆ ë°›ì•„ë“¤ì—¬ì„œ ê¸°ë‹¤ë¦¬ì§€ ì•Šê³  ì—°ë‹¬ì•„ ë‚˜ì˜´--ê·¸ë˜ì„œ enterê¹Œì§€ ë°›ì•„ë“¤ì´ê²Œ
 			
 			switch(menu) {
 			case 1 :
-				System.out.print("ÇĞ»ı¼öÀÔ·Â>> ");
-				studentNum = scn.nextInt();   //À§¿¡¼­ studentNum, scores º¯¼ö¸íÀ» int¹æÀ¸·Î ¸¸µê
-				scores = new int[studentNum]; //ÀÔ·Â¹ŞÀº ÇĞ»ı ¼ö ±æÀÌ¸¸Å­ scores¹æ ±æÀÌ¸¦ ¸¸µé¾î¾ß µÇ´Ï±î
-				names = new String[studentNum]; //ÇĞ»ı ¼ö ±æÀÌ¸¸Å­ ¹æÅ©±â ¸¸µé¾î¾ß µÇ´Ï [studentNum]
+				System.out.print("í•™ìƒìˆ˜ì…ë ¥>> ");
+				studentNum = scn.nextInt();   //ìœ„ì—ì„œ studentNum, scores ë³€ìˆ˜ëª…ì„ intë°©ìœ¼ë¡œ ë§Œë“¦
+				scores = new int[studentNum]; //ì…ë ¥ë°›ì€ í•™ìƒ ìˆ˜ ê¸¸ì´ë§Œí¼ scoresë°© ê¸¸ì´ë¥¼ ë§Œë“¤ì–´ì•¼ ë˜ë‹ˆê¹Œ
+				names = new String[studentNum]; //í•™ìƒ ìˆ˜ ê¸¸ì´ë§Œí¼ ë°©í¬ê¸° ë§Œë“¤ì–´ì•¼ ë˜ë‹ˆ [studentNum]
 				break;	
 			case 2 :
-				System.out.println("Á¡¼öÀÔ·Â>> "); // Á¡¼öÀÔ·Â ¹®±¸¶ß¸é ´©±¸Á¡¼öÀÎÁö, ¸îÁ¡ÀÎÁö °¢°¢ ÀÔ·ÂÇØ¾ßµÇ´Ï ¾Æ·¡¼­ ¼³Á¤
-				for(int i = 0; i < scores.length; i++) {   //names,scores º¯¼öÀÇ [i] ÀÎµ¦½º °ª¿¡ Á¢±ÙÇÏ·Á¸é ÀÏ¹İ for¹® »ç¿ë
-					System.out.println("names[ " + i + " ]>> "); //0¹øÂ° À§Ä¡¿¡ ³ÖÀ» ÀÌ¸§ºÎÅÍ~ °è¼Ó => Ãâ·Â: Á¡¼öÀÔ·Â>> names[0]>>
+				System.out.println("ì ìˆ˜ì…ë ¥>> "); // ì ìˆ˜ì…ë ¥ ë¬¸êµ¬ëœ¨ë©´ ëˆ„êµ¬ì ìˆ˜ì¸ì§€, ëª‡ì ì¸ì§€ ê°ê° ì…ë ¥í•´ì•¼ë˜ë‹ˆ ì•„ë˜ì„œ ì„¤ì •
+				for(int i = 0; i < scores.length; i++) {   //names,scores ë³€ìˆ˜ì˜ [i] ì¸ë±ìŠ¤ ê°’ì— ì ‘ê·¼í•˜ë ¤ë©´ ì¼ë°˜ forë¬¸ ì‚¬ìš©
+					System.out.println("names[ " + i + " ]>> "); //0ë²ˆì§¸ ìœ„ì¹˜ì— ë„£ì„ ì´ë¦„ë¶€í„°~ ê³„ì† => ì¶œë ¥: ì ìˆ˜ì…ë ¥>> names[0]>>
 					names[i] = scn.nextLine();
-					System.out.println("scores[ " + i + " ]>> "); //0¹øÂ° À§Ä¡¿¡ ³ÖÀ» Á¡¼öºÎÅÍ~ °è¼Ó => Ãâ·Â: scores[0]>>
+					System.out.println("scores[ " + i + " ]>> "); //0ë²ˆì§¸ ìœ„ì¹˜ì— ë„£ì„ ì ìˆ˜ë¶€í„°~ ê³„ì† => ì¶œë ¥: scores[0]>>
 					scores[i] = scn.nextInt();
-					scn.nextLine(); //À§¿¡ Á¡¼ö nextInt·Î ¹Ş¾Æ ¼ıÀÚ¸¸ Ã³¸®ÇÏ´Ï±î enter°ª Ã³¸®ÇÏ°Ô nextLine ¿¬´Ş¾Æ ³Ö¾îÁÖ±â
+					scn.nextLine(); //ìœ„ì— ì ìˆ˜ nextIntë¡œ ë°›ì•„ ìˆ«ìë§Œ ì²˜ë¦¬í•˜ë‹ˆê¹Œ enterê°’ ì²˜ë¦¬í•˜ê²Œ nextLine ì—°ë‹¬ì•„ ë„£ì–´ì£¼ê¸°
 				}
 				break;
 			case 3 :
-				System.out.print("¸ñ·ÏÃâ·Â>> ");
+				System.out.print("ëª©ë¡ì¶œë ¥>> ");
 				for(int i = 0; i < scores.length; i++) {
-					System.out.println("ÀÌ¸§Àº " + names[i] + ", Á¡¼ö´Â " + scores[i] + "\n");
+					System.out.println("ì´ë¦„ì€ " + names[i] + ", ì ìˆ˜ëŠ” " + scores[i] + "\n");
 				}
 				break;	
 			case 4 :
-				System.out.print("ºĞ¼®>> "); //ºĞ¼® °á°ú·Î "ÃÖ°íÁ¡¼ö¿Í Æò±Õ" ³ª¿À°Ô
+				System.out.print("ë¶„ì„>> "); //ë¶„ì„ ê²°ê³¼ë¡œ "ìµœê³ ì ìˆ˜ì™€ í‰ê· " ë‚˜ì˜¤ê²Œ
 				int maxScore = 0;
 				int sum = 0;
 				double avg = 0;  // avg = sum * 1.0 / scores.length;
@@ -53,17 +53,17 @@ public class StudentApp {
 				
 				for(int i = 0; i < scores.length; i++) { 
 					sum += scores[i];
-					if(maxScore < scores[i]) {  //ÀÌ¸§, Á¡¼ö °¢°¢ ³Ö¾î È¿À²ÀûÀÎ ÄÚµå X 
-						maxScore = scores[i];   //ÀÌ¸§,Á¡¼ö¸¦ ÇÏ³ªÀÇ º¯¼ö¿¡ ´ã°í ½ÍÀ¸¸é Å¬·¡½º »ç¿ëÇØ¾ß µÈ´Ù ±×·¡¼­ StudentÆÄÀÏ·Î Å¬·¡½º µ¥ÀÌÅÍ ³Ö°í App2¿¡¼­ ÀÛ¾÷ÇÑ °Í È®ÀÎÇÏ±â!
+					if(maxScore < scores[i]) {  //ì´ë¦„, ì ìˆ˜ ê°ê° ë„£ì–´ íš¨ìœ¨ì ì¸ ì½”ë“œ X 
+						maxScore = scores[i];   //ì´ë¦„,ì ìˆ˜ë¥¼ í•˜ë‚˜ì˜ ë³€ìˆ˜ì— ë‹´ê³  ì‹¶ìœ¼ë©´ í´ë˜ìŠ¤ ì‚¬ìš©í•´ì•¼ ëœë‹¤ ê·¸ë˜ì„œ StudentíŒŒì¼ë¡œ í´ë˜ìŠ¤ ë°ì´í„° ë„£ê³  App2ì—ì„œ ì‘ì—…í•œ ê²ƒ í™•ì¸í•˜ê¸°!
 						maxName = names[i];
 					}
 				}	
-				avg = sum * 1.0  / scores.length;  // ¼ö ÇÏ³ª ½Ç¼ö·Î ¹Ù²ãÁà¾ß double¿¡ µé¾î°¡¼­			
+				avg = sum * 1.0  / scores.length;  // ìˆ˜ í•˜ë‚˜ ì‹¤ìˆ˜ë¡œ ë°”ê¿”ì¤˜ì•¼ doubleì— ë“¤ì–´ê°€ì„œ			
 		
-				System.out.println("ÃÖ°íÁ¡¼ö¸¦ ¹ŞÀº " + maxName + " => Á¡¼ö: " + maxScore + ", Æò±Õ: " + avg);
+				System.out.println("ìµœê³ ì ìˆ˜ë¥¼ ë°›ì€ " + maxName + " => ì ìˆ˜: " + maxScore + ", í‰ê· : " + avg);
 				break;
 			case 5 :
-				System.out.print("Á¾·á");
+				System.out.print("ì¢…ë£Œ");
 				run = false;	
 			}//end of switch.
 			
