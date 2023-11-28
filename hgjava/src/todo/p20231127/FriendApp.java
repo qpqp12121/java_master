@@ -12,59 +12,59 @@ public class FriendApp {
 		Friend[] friends = null;
 		boolean run = true;
 		int friendNum = 0;
-		 
 		
 		while(run) {
-			System.out.println("1.Ä£±¸¼ö  2.ÀÔ·Â  3.¸ñ·Ï  4.¼öÁ¤  5.Á¾·á");
-			int menu = scn.nextInt();
-			scn.nextLine();
+			System.out.println("1.ì¹œêµ¬ìˆ˜  2.ìž…ë ¥  3.ëª©ë¡  4.ìˆ˜ì •  5.ì¢…ë£Œ");
+//			int menu = scn.nextInt(); -- intë¡œ ìˆ«ìž ë°›ê¸°ë§Œ ë˜ê³ 
+//			scn.nextLine(); -- ì´ê±°ê¹Œì§€ ì ì–´ì•¼ Enterê¹Œì§€ ë°˜ì˜
+			int menu = Integer.parseInt(scn.nextLine()); 
 			
 			switch(menu) {
 			case 1 : 
-				System.out.print("Ä£±¸ ¼ö>> ");
+				System.out.print("ì¹œêµ¬ ìˆ˜>> ");
 				friendNum = Integer.parseInt(scn.nextLine());
 				friends = new Friend[friendNum];
 				break;
 			case 2 :
-				System.out.println("Ä£±¸Á¤º¸ ÀÔ·Â>> ");
+				System.out.println("ì¹œêµ¬ì •ë³´ ìž…ë ¥>> ");
 				for(int i = 0; i < friends.length; i++) {
 					Friend friend = new Friend();
-					System.out.print("- ÀÌ¸§: ");
+					System.out.print("- ì´ë¦„: ");
 					friend.name = scn.nextLine();
-					System.out.print("- ¿¬¶ôÃ³: ");
+					System.out.print("- ì—°ë½ì²˜: ");
 					friend.tel = scn.nextLine();
-					System.out.print("- Ç÷¾×Çü: ");
+					System.out.print("- í˜ˆì•¡í˜•: ");
 					friend.blType = scn.nextLine();
 					
 					friends[i] = friend;			
 				}//end for
 				break;
 			case 3 :
-				System.out.println("¸ñ·Ï Ãâ·Â>> ");
+				System.out.println("ëª©ë¡ ì¶œë ¥>> ");
 				for(Friend list : friends) {
-					System.out.println("ÀÌ¸§: " + list.name + " / ÀüÈ­¹øÈ£: " + list.tel + " / Ç÷¾×Çü: " + list.blType);
+					System.out.println("ì´ë¦„: " + list.name + " / ì „í™”ë²ˆí˜¸: " + list.tel + " / í˜ˆì•¡í˜•: " + list.blType);
 				}
 				break;
 			case 4 :
-				System.out.print("Ä£±¸ÀÌ¸§ ÀÔ·Â>> ");
+				System.out.print("ì¹œêµ¬ì´ë¦„ ìž…ë ¥>> ");
 				String name = scn.nextLine();
 				boolean exists = false;
 				
 				for(int i = 0; i < friends.length; i++) {
 				
 					if(name.equals(friends[i].name)) {
-						System.out.print("º¯°æÇÒ ÀüÈ­¹øÈ£ ÀÔ·Â: ");
+						System.out.print("ë³€ê²½í•  ì „í™”ë²ˆí˜¸ ìž…ë ¥: ");
 						friends[i].tel = scn.nextLine();
 						exists = true;
 					}
 				}	
 					if(!exists) {
-						System.out.println("Ã£´Â ÀÌ¸§ÀÌ ¾ø½À´Ï´Ù.");
+						System.out.println("ì°¾ëŠ” ì´ë¦„ì´ ì—†ìŠµë‹ˆë‹¤.");
 					}
 				break;
 			
 			case 5 :
-				 System.out.println("Á¾·áÇÕ´Ï´Ù.");
+				 System.out.println("ì¢…ë£Œí•©ë‹ˆë‹¤.");
 				 run = false;
 				
 				

@@ -2,19 +2,19 @@ package chap5;
 
 import java.util.Scanner;
 
-public class ¿¬½ÀÃ¢ {
+public class ï¿½ï¿½ï¿½ï¿½Ã¢ {
 	public static void main(String[] args) {
 
 // ArrayExe2.
 		
-		//¹è¿­ »ý¼ºÇÏ°í 10-100±îÁö ¼ö Áß 10´ÜÀ§ÀÇ °ªÀ» ¹è¿­¿¡ ÇÒ´ç
+		//ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ 10-100ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ 10ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½Ò´ï¿½
 		int[] array = new int[10];
 		
 		for(int i = 0; i < array.length; i++) {
 			array[i] = (i + 1) * 10;
 		}
 		
-		//¹è¿­ Áß 50º¸´Ù Å« ¼öµéÀÇ ÇÕ°è¿Í Æò±Õ
+		//ï¿½è¿­ ï¿½ï¿½ 50ï¿½ï¿½ï¿½ï¿½ Å« ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½ï¿½ ï¿½ï¿½ï¿½
 		int sum = 0;
 		double avg = 0;
 		int count = 0;
@@ -26,19 +26,19 @@ public class ¿¬½ÀÃ¢ {
 			}
 		 
 		}
-		avg = sum * 1.0 / count; //Áö±ÝÀº 80À¸·Î µü ¸Â¾Æ ¶³¾îÁ® »ó°ü¾øÁö¸¸
-		     // ½Ç¼ö·Î Ç¥ÇöµÇ·Á¸é Áö±ÝÀº sum,count µÑ ´Ù intÇüÅÂ¶ó ÇÏ³ª¸¦ ½Ç¼ö·Î ¹Ù²ãÁÖ±â -> sum * 1.0
-		System.out.println("50º¸´Ù Å« ¼öÀÇ ÇÕ°è: " + sum);
-		System.out.println("50º¸´Ù Å« ¼öÀÇ Æò±Õ: " + avg);
+		avg = sum * 1.0 / count; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 80ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Â¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		     // ï¿½Ç¼ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ sum,count ï¿½ï¿½ ï¿½ï¿½ intï¿½ï¿½ï¿½Â¶ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½Ö±ï¿½ -> sum * 1.0
+		System.out.println("50ï¿½ï¿½ï¿½ï¿½ Å« ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½: " + sum);
+		System.out.println("50ï¿½ï¿½ï¿½ï¿½ Å« ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½: " + avg);
 		
 		
 // ArrayExe3.		
 		
-	// Q. "È«±æµ¿" ÀÌ ÃÑ ¸î ¸íÀÎÁö ±¸ÇÏ¶ó	
+	// Q. "È«ï¿½æµ¿" ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¶ï¿½	
 		
-		String[] nameAry = { "È«±æµ¿", "±è±æµ¿", "¹Ú±æµ¿", "È«±æµ¿", "È²±æµ¿"};
+		String[] nameAry = { "È«ï¿½æµ¿", "ï¿½ï¿½æµ¿", "ï¿½Ú±æµ¿", "È«ï¿½æµ¿", "È²ï¿½æµ¿"};
 		
-		String search = "È«±æµ¿";
+		String search = "È«ï¿½æµ¿";
 		int cnt = 0;
 		
 		for(String name : nameAry) {
@@ -46,53 +46,53 @@ public class ¿¬½ÀÃ¢ {
 				cnt++;
 			}
 		}
-		System.out.println(search + "Àº ÃÑ " + cnt + "¸í ÀÔ´Ï´Ù");
+		System.out.println(search + "ï¿½ï¿½ ï¿½ï¿½ " + cnt + "ï¿½ï¿½ ï¿½Ô´Ï´ï¿½");
 	
 		
-    // Q. Á¦ÀÏ ³ôÀº Á¡¼ö ±¸ÇÏ±â	
+    // Q. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½	
 		
 		int[] scores = {88, 68, 72, 89, 92, 70};
 		
 		int max = 0;
 		
-		//Çâ»ófor¹®
+		//ï¿½ï¿½ï¿½forï¿½ï¿½
 		for(int num : scores) {
 			if(num > max) {
 				max = num;
 			}
 		}
-		System.out.println("Çâ»ófor¹®> Á¦ÀÏ ³ôÀº Á¡¼ö: " + max + "Á¡");
+		System.out.println("ï¿½ï¿½ï¿½forï¿½ï¿½> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: " + max + "ï¿½ï¿½");
 		
-		//ÀÏ¹Ýfor¹®
+		//ï¿½Ï¹ï¿½forï¿½ï¿½
 		for(int i = 0; i < scores.length; i++) {
 			if(scores[i] > max) {
 				max = scores[i];
 			}
 		}
-		System.out.println("ÀÏ¹Ýfor¹®> Á¦ÀÏ ³ôÀº Á¡¼ö: " + max + "Á¡");
+		System.out.println("ï¿½Ï¹ï¿½forï¿½ï¿½> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: " + max + "ï¿½ï¿½");
 
 		
 		
 // WhileExe.		
 
-	//Q. ¹®ÀÚ¸¦ ÀÔ·Â¹Þ¾Æ¶ó. ¸¸¾à quit ¹®ÀÚ¸¦ ¸¸³ª¸é Á¾·áÇØ¶ó
+	//Q. ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ô·Â¹Þ¾Æ¶ï¿½. ï¿½ï¿½ï¿½ï¿½ quit ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½
 		Scanner scn = new Scanner(System.in);
 		boolean run = true;
 		
 		while(run) {
-			System.out.print("¹®ÀÚ °ª ÀÔ·Â>> ");
+			System.out.print("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô·ï¿½>> ");
 			
 			String txt = scn.nextLine();
 			if(txt.equals("quit")) {
-				System.out.println("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù");
+				System.out.println("ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½");
 				break;
 			}
-			System.out.println("ÀÔ·Â°ª: " + txt);
+			System.out.println("ï¿½Ô·Â°ï¿½: " + txt);
 		}
 
 // ReferenceExe.		
 	//Q.
-	
+		
 		
 		
 
