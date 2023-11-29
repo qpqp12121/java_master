@@ -1,4 +1,4 @@
-package chap6;
+package todo.p20231128;
 
 //MainExe파일은 페이징 연습
 

@@ -1,6 +1,6 @@
-package chap6;
+package todo.p20231128;
 
-// login기능 넣은 것 (BoardApp에서 사용)
+//login기능 넣은 것 (BoardApp에서 사용)
 
 public class UserExe {
 
@@ -30,10 +30,6 @@ public class UserExe {
 	
 	
 	
-	
-	
-	
-	
-	
+
 	
 }//end of class

@@ -9,10 +9,18 @@ public class MemberService {
 //	};
 //	
 //	
-//	boolean logIn(String id, String pw) {
-//		for(int i = 0; i < members.length; i++) {
-//			if(members[i] != null && members[i])
-//		}
-//	}
+	boolean logIn(String id, String pw) {
+		if(id.equals("hong") && pw.equals("12345")) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
-}
+	void logout(String id) {
+		System.out.println("로그아웃 되었습니다");
+	}
+	
+	
+	
+}//end of class.

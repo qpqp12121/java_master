@@ -3,14 +3,14 @@ package todo.p20231128;
 //BoardApp 파일은 사용자가 입력하는 기능 위주
 
 import java.util.Scanner;
-import chap6.User;
-import chap6.UserExe;
 
 
 public class BoardApp {
 	static BoardExe exe = new BoardExe(); //페이징기능 사용 main메소드 밖에 만들어서 이것도 밖에 빼서 선언
 
+	//main시작
 	public static void main(String[] args) {
+		
 		Scanner scn = new Scanner(System.in);
 		boolean run = true;
 		String id = null;

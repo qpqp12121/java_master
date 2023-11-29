@@ -1,4 +1,4 @@
-package chap6;
+package todo.p20231128;
 
 //User파일은 데이터 한 건에 대한 값을 넣고 매개역할하는 곳(?)
 
