@@ -50,7 +50,7 @@ public class FriendApp {
 		if (subMenu == 1) {
 			friend = new Friend(name, phone); // Friend클래스의 인스턴스 생성
 		} else if (subMenu == 2) {
-			// case2 : 이름,연락처,학교,전공
+		// case2 : 이름,연락처,학교,전공
 			System.out.print("학교>> ");
 			String univ = scn.nextLine();
 			System.out.print("전공>> ");
@@ -58,7 +58,7 @@ public class FriendApp {
 			friend = new UnivFriend(name, phone, univ, major); // Friend friend = null;여기 담을거라 앞에 friend= 붙여줌
 
 		} else if (subMenu == 3) {
-			// case3 : 이름,연락처,회사,부서
+		// case3 : 이름,연락처,회사,부서
 			System.out.print("회사>> ");
 			String comp = scn.nextLine();
 			System.out.print("부서>> ");
