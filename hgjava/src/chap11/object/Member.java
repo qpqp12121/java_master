@@ -1,6 +1,6 @@
 package chap11.object;
 
-import lombok.EqualsAndHashCode;
+//import lombok.EqualsAndHashCode;
 
 public class Member {
 	

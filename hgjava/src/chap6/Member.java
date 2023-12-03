@@ -19,8 +19,9 @@ public class Member {
 	private int memberNo;
 	private String memberName;
 	private String phone; // - 하이픈까지 가지고 있어서 String타입으로
-	private String gender; // 왜 private 쓰냐? ex.Men or Women 쓰게 했는데 누가 M, W로 잘못된 값을 넣을 경우 에러뜨지 않고 넘어감
-							// 그래서 private로 하고 값을 메소드로 넣게 만들 수 있음 => 속성들엔 대체적으로 private 사용 多
+	private String gender; 
+	// 왜 private 쓰냐? ex.Men or Women 쓰게 했는데 누가 M, W로 잘못된 값을 넣을 경우 에러뜨지 않고 넘어감
+	// => 그래서 private로 하고 값을 메소드로 넣게 만들 수 있음 => 속성들엔 대체적으로 private 사용 多
 
 	
 	

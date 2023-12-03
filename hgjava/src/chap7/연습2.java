@@ -2,13 +2,13 @@ package chap7;
 
 import java.util.Scanner;
 
-public class FriendApp {
+public class 연습2 {
 	// Scanner클래스 main메소드 밖의 addFriend메소드 등에도 사용해야 되기때문에 밖에 선언
 	static Scanner scn = new Scanner(System.in); // 정적필드
-
+	static FriendExe exe = new FriendExe();
+	
 	static Friend[] storage = new Friend[10]; // Friend 인스턴스를 담을 수 있는 배열 storage
 
-/* 메인메소드 시작 */	
 	public static void main(String[] args) {
 		boolean run = true;
 		while (run) {
@@ -28,15 +28,12 @@ public class FriendApp {
 			default: // 종료
 				System.out.println("종료합니다.");
 				run = false;
-			}
-		} 
+			}// end switch.
+		} // end while.
 
 	}// end of main.
-/*   메인메소드 끝   */	
 
-	
-	
-// 1. 등록하기 위한 메소드
+	// 등록하기 위한 메소드
 	private static void addFriend() {
 		System.out.println("1.친구 2.학교 3.회사"); // 1번 누르면 학교친구인지 뭔지 물어보기
 		int subMenu = Integer.parseInt(scn.nextLine());
@@ -54,7 +51,7 @@ public class FriendApp {
 		if (subMenu == 1) {
 			friend = new Friend(name, phone); // Friend클래스의 인스턴스 생성
 		} else if (subMenu == 2) {
-		// case2 : 이름,연락처,학교,전공
+			// case2 : 이름,연락처,학교,전공
 			System.out.print("학교>> ");
 			String univ = scn.nextLine();
 			System.out.print("전공>> ");
@@ -62,7 +59,7 @@ public class FriendApp {
 			friend = new UnivFriend(name, phone, univ, major); // Friend friend = null;여기 담을거라 앞에 friend= 붙여줌
 
 		} else if (subMenu == 3) {
-		// case3 : 이름,연락처,회사,부서
+			// case3 : 이름,연락처,회사,부서
 			System.out.print("회사>> ");
 			String comp = scn.nextLine();
 			System.out.print("부서>> ");
@@ -78,7 +75,7 @@ public class FriendApp {
 //		}
 //		System.out.println("저장완료!");
 		
-		if(FriendExe.addFriend(friend)) {
+		if(exe.addFriend(friend)) {   //if(FriendExe.addFriend(friend)) {
 			System.out.println("입력 성공!");
 		}else {
 			System.out.println("처리 실패!");
@@ -104,40 +101,32 @@ public class FriendApp {
 		int subMenu = Integer.parseInt(scn.nextLine());
 		String searchCond = "";
 
-//		if (subMenu == 1) {
-//			searchCond = scn.nextLine();
-//			for (Friend fnd : storage) {
-//				if (fnd != null && fnd.getName().equals(searchCond)) {
-//					System.out.println(fnd.showInfo());
-//				}
-//			}
-//		} else if (subMenu == 2) {
-//			searchCond = scn.nextLine();
-//			for (Friend fnd : storage) {
-//				if (fnd != null && fnd.getPhone().equals(searchCond)) {
-//					System.out.println(fnd.showInfo());
-//				}
-//			}
-//		} else {
-//			System.out.println("1번 또는 2번을 선택하세요");
-//		}
+		if (subMenu == 1) {
+			searchCond = scn.nextLine();
+			for (Friend fnd : storage) {
+				if (fnd != null && fnd.getName().equals(searchCond)) {
+					System.out.println(fnd.showInfo());
+				}
+			}
+		} else if (subMenu == 2) {
+			searchCond = scn.nextLine();
+			for (Friend fnd : storage) {
+				if (fnd != null && fnd.getPhone().equals(searchCond)) {
+					System.out.println(fnd.showInfo());
+				}
+			}
+		} else {
+			System.out.println("1번 또는 2번을 선택하세요");
+		}
 
 		
 		//조회하기기기기ㅓ
-///////////////////////////////////////////////////////////////////	
-		if(subMenu==1) {
-			System.out.println(FriendExe.searchFriend(searchCond));
-		}else {
-			System.out.println("조회된 이름이 없습니다.");
-		}
-		
-		if(subMenu==2) {
-			Friend result = FriendExe.searchPhone(searchCond); //---!
+///////////////////////////////////////////////////////////////////		
+		Friend result = FriendExe.searchPhone(searchCond); //---!
 		if(result != null) {
 			System.out.println(result.showInfo());
-		  }else {
+		}else {
 			System.out.println("조회된 내용이 없습니다");
-		  }
 		}
 		
 		

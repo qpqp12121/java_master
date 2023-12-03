@@ -33,11 +33,11 @@ public class BoardApp {
 		String head = scn.nextLine();
 		System.out.print("내용 입력>> ");
 		String contents = scn.nextLine();
-		System.out.print("작성일시 입력>> ");
-		String dateTime = scn.nextLine();
+//		System.out.print("작성일시 입력>> ");
+//		String dateTime = scn.nextLine();
 
 		// 위에서 입력받은 정보들 담아서 하나의 인스턴스로(생성자)
-		Board board = new Board(BoardExe.getSequence(), head, id, contents, dateTime); // 사용할때마다 계속 생성되어야됨(그래서while구무 ㄴ
+		Board board = new Board(BoardExe.getSequence(), head, id, contents); // 사용할때마다 계속 생성되어야됨(그래서while구무 ㄴ
 																						// 안에있음)
 		// -> 값 boards 배열에 담기
 
@@ -130,7 +130,7 @@ public class BoardApp {
 
 		UserExe uexe = new UserExe(); // --이거 넣어서 아이디,패스워드 확인하고 로그인할 수 있게 기능 넣음 -패키지가 달라서 import해줌
 
-		while (true) {
+		while (run) {
 			System.out.print("id를 입력>>> ");
 			id = scn.nextLine(); // id case1에 작성자 직접 입력하는 것이 아닌 아이디쳐서 쓸 수 있도록 밖에서 String id 선언 먼저함
 			System.out.print("pw를 입력>>> ");
@@ -194,7 +194,7 @@ public class BoardApp {
 		} // end while
 		System.out.println("end of prog");
 
-	}// end of main
+	}// end start()메소드 -MainExe에 있는 실행메소드main
 
 	private void showList(Board[] boardAry, int page) {
 		// 페이징처리

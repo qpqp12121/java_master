@@ -32,11 +32,21 @@ public class FriendExe {
 // 3.조회 (한 건말고목록)
 	
 	//결과값이 null인지 여부로 체크 못 함
-	public Friend[] searchFriend(String name) { //(동명이인 있을 수 있으니 Friend[] 배열로) //storage는 전체 배열이라 새로운 변수 만들어서
+	public static Friend[] searchFriend(String name) { //(동명이인 있을 수 있으니 Friend[] 배열로) //storage는 전체 배열이라 새로운 변수 만들어서
 												//반환유형이 정해져 있음.(result)
 		Friend[] result = new Friend[10]; //이건 Friendapp에서 null인지 아닌지로 조건 넣으면 안됨 (이미 null이 아니라)
-		return result; //이름 넣어서 조회
+		
+		for (Friend fnd : result) {
+			if (fnd.getName().equals(name)) {
+				System.out.println(fnd.showInfo());
+				 //이름 넣어서 조회
+			}
+		}
+		return result;
+		
 	}
+	
+	
 	
 	//결과값 null여부로 체크
 	public static Friend searchPhone(String phone) { //전화번호는 겹치지 않으니 Friend 

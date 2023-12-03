@@ -3,9 +3,6 @@ package todo.p20231128;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import lombok.Data;
-
-@Data
 
 //Board는 데이터 한 건에 대한 값을 넣고 매개역할?
 public class Board {

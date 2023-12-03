@@ -14,7 +14,7 @@ public class MemberApp {
 //			if(members[i] != null && members[i].gender.equals("Women"))  //---그래서 null이 아닐 때만 실행되도록
 			if (members[i] != null && members[i].getGender().equals("Women")) // 위에거 gender private로 막혀서 get~메소드 만들고 실행
 
-//				System.out.println(members[i].showAllInfo()); //0,1번 방엔 값이 있어서 나오지만, 나머진 null로 나옴//class에 있는 showAll메소드 실행			                                
+				System.out.println(members[i].showAllInfo()); //0,1번 방엔 값이 있어서 나오지만, 나머진 null로 나옴//class에 있는 showAll메소드 실행			                                
 				members[i].showInfo(); // showInfo는 void로 반환값이 없어서 System.out.println 적으면 X
 		}
 

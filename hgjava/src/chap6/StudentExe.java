@@ -20,6 +20,8 @@ public class StudentExe {
 		students[1] = new Student("23-002", "김철수", 77, 88);
 	}
 
+	
+	
 //  < 추가 > //StudentApp case1 참고
 	boolean addStudent(Student std) { // Student타입 students배열에다 std를 담을것 (매개변수
 		for (int i = 0; i < students.length; i++) { // void는 반환되는 값 없어서 값이 들어가있는지 모르니 boolean으로
