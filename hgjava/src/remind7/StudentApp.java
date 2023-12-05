@@ -7,8 +7,9 @@ import java.util.Scanner;
 public class StudentApp {
 	public static void main(String[] args) {
 
-		List<Student> students = new ArrayList<>();
-
+//		List<Student> students = new ArrayList<>();
+		StudentExe exe = new StudentExe();
+		
 		Scanner scn = new Scanner(System.in);
 		boolean run = true;
 
@@ -17,7 +18,7 @@ public class StudentApp {
 			int menu = Integer.parseInt(scn.nextLine());
 
 			switch (menu) {
-			case 1:
+			case 1://등록
 				System.out.print("학생번호 입력>> ");
 				String stuNo = scn.nextLine();
 				System.out.print("학생이름 입력>> ");
@@ -28,57 +29,53 @@ public class StudentApp {
 				int mathScore = Integer.parseInt(scn.nextLine());
 
 				// 하나의 인스턴스로 저장
-				students.add(new Student(stuNo, stuName, engScore, mathScore));
-				break;
-
-			case 2:
-				for (Student std : students) {
-					std.studentList();
-	
+				Student std = new Student(stuNo, stuName, engScore, mathScore);
+				if(exe.addStudent(std)) {
+					System.out.println("저장완료");
+				}else {
+					System.out.println("저장실패");
 				}
 				break;
-			case 3:
+			case 2://목록
+				List<Student> stuAry = exe.stuList();
+				for(Student stdt : stuAry) {
+					stdt.showInfo();
+				}
+				break;
+			case 3://단건조회
 				System.out.print("학생번호 입력>> ");
 				stuNo = scn.nextLine();
-				for (Student std : students) {
-					if (std.getStuNo().indexOf(stuNo) != -1) {
-						std.studentList();
+				Student stdt = exe.stuInfo(stuNo);
+				if(stdt != null) {
+					stdt.showInfo();
 					}
-				}
-				System.out.println("존재하지 않는 학생번호"); //---확인
 				break;
-			case 4:
+			case 4: //수정
 				System.out.print("수정할 학생번호 입력>> ");
 				stuNo = scn.nextLine();
-				for (int i = 0; i < students.size(); i++) {
-					Student modify = students.get(i);
-					if (modify.getStuNo().indexOf(stuNo) != -1) {
-						System.out.println("변경할 영어점수>> ");
-						engScore = Integer.parseInt(scn.nextLine());
-						System.out.println("변경할 수학점수>> ");
-						mathScore = Integer.parseInt(scn.nextLine());
-
-						modify.setEngScore(engScore);
-						modify.setMathScore(mathScore);
-					}//존재하지않습니다 넣기
+				System.out.print("변경할 영어점수>> ");
+				engScore = Integer.parseInt(scn.nextLine());
+				System.out.print("변경할 수학점수>> ");
+				mathScore = Integer.parseInt(scn.nextLine());
+				
+				if (exe.modifyStudent(stuNo,engScore,mathScore)) {
+					System.out.println("수정완료");
+				}else {
+					System.out.println("처리실패");
 				}
-			    break;
-			        
-			 case 5:
+			    break;  
+			 case 5: //삭제
 				 System.out.print("삭제할 학생이름 입력>> ");
 			     stuName = scn.nextLine();
-			     for(int i = 0; i < students.size(); i++) {
-			    	
-			    	 if(students.get(i).getStuName().indexOf(stuName) != -1) {
-			    		 students.remove(i);
-			    	 }
+			     if(exe.removeStudent(stuName)) {
+			    	 System.out.println("삭제완료");
+			     }else {
+			    	 System.out.println("처리실패");
 			     }
 			     break;
-			     
 			 case 6:
 				 System.out.println("프로그램 종료");
 				 run = false;
-			
 			}// end switch
 
 		} // end while

@@ -1,7 +1,9 @@
 package chap13;
 
+import java.util.Objects;
+
 public class Member {
-	
+
 	//<필드>
 	private String memberNo;
 	private String memberName;
@@ -42,12 +44,39 @@ public class Member {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+
+////////////////////////////////////////////////////////////////////////////@Data없음
+	@Override
+	public int hashCode() {
+		return Objects.hash(memberName, memberNo, point);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Member other = (Member) obj;
+		return Objects.equals(memberName, other.memberName) && Objects.equals(memberNo, other.memberNo)
+				&& point == other.point;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Member [memberNo=" + memberNo + ", memberName=" + memberName + ", point=" + point + "]";
+	}
 	
-////	//showInfo
-//	public String showInfo() {
-//		return "회원번호: " + memberNo + ", 이름: " + memberName + ", 포인트: " + point;
+	
+	//hashCode, equals() 메소드를 재정의해서 동등 객체가 될 조건을 정해야 된다
+//	@Override
+//	public int hashCode() {
+//		return super.hashCode(); //Member가 가지고 있는 부모클래스 정의된 거 없으니 부모클래스 Object임
 //	}
-	
 	
 	
 	

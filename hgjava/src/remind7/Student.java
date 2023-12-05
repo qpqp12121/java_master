@@ -46,7 +46,7 @@ public class Student {
 		this.mathScore = mathScore;
 	}
 	
-	public void studentList() {
+	public void showInfo() {
 		System.out.println("번호: " + stuNo + ", 이름: " + stuName + ", 영어점수: " + engScore + ", 수학점수: " + mathScore);
 	}
 	
