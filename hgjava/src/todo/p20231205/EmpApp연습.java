@@ -1,17 +1,16 @@
 package todo.p20231205;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
-public class EmpApp {
-	//사원관리 프로그램
+public class EmpApp연습 {
 	public static void main(String[] args) {
-		//Emp 사원정보: 사번/이름/전화번호/입사일자(오늘날짜)--입력안했을 경우 기본값으로 오늘날짜 나오도록 /급여
-		//EmpExe 사원입출기능: 기능정의
-		//EmpApp 사원관리
 		
-		//메뉴: 등록/목록/수정(급여)/삭제/조회(조건:입사일자)ex.1/1일일 이후로 입사한 날짜의 모든 리스트 출력
+		Map<String, Emp> empDate = new HashMap<>();
 		
 		EmpExe exe = new EmpExe();
 		Scanner scn = new Scanner(System.in);
@@ -32,11 +31,18 @@ public class EmpApp {
 				String tel = scn.nextLine();
 				System.out.print("입사날 입력>> ");
 				String date = scn.nextLine(); //확인하기
+				
+//				if(date == null) {
+//					Date date2 = new Date();
+//					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//					System.out.println(sdf);
+//				}
+				
 				System.out.print("급여 입력>> ");
 				int pay = Integer.parseInt(scn.nextLine());
-				
+							
 				Emp edt = new Emp(no, name, tel, date, pay);
-				
+	
 				if(exe.addEmp(edt)) {
 					System.out.println("저장완료");					
 				}else {
@@ -88,9 +94,5 @@ public class EmpApp {
 
 			}//end switch			
 		}//end while
-		
-		
-			
-	}//end of main.
-
-}//end of class.
+	}//end main.
+}//end class.
