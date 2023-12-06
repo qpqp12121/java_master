@@ -1,4 +1,4 @@
-package 연습.Board;
+package todo.p20231206;
 
 import java.util.List;
 import java.util.Scanner;
