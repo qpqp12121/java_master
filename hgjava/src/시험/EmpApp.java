@@ -1,5 +1,9 @@
 package 시험;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,6 +14,10 @@ public class EmpApp {
 		Scanner scn = new Scanner(System.in);
 
 		boolean run = true;
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");  //DateFormat df = 로 해도 됨
+		Date empDate = null;
+		
 
 		while (run) {
 			System.out.println("1.등록 2.목록 3.수정(급여) 4.삭제 5.조회(입사일자) 6.종료");
@@ -25,7 +33,7 @@ public class EmpApp {
 				String tel = scn.nextLine();
 				System.out.print("입사일 입력>> ");
 				String date = scn.nextLine();
-				//예외처리
+				//급여입력(예외처리)
 				int pay = 0;
 				while (true) {
 					System.out.print("급여 입력>> ");
@@ -36,8 +44,17 @@ public class EmpApp {
 						System.out.println("※ 숫자를 입력하세요 ※");
 					}
 				}
-
-				Employee emp = new Employee(no, name, tel, date, pay);
+				//날짜형식
+				Employee emp = null;
+				try {
+					empDate = sdf.parse(date);
+					emp = new Employee(no,name,tel,empDate,pay);
+					
+				} catch (ParseException e1) {
+					e1.printStackTrace();
+				}
+				
+				
 				if (exe.addEmp(emp)) {
 					System.out.println("등록 완료");
 				} else {
@@ -75,9 +92,15 @@ public class EmpApp {
 			case 5:
 				System.out.print("조회할 입사일자 입력>> ");
 				date = scn.nextLine();
-				List<Employee> empd = exe.searchEmp(date);
-				for (Employee search : empd) {
-					search.showInfo();
+
+				try {
+					empDate = sdf.parse(date);
+					List<Employee> empd = exe.searchEmp(empDate);	
+					for (Employee search : empd) {
+						search.showInfo();
+					}
+				} catch (ParseException e1) {
+					e1.printStackTrace();
 				}
 				break;
 			case 6:
@@ -87,5 +110,4 @@ public class EmpApp {
 		}
 
 	}// end of main.
-
-}// end of class.
+}

@@ -1,18 +1,20 @@
 package 시험;
 
+import java.util.Date;
+
 public class Employee {
 
 	private String empNo;
 	private String empName;
 	private String empTel;
-	private String empDate;
+	private Date empDate;
 	private int empPay;
 	
 	Employee(){
 		
 	}
 	
-	Employee(String empNo, String empName, String empTel, String empDate, int empPay){
+	Employee(String empNo, String empName, String empTel, Date empDate, int empPay){
 		this.empNo = empNo;
 		this.empName = empName;
 		this.empTel = empTel;
@@ -51,11 +53,11 @@ public class Employee {
 		this.empTel = empTel;
 	}
 
-	public String getEmpDate() {
+	public Date getEmpDate() {
 		return empDate;
 	}
 
-	public void setEmpDate(String empDate) {
+	public void setEmpDate(Date empDate) {
 		this.empDate = empDate;
 	}
 
@@ -69,4 +71,4 @@ public class Employee {
 	
 
 	
-}//end of class.
+}
