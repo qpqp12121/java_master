@@ -9,7 +9,9 @@ public class StudentApp {
 
 		Scanner scn = new Scanner(System.in);
 		StudentExe exe = new StudentExe(); // StudentExe에 배열 넣어놨음 (그래서 그 클래스 사용하려면 생성)
-
+		StudentDAO dao = new StudentDAO(); //연결 exe클래스에서 dao클래스로 바꿈
+		
+		
 		while (run) {
 			System.out.println("1.등록 2.목록 3.단건조회 4.수정 5.삭제 6.종료");
 			int menu = Integer.parseInt(scn.nextLine());
@@ -29,7 +31,7 @@ public class StudentApp {
 				Student std = new Student(no, name, eng, math); // 클래스 사용할 거라 생성자 만들기
 				// students 배열에 한 건 저장.
 				// 15열 참고
-				if (exe.addStudent(std)) { // 원래 다르게 다 적었는데 없애고 클래스 호출
+				if (dao.addStudent(std)) { // 원래 다르게 다 적었는데 없애고 클래스 호출
 					System.out.println("저장되었습니다."); // addStudent boolean타입이라 if문 안에 사용
 				} else {
 					System.out.println("저장 중 오류.");
@@ -38,9 +40,8 @@ public class StudentApp {
 				break;
 
 			case 2: // 2.목록보기 기능
-//				Student[] stdAry = exe.getStudentList(); //밑에 for문 안에 들어있는 걸 여기서 선언하고 적어도 됨
-//				for(Student stdnt : stdAry) {}
-				for (Student stdnt : exe.getStudentList()) { // Student[] 타입 반환
+				Student[] stdAry = dao.getStudentList(); //밑에 for문 안에 들어있는 걸 여기서 선언하고 적어도 됨
+				for(Student stdnt : stdAry) { // Student[] 타입 반환
 					if (stdnt != null) {
 						stdnt.showInfo();
 					}
@@ -50,7 +51,7 @@ public class StudentApp {
 			case 3: // 단건조회 (사용자가 학생번호를 넣으면 조회할 수 있도록)
 				System.out.print("조회할 학생번호 입력>> ");
 				no = scn.nextLine(); // 똑같은 번호 있는지 돌면서 볼 것
-				Student stnt = exe.getStudent(no);
+				Student stnt = dao.getStudent(no);
 				if (stnt != null) {
 					stnt.showInfo();
 				} else {
@@ -67,7 +68,7 @@ public class StudentApp {
 				System.out.print("변경할 수학점수 입력: ");
 				math = Integer.parseInt(scn.nextLine());
 
-				if (exe.modifyStudent(no, eng, math)) {
+				if (dao.modifyStudent(no, eng, math)) {
 					System.out.println("수정 완료.");
 				} else {
 					System.out.println("수정 실패.");
@@ -78,7 +79,7 @@ public class StudentApp {
 				System.out.print("삭제할 학생이름 입력>> ");
 				name = scn.nextLine();
 
-				if (exe.removeStudent(name)) {
+				if (dao.removeStudent(name)) {
 					System.out.println("삭제 완료.");
 				} else {
 					System.out.println("삭제 실패.");

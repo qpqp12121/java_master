@@ -1,7 +1,7 @@
 package remind6;
 
 public class Student {
-	private String stuNo;
+	private String stuNo; //stu_no (오라클에 언더바로 구분)
 	private String stuName;
 	private int engScore;
 	private int mathScore;
