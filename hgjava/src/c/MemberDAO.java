@@ -1,4 +1,4 @@
-package com.yedam;
+package c;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

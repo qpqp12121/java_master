@@ -1,4 +1,4 @@
-package com.yedam;
+package b;
 
 //Model클래스(Value Object)
 
