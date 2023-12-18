@@ -77,10 +77,12 @@ public class CultureCenterApp {
 					System.out.println("회원가입 실패(확인)");
 				}
 				break;
-
+			case 3:
+				System.out.println("행복문화센터를 방문해 주셔서 감사합니다");
+				run = false;
 			}// end of switch.
-			run = false;
 		} // end of while.
+		System.out.println("end of prog.");
 
 //회원이용페이지
 		while (run2) {
@@ -123,7 +125,8 @@ public class CultureCenterApp {
 								System.out.println("수강인원 초과로 신청 불가");
 								System.out.println("다른 수업 선택>> ");
 							} else if (rdao.ageCheck(code)) { //수강연령 확인
-								if() {
+//								if() 
+								{
 									//birth랑 확인하기
 								}
 								
