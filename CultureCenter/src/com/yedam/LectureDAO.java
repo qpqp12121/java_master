@@ -16,6 +16,7 @@ public class LectureDAO {
 		PreparedStatement psmt;
 		ResultSet rs;
 		
+
 		//카테고리별 목록
 		List<Lecture> lecture;
 		
@@ -42,13 +43,15 @@ public class LectureDAO {
 				
 			} catch (SQLException e) {
 				e.printStackTrace();
+			}finally {
+				dbc.disconn();
 			}
 			return lecture;
 		}
 		
+		
 		//카테고리만 가져오기
 
-		
 		public List<Lecture> getCategory(){
 			List<Lecture> list = new ArrayList<Lecture>();
 			String sql = "select distinct lec_category from lecture order by 1";
@@ -65,15 +68,14 @@ public class LectureDAO {
 				}
 			}catch (SQLException e) {
 				e.printStackTrace();
+			}finally {
+				dbc.disconn();
 			}
 			return list;
 		}
 			
 			
-			
 		
-		
-		//2.수강신청(초과인원시 신청X
 		
 		
 		

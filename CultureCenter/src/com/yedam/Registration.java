@@ -1,30 +1,33 @@
 package com.yedam;
 
-import java.sql.Date;
+
+import java.sql.*;
 
 public class Registration {
 
 	private int registNo;
+	private String lecNo;
 	private String memId;
-	private String lec_no;
-	private String teacher_name;
 	private Date registDate;
 	
 	//생성자
 	Registration(){
 		
 	}
-
-	public Registration(int registNo, String memId, String lec_no, String teacher_name, Date registDate) {
+	
+	public Registration(String lecNo, String memId, Date registDate) {
 		super();
-		this.registNo = registNo;
+		this.lecNo = lecNo;
 		this.memId = memId;
-		this.lec_no = lec_no;
-		this.teacher_name = teacher_name;
 		this.registDate = registDate;
+	}
+	public Registration(String lecNo, String memId) {
+		this.lecNo = lecNo;
+		this.memId = memId;
 	}
 
 	
+
 	//메소드
 	public int getRegistNo() {
 		return registNo;
@@ -42,21 +45,14 @@ public class Registration {
 		this.memId = memId;
 	}
 
-	public String getLec_no() {
-		return lec_no;
+	public String getLecNo() {
+		return lecNo;
 	}
 
-	public void setLec_no(String lec_no) {
-		this.lec_no = lec_no;
+	public void setLecNo(String lecNo) {
+		this.lecNo = lecNo;
 	}
 
-	public String getTeacher_name() {
-		return teacher_name;
-	}
-
-	public void setTeacher_name(String teacher_name) {
-		this.teacher_name = teacher_name;
-	}
 
 	public Date getRegistDate() {
 		return registDate;

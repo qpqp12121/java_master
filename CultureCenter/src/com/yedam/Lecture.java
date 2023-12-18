@@ -12,8 +12,7 @@ public class Lecture {
 	private Date startDate;
 	private Date endDate;
 	private int tuitionFee;
-	private int numberOfMem;
-	private int minMem;
+	private int maxMem;
 	
 	//생성자
 	Lecture(){
@@ -21,7 +20,7 @@ public class Lecture {
 	}
 
 	public Lecture(String lecCode, String category, String lecName, String lecTarget, String teacherName, Date startDate,
-			Date endDate, int tuitionFee, int numberOfMem, int minMem) {
+			Date endDate, int tuitionFee, int maxMem) {
 		super();
 		this.lecCode = lecCode;
 		this.category = category;
@@ -31,8 +30,7 @@ public class Lecture {
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.tuitionFee = tuitionFee;
-		this.numberOfMem = numberOfMem;
-		this.minMem = minMem;
+		this.maxMem = maxMem;
 	}
 	
 	//메소드
@@ -113,22 +111,13 @@ public class Lecture {
 		this.tuitionFee = tuitionFee;
 	}
 
-	public int getNumberOfMem() {
-		return numberOfMem;
+	public int getMaxMem() {
+		return maxMem;
 	}
 
-	public void setNumberOfMem(int numberOfMem) {
-		this.numberOfMem = numberOfMem;
+	public void setMaxMem(int maxMem) {
+		this.maxMem = maxMem;
 	}
-
-	public int getMinMem() {
-		return minMem;
-	}
-
-	public void setMinMem(int minMem) {
-		this.minMem = minMem;
-	}
-	
 	
 	
 	

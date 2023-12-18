@@ -36,6 +36,17 @@ public class MemberDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				if(conn != null)
+					conn.close();
+					if(rs != null)
+						rs.close();
+					if(psmt != null)
+						psmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}
@@ -46,7 +57,7 @@ public class MemberDAO {
 		String sql = "insert into member(mem_no, mem_id, mem_pw, mem_name, mem_birth, mem_phone)"
 				      + "values(member_seq.nextval, ?, ?, ?, ?, ?)";
 		try {
-			conn = DBConnection.getConn();
+			conn = dbc.getConn();
 			psmt = conn.prepareStatement(sql);
 			
 			psmt.setString(1, mem.getMemId());
@@ -61,6 +72,8 @@ public class MemberDAO {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			dbc.disconn();
 		}
 		return false;
 	}//end 회원가입
@@ -71,7 +84,7 @@ public class MemberDAO {
 		String sql = "select count(mem_id) from member where mem_id = ?";
 		
 		try {
-			conn = DBConnection.getConn();
+			conn = dbc.getConn();
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1,id);
 			rs = psmt.executeQuery();
