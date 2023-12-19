@@ -25,6 +25,8 @@ public class Registration {
 		this.lecNo = lecNo;
 		this.memId = memId;
 	}
+	
+	
 
 	
 

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 //Controller인 DAO클래스 (Database Access Object)
 
@@ -37,16 +39,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			try {
-				if(conn != null)
-					conn.close();
-					if(rs != null)
-						rs.close();
-					if(psmt != null)
-						psmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			dbc.disconn();
 		}
 		return null;
 	}
@@ -98,6 +91,10 @@ public class MemberDAO {
 		}
 		return false;
 	}//end 중복체크
+	
+	
+
+	
 	
 	
 }//end of class.

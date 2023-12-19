@@ -18,10 +18,11 @@ public class Lecture {
 	Lecture(){
 		
 	}
+	
+	
 
 	public Lecture(String lecCode, String category, String lecName, String lecTarget, String teacherName, Date startDate,
 			Date endDate, int tuitionFee, int maxMem) {
-		super();
 		this.lecCode = lecCode;
 		this.category = category;
 		this.lecName = lecName;
