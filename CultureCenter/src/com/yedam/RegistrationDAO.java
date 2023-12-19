@@ -132,7 +132,7 @@ public class RegistrationDAO {
 				start = 8;
 				end = 13;
 				break;
-			default :
+			case "일반" :
 				start = 0;
 				end = 100;
 				break;
@@ -161,7 +161,7 @@ public class RegistrationDAO {
 	List<MyPage> checkMine(String id) {
 		mylec = new ArrayList<MyPage>();
 		conn = dbc.getConn();
-		String sql = "select r.mem_id, r.lec_no, l.lec_name, l.teacher_name, l.start_date, l.end_date, l.tuition_fee "
+		String sql = "select r.mem_id, r.lec_no, l.lec_name, l.teacher_name, l.start_date, l.end_date, l.tuition_fee, r.regist_date "
 				+ "from lec_registration r, lecture l where r.lec_no = l.lec_no and r.mem_id = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -177,6 +177,7 @@ public class RegistrationDAO {
 				mine.setStartDate(rs.getDate("start_date"));
 				mine.setEndDate(rs.getDate("end_date"));
 				mine.setTuitionFee(rs.getInt("tuition_fee"));
+				mine.setRegistDate(rs.getDate("regist_date"));
 
 				mylec.add(mine);
 			}

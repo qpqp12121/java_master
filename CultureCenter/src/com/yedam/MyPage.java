@@ -11,6 +11,7 @@ public class MyPage {
 	private Date startDate ;
 	private Date endDate;
 	private int tuitionFee;
+	private Date registDate;
 
 
 	public MyPage() {
@@ -18,8 +19,8 @@ public class MyPage {
 	}
 
 
-	public MyPage(String memId, String lecNo, String lecName, String teacherName, Date startDate, Date endDate,
-			int tuitionFee) {
+	public MyPage(String memId, String lecNo, String lecName, String teacherName, 
+			Date startDate, Date endDate,int tuitionFee, Date registDate) {
 		this.memId = memId;
 		this.lecNo = lecNo;
 		this.lecName = lecName;
@@ -27,6 +28,7 @@ public class MyPage {
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.tuitionFee = tuitionFee;
+		this.registDate = registDate;
 	}
 
 
@@ -36,7 +38,7 @@ public class MyPage {
 	
 	void showInfo() {
 //		System.out.print(memId+" | " + lecNo + "  | " + lecName + " | " + startDate + " ~ " + endDate + " | ");
-		System.out.printf("%s | %s | %s | %s ~ %s | %,d원 %n", memId, lecNo, lecName, startDate, endDate, tuitionFee);
+		System.out.printf(" %-4s %-15s %s   %-10s ~ %-10s  %,d원   %-10s\n", lecNo, lecName, teacherName, startDate, endDate, tuitionFee, registDate);
 	}
 	
 	public String getMemId() {
@@ -106,6 +108,15 @@ public class MyPage {
 
 	public void setTuitionFee(int tuitionFee) {
 		this.tuitionFee = tuitionFee;
+	}
+	
+	public Date getRegistDate() {
+		return registDate;
+	}
+
+
+	public void setRegistDate(Date registDate) {
+		this.registDate = registDate;
 	}
 	
 	

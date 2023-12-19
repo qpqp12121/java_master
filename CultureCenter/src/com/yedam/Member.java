@@ -4,7 +4,6 @@ package com.yedam;
 
 public class Member {
 
-	private int memNo;
 	private String memId;
 	private String memPw;
 	private String memName;
@@ -19,25 +18,21 @@ public class Member {
 
 	
 	public Member(String memId, String memPw, String memName, String memBirth, String memPhone) {
-		super();
 		this.memId = memId;
 		this.memPw = memPw;
 		this.memName = memName;
 		this.memBirth = memBirth;
 		this.memPhone = memPhone;
 	}
+	
+	public Member(String memId, String memPw, String memPhone) {
+		this.memId = memId;
+		this.memPw = memPw;
+		this.memPhone = memPhone;
+	}
 
 
 	//메소드
-	public int getMemNo() {
-		return memNo;
-	}
-
-
-	public void setMemNo(int memNo) {
-		this.memNo = memNo;
-	}
-
 
 	public String getMemId() {
 		return memId;

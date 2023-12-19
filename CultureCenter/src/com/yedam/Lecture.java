@@ -38,13 +38,14 @@ public class Lecture {
 	
 	//showInfo
 	void showInfo() {
-		System.out.println(lecCode + ". " + lecName + "  | " + lecTarget + " | " + startDate + " ~ " + endDate);
-//		System.out.printf();
+//		System.out.println(" " + lecCode + ". " + lecName + "  | " + lecTarget + " | " + startDate + " ~ " + endDate);
+		System.out.printf(" %-4s %-16s %-8s %-10s ~ %-10s \n",lecCode, lecName, lecTarget, startDate, endDate);
 	}
 	
 	//showCate
 	void showCategory() {
-		System.out.print(category+" | ");
+		System.out.print("| "+category+" ");
+		System.out.print("|");
 	}
 	
 	//getter, setter
