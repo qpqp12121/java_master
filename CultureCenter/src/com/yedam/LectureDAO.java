@@ -22,7 +22,7 @@ public class LectureDAO {
 		
 		List<Lecture> getLectureList(){
 			lecture = new ArrayList<Lecture>();
-			String sql = "select * from lecture order by 1";
+			String sql = "select * from lecture";
 			try {
 				conn = dbc.getConn();
 				psmt = conn.prepareStatement(sql);

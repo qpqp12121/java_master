@@ -46,7 +46,7 @@ public class CultureCenterApp {
 					} else {
 						System.out.println();
 						System.out.println("※ 로그인 실패 ※");
-						System.out.println("아이디와 비밀번호를 확인해 주세요\n---------------------");
+						System.out.println("아이디와 비밀번호를 확인하세요\n---------------------");
 					}
 				}
 				break;
@@ -68,7 +68,7 @@ public class CultureCenterApp {
 						continue;
 					}
 					if (mdao.checkId(id)) {
-						System.out.println("\n※ 이미 사용 중인 아이디 입니다 ※");
+						System.out.println("\n※ 이미 사용 중인 아이디입니다 ※");
 						System.out.println("--------------------------");
 						continue;
 					}
@@ -127,12 +127,13 @@ public class CultureCenterApp {
 				if (mdao.memJoin(mem)) {
 					System.out.println();
 					System.out.println(" \"" + name + "\"님 환영합니다 :D");
-					
+
 				}
 				break;
 			case 3:
-				System.out.println("행복문화센터를 방문해 주셔서 감사합니다");
+				System.out.println("행복문화센터를 방문해 주셔서 감사합니다.");
 				run = false;
+				run2 = false;
 			}// end of switch.
 			break;
 		} // end of while.
@@ -152,12 +153,13 @@ public class CultureCenterApp {
 				for (Lecture li : cate) {
 					li.showCategory();
 				}
+
 				System.out.println("\n〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
-				System.out.print("원하는 카테고리를 입력하세요\n>> ");
+				System.out.print("원하는 \"카테고리\"를 입력하세요\n>> ");
 				String category = scn.nextLine();
 				System.out.println();
 				System.out.println("< " + category + " >");
-				System.out.println("〓 코드 〓〓〓〓〓〓 강의명 〓〓〓〓〓 수강대상 〓〓〓〓〓〓 수강기간 〓〓〓〓〓〓〓〓 \n");
+				System.out.println("〓 코드 〓〓〓〓 강의명 〓〓〓 수강대상 〓〓〓〓〓〓〓 수강기간 〓〓〓〓〓〓〓 수강료 〓〓〓〓〓〓 \n");
 
 				List<Lecture> allInfo;
 				allInfo = ldao.getLectureList();
@@ -168,7 +170,7 @@ public class CultureCenterApp {
 				}
 				System.out.println();
 
-				System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓 ");
+				System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
 				while (true) {
 					System.out.print("신청할 수업의 코드를 입력하세요\n>> ");
 					String code = scn.nextLine();
@@ -177,28 +179,28 @@ public class CultureCenterApp {
 					if (rdao.checkCode(code)) { // 입력받은 수업코드 있는지 확인
 						if (rdao.ageCheck(code, id)) { // 수강연령 제한
 							if (rdao.closeLec(code)) { // 수강인원 초과로 신청X
-								System.out.println("※수강인원 초과로 신청 불가한 수업입니다※\n다른수업선택");
+								System.out.println("※ 수강인원 초과 ※\n다른 수업을 선택하세요\n");
 							} else if (rdao.addRegist(regist)) {// 수강신청완료 테이블에 추가
-								System.out.println("수강신청이 완료되었습니다. 신청해 주셔서 감사합니다");
+								System.out.println("수강신청 완료! 신청해 주셔서 감사합니다\n");
 								break;
-							} else {
-								System.out.println("\n※등록되지 않은 수업코드입니다※\n다시 입력해 주세요");
 							}
 
 						} else {
-							System.out.println("※수강대상이 아닙니다(연령확인)※");
+							System.out.println("※ 수강대상이 아닙니다 ※ (연령확인)\n");
 							continue;
 						}
-					} // end of while.
-					break;
-			}
-			break;
+					} else {
+						System.out.println("\n※등록되지 않은 수업코드입니다※ (다시 입력해 주세요)\n");
+					}
+				}
+				break;
 
 			case 2: // 마이페이지
 
 				boolean runn = true;
 				String phone = null;
 				while (runn) {
+					System.out.println("\n < 마이페이지 >");
 					System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
 					System.out.println(" 1.수강조회 | 2.수강취소 | 3.내정보수정 | 4.뒤로가기");// 수강조회 / 수강삭제 / 정보수정 /
 					System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
@@ -217,50 +219,46 @@ public class CultureCenterApp {
 						System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓\n");
 						continue;
 					} else if (menu2 == 2) {
-						System.out.print("취소할 수업코드 입력>> ");
-						String code = scn.nextLine();
-//					if() {
-//						System.out.println("신청하지 않은 수강코드입니다.");
-//					}
-						System.out.print("수강취소를 원하시면 아이디를 한번 더 입력>> ");
-						id = scn.nextLine();
-						if (rdao.removeLec(id, code)) {
-							System.out.println("취소 완료");
-						} else {
-							System.out.println("취소 실패. 수업코드와 아이디를 한번 더 확인해 주세요");
-						}
-						break;
+						while (true) {
+							System.out.print("취소할 수업코드 입력>> ");
+							String code = scn.nextLine();
 
-					} else if(menu2 == 3) {// 내정보수정(번호바꾸기)
-						System.out.print("수정할 휴대전화번호를 입력해 주세요\n>> ");
-						phone = scn.nextLine();
-						if (phone.length() != 11) {
-							System.out.println("※ 휴대전화번호를 잘못 입력하셨습니다");
-							continue;
+							System.out.print("비밀번호 입력>> ");
+							String pw = scn.nextLine();
+							if (rdao.removeLec(pw, code)) {
+								System.out.println("\n취소 완료!");
+							} else {
+								System.out.println("\n※ 취소 실패 ※ 수업코드와 비밀번호를 확인하세요");
+								continue;
+							}
+							break;
 						}
-						
-						System.out.print("수정하시겠습니까? \n비밀번호 입력>> ");
-						String pw = scn.nextLine();
-						
-						Member mem = new Member(id, phone, pw);
-						
-						
-						if(mdao.modifyPhone(mem)) { //오류찾아내기
-							System.out.println("수정 완료되었습니다");
-						}else {
-							System.out.println("※ 수정 실패 ※\n비밀번호를 확인해 주세요");
+
+					} else if (menu2 == 3) {// 내정보수정(번호바꾸기)
+
+						while (true) {
+							System.out.print("수정할 휴대전화번호를 형식에 맞게 입력해 주세요 ( ex. 010-0000-0000 )\n>> ");
+
+							phone = scn.nextLine();
+							if (phone.length() != 13) {
+								System.out.println("※ 수정 실패 ※ 휴대전화번호를 확인하세요\n");
+								continue;
+							}
+							if (mdao.modifyPhone(phone, id)) {
+								System.out.println("수정 완료되었습니다");
+								break;
+							}
 						}
+					} 
+					else { //menu 4번: 나가기
 						break;
-					}else {
-						
-						runn = false;
 					}
+					runn = false;
 				}
-
-				break;
+				break;//case 2.
 
 			case 3:
-				System.out.println("로그아웃 완료\n\"행복문화센터를 이용해 주셔서 감사합니다.\"");
+				System.out.println(" 로그아웃 완료\n\"행복문화센터를 이용해 주셔서 감사합니다.\"");
 				run2 = false;
 
 			}// end of switch;

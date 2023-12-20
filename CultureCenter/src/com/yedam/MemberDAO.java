@@ -48,7 +48,7 @@ public class MemberDAO {
 	//2.회원가입
 	public boolean memJoin(Member mem) {
 		String sql = "insert into member(mem_id, mem_pw, mem_name, mem_birth, mem_phone)"
-				      + "values(?, ?, ?, ?, ? || '-' || ? || '-' || ?)";
+			      + "values(?, ?, ?, ? ||'-' || ? || '-' || ?, ? || '-' || ? || '-' || ?)";
 		try {
 			conn = dbc.getConn();
 			psmt = conn.prepareStatement(sql);
@@ -56,17 +56,17 @@ public class MemberDAO {
 			psmt.setString(1, mem.getMemId());
 			psmt.setString(2, mem.getMemPw());
 			psmt.setString(3, mem.getMemName());
-			psmt.setString(4, mem.getMemBirth());
-			psmt.setString(5, mem.getMemPhone().substring(0,3));
-			psmt.setString(6, mem.getMemPhone().substring(3,7));
-			psmt.setString(7, mem.getMemPhone().substring(7));
+			psmt.setString(4, mem.getMemBirth().substring(0,4));
+			psmt.setString(5, mem.getMemBirth().substring(4,6));
+			psmt.setString(6, mem.getMemBirth().substring(6));
+			psmt.setString(7, mem.getMemPhone().substring(0,3));
+			psmt.setString(8, mem.getMemPhone().substring(3,7));
+			psmt.setString(9, mem.getMemPhone().substring(7));
 			
 			int r = psmt.executeUpdate();
 			if(r == 1) {
 				return true;
-			}
-
-			
+			}	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -86,7 +86,7 @@ public class MemberDAO {
 			psmt.setString(1,id);
 			rs = psmt.executeQuery();
 			
-			rs.next();
+			rs.next(); 
 			if(rs.getInt(1) == 1) {
 				return true;
 			}
@@ -97,21 +97,17 @@ public class MemberDAO {
 	}//end 중복체크
 	
 	//폰번호 바꾸기
-	boolean modifyPhone(Member mem) {
+	boolean modifyPhone(String phone, String id) {
 		conn = dbc.getConn();
-		String sql = "update member set mem_phone = ? || '-' || ? || '-' || ?"
-						+ "where mem_id = ? and mem_pw = ?;";
+		String sql = "update member set mem_phone = ? where mem_id = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			
-			psmt.setString(1, mem.getMemPhone().substring(0,3));
-			psmt.setString(2, mem.getMemPhone().substring(3,7)); //오류찾아내기
-			psmt.setString(3, mem.getMemPhone().substring(7));
-			psmt.setString(4, mem.getMemId());
-			psmt.setString(5, mem.getMemPw());
+			psmt.setString(1, phone);
+			psmt.setString(2, id);
 			
 			int r = psmt.executeUpdate();
-			if(r==1) {
+			if(r>0) {
 				return true;
 			}
 		} catch (SQLException e) {

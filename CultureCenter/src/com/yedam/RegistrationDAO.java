@@ -64,12 +64,9 @@ public class RegistrationDAO {
 	// 초과인원시 신청X
 	boolean closeLec(String code) {
 		conn = dbc.getConn();
-//		String sql = "select distinct r.lec_no " + "from lec_registration r, lecture l " + "where r.lec_no = l.lec_no "
-//				+ "and l.max_mem <= (select count(*) " + "                from lec_registration "
-//				+ "                where lec_no = ? group by ?)"; // max_mem > 서브쿼리면 초과한 강의 안 나옴
-
-		String sql1 = "select max_mem from lecture  where lec_no = ?";
-		String sql2 = "select count(*) from lec_registration where lec_no = ?";
+		
+		String sql1 = "select max_mem from lecture  where lec_no = ?"; //수업의 최대인원 가져오고
+		String sql2 = "select count(*) from lec_registration where lec_no = ?"; //수강신청된 테이블에서 그 강의코드 개수 확인
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.setString(1, code);
@@ -103,19 +100,17 @@ public class RegistrationDAO {
 
 	boolean ageCheck(String code, String id){
 		conn = dbc.getConn();
-//		String sql2 = "select round(( sysdate - to_date(?,'yyyy-mm')) / 365) age from dual"; //연령별 수업지정하기
 		member = new ArrayList<Member>();
 		
-		String sql1 = "select lec_target from lecture where lec_no = ?"; //강의코드 입력받아 수강대상 확인
-		String sql2 = "select m.*, to_char(round(( sysdate - to_date(m.mem_birth,'yyyy-mm-dd')) / 365)) age " //회원나이 구하기
-						+ "from member m where m.mem_id = ?";
+		String sql1 = "select lec_target from lecture where lec_no = ?"; //강의코드 입력받아 수강대상 확인(일반/시니어/어린이)
+		String sql2 = "select m.*, to_char(round(( sysdate - to_date(m.mem_birth,'yyyy-mm-dd')) / 365)) age " 
+						+ "from member m where m.mem_id = ?"; //회원나이 구하기(mem_birth 문자)
 		int start = 0;
 		int end = 0;
 		
 		try {
 			psmt = conn.prepareStatement(sql1);
 			psmt.setString(1,code);
-	
 			rs = psmt.executeQuery();
 			
 			String target = null;
@@ -158,11 +153,12 @@ public class RegistrationDAO {
 	//내수강조회
 	List<MyPage> mylec;
 
-	List<MyPage> checkMine(String id) {
+	List<MyPage> checkMine(String id) { //내가 신청한 강의 조회
 		mylec = new ArrayList<MyPage>();
 		conn = dbc.getConn();
 		String sql = "select r.mem_id, r.lec_no, l.lec_name, l.teacher_name, l.start_date, l.end_date, l.tuition_fee, r.regist_date "
-				+ "from lec_registration r, lecture l where r.lec_no = l.lec_no and r.mem_id = ?";
+				+ "from lec_registration r, lecture l "
+				+ "where r.lec_no = l.lec_no and r.mem_id = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
@@ -190,12 +186,14 @@ public class RegistrationDAO {
 	}
 
 	// 수강취소
-	boolean removeLec(String id, String code) {
+	boolean removeLec(String pw, String code) {
 		conn = dbc.getConn();
-		String sql = "Delete from lec_registration where mem_id =? and lec_no =?";
+		String sql = "Delete from lec_registration r where exists(select 1 from member m " //강의코드랑 비번 확인
+					+ "where r.mem_id = m.mem_id and m.mem_pw = ? and lec_no = ?)";
+		
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, id);
+			psmt.setString(1, pw);
 			psmt.setString(2, code);
 			int r = psmt.executeUpdate();
 
