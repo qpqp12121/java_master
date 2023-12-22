@@ -1,4 +1,4 @@
-package common;
+package com.yedam.student.vo;
 
 public class Student {
 	private String stuNo; //stu_no (오라클에 언더바로 구분)
@@ -7,12 +7,12 @@ public class Student {
 	private int mathScore;
 
 	// 기본생성자
-	Student() {
+	public Student() {
 
 	}
 
 	// 생성자 정의하기
-	Student(String stuNo, String stuName, int engScore, int mathScore) {
+	public Student(String stuNo, String stuName, int engScore, int mathScore) {
 		this.stuNo = stuNo;
 		this.stuName = stuName;
 		this.engScore = engScore;

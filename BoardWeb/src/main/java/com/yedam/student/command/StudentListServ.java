@@ -1,4 +1,4 @@
-package common;
+package com.yedam.student.command;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.yedam.student.service.StudentService;
+import com.yedam.student.serviceImpl.StudentServiceMybatis;
+import com.yedam.student.vo.Student;
 
 
 @WebServlet("/studentList")//url이라서 바꿔도 됨(밑에 servlet을 실행하기 위한 url)
@@ -29,8 +33,9 @@ public class StudentListServ extends HttpServlet {
 		
 /* 목록페이지(학생) */ //아래내용에서 href링크연결 없애고 & str += "<tr><td>+std.getStuNo()+"</td><td>"+ std.getStuNo()~~
 /* 단건조회 --목록페이지에서 학번 누르면 개인정보 보여지도록*/		
-		StudentDAO dao = new StudentDAO(); //데이터가져오기
-		List<Student> list = dao.getStudentList();
+		StudentService dao = new StudentServiceMybatis();
+//		StudentService dao = new StudentServiceImpl(); //데이터가져오기
+		List<Student> list = dao.studentList();
 		
 //		out.print("<table border='1'>"); --쓸때마다 사용해댜되니 변수에 담기
 		String str = "<table border='1'>";

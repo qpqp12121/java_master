@@ -1,4 +1,4 @@
-package common;
+package com.yedam.student.command;
 
 import java.io.IOException;
 
@@ -7,6 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.yedam.student.service.StudentService;
+import com.yedam.student.serviceImpl.StudentServiceImpl;
+import com.yedam.student.vo.Student;
 
 //GetStudentServlet클래스로 만들어서 상속
 
@@ -22,7 +26,7 @@ public class GetStudentServlet extends HttpServlet {
 		
 		String sno = req.getParameter("sno");
 		
-		StudentDAO dao = new StudentDAO();
+		StudentService dao = new StudentServiceImpl(); // 인터페이스 = 구현하는클래스
 		Student std = dao.getStudent(sno); //조회하면 리턴해주는 값 Student타입
 		
 		String str = "<table border='1'>";
