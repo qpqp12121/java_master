@@ -23,7 +23,7 @@
 		
 	%>
 	 <tr>
-	 	<td><a href=studentInfo.jsp?sno=<%=std.getStuNo()%>></a></td>
+	 	<td><a href="studentInfo.jsp?sno=<%=std.getStuNo()%>"><%=std.getStuNo()%></a></td>
 	 	<td><%=std.getStuName()%></td>
 	 	<td><%=std.getEngScore()%></td>
 	 	<td><%=std.getMathScore()%></td>
