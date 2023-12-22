@@ -1,6 +1,6 @@
-<%@page import="common.Student"%>
+<%@page import="com.yedam.student.vo.Student"%>
 <%@page import="java.util.List"%>
-<%@ page import="common.StudentDAO"%>
+<%@ page import="com.yedam.student.mapper.StudentDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 		
 	%>
 	 <tr>
-	 	<td><a href=studentInfo.jsp?sno=<%=std.getStuNo()%>></a></td>
+	 	<td><a href="studentInfo.jsp?sno=<%=std.getStuNo()%>"><%=std.getStuNo()%></a></td>
 	 	<td><%=std.getStuName()%></td>
 	 	<td><%=std.getEngScore()%></td>
 	 	<td><%=std.getMathScore()%></td>
