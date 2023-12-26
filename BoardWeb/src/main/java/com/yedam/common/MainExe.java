@@ -1,12 +1,8 @@
 package com.yedam.common;
 
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-
-import com.yedam.board.mapper.BoardMapper;
-import com.yedam.board.vo.BoardVO;
+import com.yedam.member.service.MemberService;
+import com.yedam.member.service.MemberServiceImpl;
+import com.yedam.member.vo.MemberVO;
 
 public class MainExe {
 //만든 것 실행테스트
@@ -22,24 +18,24 @@ public class MainExe {
 //		}
 //		
 		
-		SqlSessionFactory factory = DataSource.getInstance();
-		SqlSession session = factory.openSession(true);
-		
-		BoardMapper mapper = session.getMapper(BoardMapper.class);
-		BoardVO vo = new BoardVO(); 
-		
-
-		//1.목록
-//		List<BoardVO> list = mapper.selectList();
-//		for(BoardVO vo1 : list) {
-//			System.out.println(vo1.toString());
-//		}
-
-		//2.단건조회
-		BoardVO vo1 = mapper.selectOne(4);
-		System.out.println(vo1.toString());
-		
-		System.out.println(mapper.selectOne(4));
+//		SqlSessionFactory factory = DataSource.getInstance();
+//		SqlSession session = factory.openSession(true);
+//		
+//		BoardMapper mapper = session.getMapper(BoardMapper.class);
+//		BoardVO vo = new BoardVO(); 
+//		
+//
+//		//1.목록
+////		List<BoardVO> list = mapper.selectList();
+////		for(BoardVO vo1 : list) {
+////			System.out.println(vo1.toString());
+////		}
+//
+//		//2.단건조회
+//		BoardVO vo1 = mapper.selectOne(4);
+//		System.out.println(vo1.toString());
+//		
+//		System.out.println(mapper.selectOne(4));
 
 		
 		
@@ -71,6 +67,26 @@ public class MainExe {
 //		}else {
 //			System.out.println("실패");
 //		}
+		
+		//////////////MemberSErvice테스트
+		MemberService svc = new MemberServiceImpl();
+		MemberVO vo = svc.login("user1", "1111");
+		
+		if(vo != null) {
+			System.out.println(vo);
+			System.out.println("환영" + vo.getName()+"님 권한은 " + vo.getResponsibility());
+		}else {
+			System.out.println("id,pw 확인.");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	
 	}//end of main.
 	
