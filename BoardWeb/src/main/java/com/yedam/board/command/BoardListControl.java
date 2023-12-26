@@ -22,7 +22,7 @@ public class BoardListControl implements Control {
 		BoardService svc = new BoardServiceMybatis(); // 인터페이스 = 앞인터페이스를 구현하는 클래스
 		List<BoardVO> list = svc.boardList();
 		
-		req.setAttribute("boardList", list); //값 넘겨주기
+		req.setAttribute("boardList", list); //값 넘겨주기 요소.setAttribute("속성이름", "값"): 선택한 요소의 속성 값을 정함
 		
 		//페이지 이동(forward)
 		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/board/boardList.jsp"); //이동할 페이지

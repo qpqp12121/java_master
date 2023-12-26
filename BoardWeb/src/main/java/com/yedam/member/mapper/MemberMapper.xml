@@ -5,9 +5,9 @@
 <mapper namespace="com.yedam.member.mapper.MemberMapper">
 
   <select id="selectMember" resultType="member"> 
-    select * from member2 where id=#{id} and pw=#{pw}
+    select * from member2 where id=#{id} and pw=#{pw}   
   </select>
   
-  
-  
 </mapper>
+
+

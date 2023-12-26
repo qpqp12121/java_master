@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yedam.board.vo.BoardVO;
 
+//sql쿼리문 호출하기 위한 인터페이스
 public interface BoardMapper {
 
 	//목록,단건조회,추가,수정,삭제,조회수증가

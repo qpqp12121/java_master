@@ -37,6 +37,8 @@ public class FrontController extends HttpServlet {
 		System.out.println("생성자 호출.");
 		map = new HashMap<String, Control>();
 	}
+	
+	// init() 초기값
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println("init() 호출.");
@@ -56,6 +58,8 @@ public class FrontController extends HttpServlet {
 		map.put("/logout.do", new LogoutControl());
 	}           
 	
+	
+	// service() 여기가 실행되는 것
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8"); //요청정보에 한글이 있으면 알아서 계속 처리해 줌
@@ -72,6 +76,7 @@ public class FrontController extends HttpServlet {
 		
 	}
 	
+	// destroy() 종료
 	public void destroy() {
 		System.out.println("destroy() 호출."); //servers탭에서 stop시키면 호출됨
 	}
