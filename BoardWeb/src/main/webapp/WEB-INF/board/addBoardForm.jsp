@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>addBoardForm.jsp</title>
-</head>
-<body>
+
+<%@include file="../layout/menu.jsp"%>
+<%@include file="../layout/nav.jsp"%>
+
 	<h3>등록화면</h3>
 	<form action="addBoard.do">
-		<table border="1">
+		<table class="table"> <!-- <table border="1"> -->
 			<tr>
 				<th>제목</th>
 				<td><input type="text" name="title"></td>
@@ -20,7 +17,7 @@
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="writer" value="홍길동"></td>
+				<td><input type="text" name="writer" value="<%=logName %>"></td> <!--include file로 menu.jsp있으니(거기에서 자바코드로 session객체에 저장한 logName값 가져와서 변수에 저장했으니 여기선 안 했음-->
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
@@ -30,6 +27,4 @@
 			</tr>
 		</table>
 	</form>
-	
-</body>
-</html>
+<%@include file="../layout/foot.jsp"%>

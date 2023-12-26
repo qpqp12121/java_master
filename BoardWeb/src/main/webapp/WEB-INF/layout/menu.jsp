@@ -22,7 +22,7 @@
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-             <%if(logName == null){ %>
+             <% if(logName == null){ %>
                 <div class="sidebar-heading border-bottom bg-light">Bootstrap(Guest)</div>
                 <%} else{ %>
                 <div class="sidebar-heading border-bottom bg-light">Bootstrap(<%=logName %>)</div> <!-- Start Boot` 복사해서 --로그인X Guest출력/아니면 이름출력 -->
@@ -34,7 +34,9 @@
                     <%}else{ %>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logout.do">로그아웃</a>     
                     <%} %>
+
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="boardForm.do">글등록</a>
+
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>

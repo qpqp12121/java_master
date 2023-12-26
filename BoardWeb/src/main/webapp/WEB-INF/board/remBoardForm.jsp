@@ -1,13 +1,8 @@
 <%@page import="com.yedam.board.vo.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>remBoardForm.jsp</title>
-</head>
-<body>
+<%@include file="../layout/menu.jsp"%>
+<%@include file="../layout/nav.jsp"%>
 	<h3>삭제화면</h3>
 
 	<%
@@ -54,5 +49,4 @@
 	</form>
 	<br>
 	<a href="boardList.do">글목록으로</a>
-</body>
-</html>
+<%@include file="../layout/foot.jsp"%>
