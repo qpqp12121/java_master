@@ -25,7 +25,7 @@ public class RemoveFormControl implements Control {
 		req.setAttribute("vo", vo); // .setAttribute("속성이름", "값"): 선택한 요소의 속성 값을 정함
 
 		// 페이지 이동
-		RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/board/remBoardForm.jsp"); // 이동할 페이지
+		RequestDispatcher rd = req.getRequestDispatcher("board/remBoardForm.tiles"); // 이동할 페이지
 		try {
 			rd.forward(req, resp);
 		} catch (ServletException | IOException e) {

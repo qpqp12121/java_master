@@ -1,18 +1,17 @@
-<%@page import="com.yedam.board.vo.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<jsp:include page="../layout/menu.jsp"></jsp:include>
-<jsp:include page="../layout/nav.jsp"></jsp:include>
+<%-- <jsp:include page="../layout/menu.jsp"></jsp:include>
+<jsp:include page="../layout/nav.jsp"></jsp:include> --%>
 
 	<h3>상세화면</h3>
 
-	<% //GetBoardControl에 vo로 setAttribute값 담았으니 vo에 있는 값을 읽어오겠다
+<%-- 	<% //GetBoardControl에 vo로 setAttribute값 담았으니 vo에 있는 값을 읽어오겠다
 	BoardVO vo = (BoardVO) request.getAttribute("vo"); 
-	%>
+	%> --%>
 	
 	<form name ="myForm" action="modifyForm.do">
 	<input type="hidden" name="bno" value="${vo.boardNo }"> <!-- 화면엔 안보여줘도 되니 hidden (파라미터값 받아야되니 input사용) -->
@@ -74,4 +73,4 @@
 			}
 		</script>
 		
-<jsp:include page="../layout/foot.jsp"></jsp:include>
+<%-- <jsp:include page="../layout/foot.jsp"></jsp:include> --%>

@@ -30,11 +30,13 @@ import com.yedam.student.command.StudentListCont;
 //@WebServlet("*.do")  ---------BoardWeb에서 오른쪽마우스 Run As - 1run on Server실행 
 								//- 하면 http://localhost/BoardWeb/열리고 뒤에 아무글자.do붙이고 엔터치면 밑에거 콘솔창에 실행
                                 //또치면 service()호출만 실행 계속
+//생명주기: 생성자 -> init() -> service() -> destroy()
+
 public class FrontController extends HttpServlet {
-	//생명주기: 생성자 -> init() -> service() -> destroy()
 	
+	//필드
 	Map<String, Control> map;
-	
+	//생성자
 	public FrontController() {
 		System.out.println("생성자 호출.");
 		map = new HashMap<String, Control>();
@@ -44,15 +46,16 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println("init() 호출.");
+		
 		//게시판 관련
-		map.put("/boardList.do", new BoardListControl()); //조회하고 결과를 boardList.jsp로 보냄
-		map.put("/boardForm.do", new BoardFormControl());
-		map.put("/addBoard.do", new AddBoardControl());
-		map.put("/getBoard.do", new GetBoardControl());
-		map.put("/modifyForm.do", new ModifyFormControl());
-		map.put("/modifyBoard.do", new ModifyBoardControl());
-		map.put("/removeForm.do", new RemoveFormControl()); //삭제화면
-		map.put("/removeBoard.do", new RemoveBoardControl()); //삭제처리기능
+		map.put("/boardList.do", new BoardListControl());     //1.목록조회
+		map.put("/boardForm.do", new BoardFormControl());     //2-1.등록화면만!
+		map.put("/addBoard.do", new AddBoardControl());       //2-2.등록기능
+		map.put("/getBoard.do", new GetBoardControl());       //3.단건조회(상세화면)
+		map.put("/modifyForm.do", new ModifyFormControl());   //4-1.수정화면만!
+		map.put("/modifyBoard.do", new ModifyBoardControl()); //4-2.수정기능
+		map.put("/removeForm.do", new RemoveFormControl());   //5-1.삭제화면만!
+		map.put("/removeBoard.do", new RemoveBoardControl()); //5-2.삭제기능
 		
 		//회원관련
 		map.put("/loginForm.do", new LoginFormControl());

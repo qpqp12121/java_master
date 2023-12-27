@@ -14,7 +14,7 @@ public class LoginFormControl implements Control {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		//로그인화면만 열어주기
 		try {
-			req.getRequestDispatcher("member/logForm.tiles").forward(req, resp);
+			req.getRequestDispatcher("member/loginForm.tiles").forward(req, resp);
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
 		}

@@ -13,8 +13,8 @@ public class MemberServiceImpl implements MemberService{ //MemberService 인터�
 	MemberMapper mapper = session.getMapper(MemberMapper.class);
 	
 	@Override
-	public MemberVO login(String id, String pw) { //BoardServiceMybatis참고
+	public MemberVO login(String id, String pw) {   //BoardServiceMybatis참고
 		return mapper.selectMember(id, pw);
-	} //만들고 common-MainExe에서 테스트 한번해도봄
+	} //만들고 common-MainExe에서 테스트도 해보기
 
 }

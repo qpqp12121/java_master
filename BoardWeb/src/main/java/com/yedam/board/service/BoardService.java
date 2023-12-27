@@ -6,11 +6,11 @@ import com.yedam.board.vo.BoardVO;
 
 public interface BoardService {
 	//업무로직.
-	public List<BoardVO> boardList(); //목록.
-	public BoardVO getBoard(int bno); //글번호 누르면 상세보기 조회되도
-	public boolean addBoard(BoardVO vo); //글등록.
-	public boolean modBoard(BoardVO vo); //글수정.
-	public boolean remBoard(int bno); //글삭제
+	public List<BoardVO> boardList();     //1.목록
+	public BoardVO getBoard(int bno);     //2.상세보기(단건)+조회수증가
+	public boolean addBoard(BoardVO vo);  //3.등록
+	public boolean modBoard(BoardVO vo);  //4.수정
+	public boolean remBoard(int bno);     //5.삭제
 	
 
 }

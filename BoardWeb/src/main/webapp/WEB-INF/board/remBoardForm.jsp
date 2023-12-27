@@ -4,9 +4,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<jsp:include page="../layout/menu.jsp"></jsp:include>
+<%-- <jsp:include page="../layout/menu.jsp"></jsp:include>
 <jsp:include page="../layout/nav.jsp"></jsp:include>	
-
+ --%>
 	<h3>삭제화면</h3>
 
 	<form name="myForm" action="removeBoard.do">
@@ -50,4 +50,4 @@
 	</form>
 	<br>
 	<a href="boardList.do">글목록으로</a>
-<jsp:include page="../layout/foot.jsp"></jsp:include>
+<%-- <jsp:include page="../layout/foot.jsp"></jsp:include> --%>

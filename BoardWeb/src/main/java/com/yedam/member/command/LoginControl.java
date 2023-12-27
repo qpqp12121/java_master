@@ -41,7 +41,7 @@ public class LoginControl implements Control {
 		}else {
 			req.setAttribute("message", "아이디와 비밀번호를 확인하세요"); //logForm.jsp에서 attribute값 받아서 아이디비번틀리면 이 문구 출력되어 보여지도록(입력null아닐때)
 			try {
-				req.getRequestDispatcher("WEB-INF/member/logForm.jsp").forward(req, resp); //sendRedirect는 매개값으로 요청정보같은거못넘겨주는데
+				req.getRequestDispatcher("member/loginForm.tiles").forward(req, resp); //sendRedirect는 매개값으로 요청정보같은거못넘겨주는데
 			} catch (ServletException |IOException e) {                                    //RequestDispatcher는 forward로 매개값 넘겨줄 수 있어서 사용
 				e.printStackTrace();
 			}
