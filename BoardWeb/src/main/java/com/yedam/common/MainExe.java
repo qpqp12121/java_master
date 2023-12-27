@@ -1,7 +1,7 @@
 package com.yedam.common;
 
 import com.yedam.member.service.MemberService;
-import com.yedam.member.service.MemberServiceImpl;
+import com.yedam.member.serviceImpl.MemberServiceImpl;
 import com.yedam.member.vo.MemberVO;
 
 public class MainExe {

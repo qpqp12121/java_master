@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@include file="../layout/menu.jsp"%>
-<%@include file="../layout/nav.jsp"%>
+<%-- <jsp:include page="../layout/menu.jsp"></jsp:include>
+<jsp:include page="../layout/nav.jsp"></jsp:include> --%>
 
 	<h3>등록화면</h3>
-	<form action="addBoard.do">
+	<form action="addBoard.do" method="post" enctype="multipart/form-data"> <!--지금은 이미지삽입(파일을업로드하겠다 (x-www-form-urlencoded 기본은 key value key value,, -->
 		<table class="table"> <!-- <table border="1"> -->
 			<tr>
 				<th>제목</th>
@@ -17,7 +17,11 @@
 			</tr>
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="writer" value="<%=logName %>"></td> <!--include file로 menu.jsp있으니(거기에서 자바코드로 session객체에 저장한 logName값 가져와서 변수에 저장했으니 여기선 안 했음-->
+				<td><input type="text" name="writer" readonly value="${logName}"></td>
+			</tr>
+			<tr>
+				<th>파일</th>
+				<td><input type="file" name="image"></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
@@ -27,4 +31,4 @@
 			</tr>
 		</table>
 	</form>
-<%@include file="../layout/foot.jsp"%>
+<%-- <jsp:include page="../layout/foot.jsp"></jsp:include> --%>

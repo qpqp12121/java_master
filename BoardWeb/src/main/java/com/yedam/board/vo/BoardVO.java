@@ -14,6 +14,13 @@ public class BoardVO {
 	private Date writeDate;
 	private int clickCnt;
 	private String image;
+	
+	
+	
+	
 }
+
+
+
 
 

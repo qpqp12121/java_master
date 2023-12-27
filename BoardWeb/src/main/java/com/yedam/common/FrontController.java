@@ -21,6 +21,8 @@ import com.yedam.board.command.RemoveFormControl;
 import com.yedam.member.command.LoginControl;
 import com.yedam.member.command.LoginFormControl;
 import com.yedam.member.command.LogoutControl;
+import com.yedam.student.command.StudInfoCont;
+import com.yedam.student.command.StudentListCont;
 
 //컨트롤러: url -> 서블릿 실행. 
 
@@ -56,6 +58,12 @@ public class FrontController extends HttpServlet {
 		map.put("/loginForm.do", new LoginFormControl());
 		map.put("/login.do", new LoginControl());
 		map.put("/logout.do", new LogoutControl());
+		
+		//tiles관련
+		map.put("/studentList.do", new StudentListCont());
+		map.put("/studInfo.do", new StudInfoCont()); // studInfo.do?sno=23-002 (파라미터값넣어줘야됨)
+		
+		
 	}           
 	
 	
@@ -70,7 +78,7 @@ public class FrontController extends HttpServlet {
 		String path = url.substring(context.length()); // url'/'부터 읽을 수 있게 여기서 처리하는 것(만약 /없고 뒤부터 하고 싶으면 context.length() - 1 해주면 됨
 		System.out.println(path);//테스트
 		
-		//여기가 계속 실행되는 것
+		//url 확인하고 거기에 해당되는 Control로 넘겨줌
 		Control ctrl = map.get(path);
 		ctrl.execute(req, resp);
 		

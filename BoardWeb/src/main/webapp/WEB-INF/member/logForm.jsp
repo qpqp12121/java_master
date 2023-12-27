@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="../layout/menu.jsp"%>
-<%@include file="../layout/nav.jsp"%>
+
 
  <%
  	String msg = (String)request.getAttribute("message");
@@ -11,7 +10,7 @@
  <p><%=msg %></p>
  <%} %>
 
-<form action="login.do"> <!-- 지금은 로그인화면이고 - 로그인처리(기능)으로 넘어가게//아이디 비번 맞으면 -->
+<form action="login.do" method="post"> <!-- 지금은 로그인화면이고 - 로그인처리(기능)으로 넘어가게//아이디 비번 맞으면 -->
 <table class="table">
 	<tbody>
 		<tr>
@@ -32,5 +31,3 @@
 
 </table>
 </form>
-
-<%@include file="../layout/foot.jsp"%>
