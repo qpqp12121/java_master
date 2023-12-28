@@ -31,7 +31,8 @@ public class LoginControl implements Control {
 			session.setAttribute("logId", vo.getId()); //세션객체에 로그인 성공했을 경우 그 아이디 저장 
 			session.setAttribute("logName", vo.getName());//세션활용하면 로그인이 안되어있으면옆화면에 로그아웃나오게하거나/ 로그인되어있으면 상단에 누구님환영나오던가 가능
 			                                              //위 둘 다 세션에 담고 -> menu.jsp가서 작업해주고 if( ~~ 
-			//글등록이름바꾸기
+			//권한 세션에 지정
+			session.setAttribute("responsibility", vo.getResponsibility());
 			
 			try {
 				resp.sendRedirect("boardList.do"); //로그인O 글목록으로

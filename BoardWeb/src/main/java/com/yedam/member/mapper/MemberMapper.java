@@ -1,5 +1,7 @@
 package com.yedam.member.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.yedam.member.vo.MemberVO;
@@ -7,10 +9,11 @@ import com.yedam.member.vo.MemberVO;
 public interface MemberMapper { //구현클래스가 xml파일
 	//한건조회                    
 	public MemberVO selectMember(@Param("id") String id, @Param("pw") String pw); 
-	
 	// mapper쪽에는 DB 사용한다는 것 알기 쉽게 select-()로 메서드명 지음 ( 그냥 login말고 )
 	// service에서는 public MemberVO login()으로 그냥 주고
 	
+	public List<MemberVO> selectList();
+	public MemberVO selectOne(String id);
 	
 	
 		/* < DB에 여러개의 값을 보내줄 때 구분 >

@@ -8,6 +8,14 @@
     select * from member2 where id=#{id} and pw=#{pw}   
   </select>
   
+  <select id="selectList" resultType="member"> 
+    select * from member2 order by 1
+  </select>
+  
+  <select id="selectOne" resultType="member" parameterType = "String">
+   select * from member2 where id=#{id}
+   </select>
+  
 </mapper>
 
 

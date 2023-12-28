@@ -18,9 +18,11 @@ import com.yedam.board.command.ModifyBoardControl;
 import com.yedam.board.command.ModifyFormControl;
 import com.yedam.board.command.RemoveBoardControl;
 import com.yedam.board.command.RemoveFormControl;
+import com.yedam.member.command.GetMemberControl;
 import com.yedam.member.command.LoginControl;
 import com.yedam.member.command.LoginFormControl;
 import com.yedam.member.command.LogoutControl;
+import com.yedam.member.command.MemberListControl;
 import com.yedam.student.command.StudInfoCont;
 import com.yedam.student.command.StudentListCont;
 
@@ -61,6 +63,10 @@ public class FrontController extends HttpServlet {
 		map.put("/loginForm.do", new LoginFormControl());
 		map.put("/login.do", new LoginControl());
 		map.put("/logout.do", new LogoutControl());
+		//관리자(회원목록보여지게)
+		map.put("/memberList.do", new MemberListControl());
+		map.put("/getMember.do", new GetMemberControl());
+		
 		
 		//tiles관련
 		map.put("/studentList.do", new StudentListCont());
