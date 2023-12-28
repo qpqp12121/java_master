@@ -14,7 +14,7 @@
   </select>
   
   <select id="selectRelated" resultType="product">
-  	select * from product where product_code not in #{pno}
+  	select * from product where rownum between 1 and 4 and product_code not in #{pno}
   </select>
 
 </mapper>

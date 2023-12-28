@@ -24,7 +24,7 @@ public class ProductInfoControl implements Control {
 		ProductVO vo = svc.getProduct(pno);
 		req.setAttribute("vo", vo);
 		
-		//관련상품(현재상세조회상품 제외 나머지)
+		//관련상품(현재상세조회상품 제외-별점높은순 4개만)
 		List<ProductVO> relist = svc.productRelated(pno);
 		req.setAttribute("relatedList", relist);
 		
