@@ -2,8 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
-<h3>상품목록</h3>
 <section class="py-5">
 	<div class="container px-4 px-lg-5 mt-5">
 		<div
@@ -19,14 +17,13 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">${vo.productName }</h5>
+                                    <h5 class="fw-bolder"><a href="productInfo.do?productCode=${vo.productCode }">${vo.productName }</a></h5>
+                                    
                                     <!-- Product reviews-->
                                     <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
+                                        <c:forEach begin="1" end="${vo.likeIt }">
+                                        	<div class="bi-star-fill"></div>
+                                        </c:forEach>
                                     </div>
                                     <!-- Product price-->
                                     <span class="text-muted text-decoration-line-through">${vo.originPrice }원</span>${vo.salePrice }원

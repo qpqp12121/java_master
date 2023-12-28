@@ -9,9 +9,12 @@
     select * from product order by 1
   </select>
   
-  <select id="getProduct" resultType="product" parameterType = "int">
+  <select id="getProduct" resultType="product" parameterType = "String">
    select * from product where product_code = #{pno}
   </select>
   
+  <select id="selectRelated" resultType="product">
+  	select * from product where product_code not in #{pno}
+  </select>
 
 </mapper>
