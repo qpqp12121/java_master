@@ -6,7 +6,7 @@
   <title>todo/20231229.html</title>
   <style>
     #show{
-      width: 300px;
+      width: 350px;
       height: 250px;
       background-color: aqua;
     }
@@ -23,12 +23,20 @@
 <body>
   <div id="show">
     <!-- <span>Lorem</span>
-    <span>ipsum,</span>  반복문사용(배열)-->
+        <span>ipsum,</span> .. 형태로 추가 되도록 -->
   </div>
+
   <script>
     const words = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus hic quos in commodi nisi officiis ullam totam nihil molestias ea necessitatibus iusto ex cupiditate vel sit, magnam voluptatibus pariatur consequuntur?'
-    
-    const wordAry = words.split(' ');
+    const wordAry = words.split(' '); //split(): 문자열 잘라 배열로 변환
+
+    let show = document.querySelector('#show');
+    for(let word of wordAry){
+      let span = document.createElement('span');
+      span.innerText = word;
+      show.appendChild(span);
+    }
   </script>
+
 </body>
 </html>

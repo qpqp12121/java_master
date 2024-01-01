@@ -33,71 +33,70 @@
   </ul> 
   -->
 
-
-
   <script>
     console.log(window);
 
-    let btn = document.createElement('button'); //document object dom
-    btn.innerText = 'Btn'; //속성
-    btn.addEventListener('click', function(){
+    // 1.버튼 만들기
+    let btn = document.createElement('button'); //Document object
+    btn.innerText = 'Btn'; //속성=값
+    btn.addEventListener('click', function(){ //click이벤트가 발생하면 -> function()함수를 실행
       window.alert('Click 됨.');
-    }) //click이벤트가 발생하면 -> function()함수를 실행해라 
-
+    }) 
     console.log(btn);
-    document.querySelector('body').appendChild(btn); //append라고 해도 됨
+    document.querySelector('body').appendChild(btn); //append로 해도 됨
   
-    // 2. <ul><li>부분
-    const fruits = ['apple', 'banana', 'cherry'] //배열로 반복부분 없애기 (자바스크립트는 컬렉션X) 
-    let bdy = document.querySelector('body'); //*최종적으로 body에 붙여주기
-    let ul = document.createElement('ul');
 
-    //배열 반복 for..of.. (먼저 상수 선언) --근데 문자값만 담는경우 잘없으니 dom02.html확인
-    for(let fruit of fruits) { //li는 반복된 값을 받아오기 위한 변수
-      let li1 = document.createElement('li');//ul하위요소로 apple banna.. 있음
+
+    //최종적으로 body에 붙여주기
+    let bdy = document.querySelector('body'); 
+
+
+    /* 2. ul>li 만들기
+        배열 반복 (for..of..)--<li> 생성  */
+
+    const fruits = ['apple', 'banana', 'cherry'] 
+    let ul = document.createElement('ul');
+    
+    for(let fruit of fruits) {
+      let li1 = document.createElement('li');
       li1.innerText = fruit;
-      ul.appendChild(li1); //ul에 li요소를 붙여주겠다 ul하위요소 li
+      ul.appendChild(li1);
     }
     bdy.appendChild(ul);
 
-    //배열 반복 (th, td부분 반복 배열로)
-    const information = ['아이디', '이름', '전화번호']
-    let table = document.createElement('table');
-    table.border = 1;
 
-    let thead = document.createElement('thead');
-    table.appendChild(thead);
+    /* 3. 테이블 만들기
+        배열 반복 (for..of..)--<th>,<td> 생성  */
+
+    let tbl = document.createElement('table');
+    tbl.border = 1;
+    let thd = document.createElement('thead');
     let tr1 = document.createElement('tr');
-    thead.appendChild(tr1);
 
-    for(let info of information) {
-      let th1 = document.createElement('th');
-      th1.innerText = info;
-      tr1.appendChild(th1);
-    }
-
-    const datas = ['user1', '홍길동', '010-1111'];
-    let tbody = document.createElement('tbody');
-    table.appendChild(tbody);
+    let tbd = document.createElement('tbody');
     let tr2 = document.createElement('tr');
-    tbody.appendChild(tr2);
-   
-    for(let data of datas) {
-      let td1 = document.createElement('td');
-      td1.innerText = data;
-      tr2.appendChild(td1);
-    }
-    bdy.appendChild(table);
-
-
     
+    tbl.appendChild(thd);
+    thd.appendChild(tr1);
+    tbl.appendChild(tbd);
+    tbd.appendChild(tr2);
 
+    //<th>배열
+    const information = ['아이디', '이름', '전화번호']
+    for(let info of information) {
+      let th = document.createElement('th');
+      th.innerText = info;
+      tr1.appendChild(th);
+    }
 
-
-
-
-
-
+    //<td>배열
+    const user = ['user1', '홍길동', '010-1111'];
+    for(let data of user) {
+      let td = document.createElement('td');
+      td.innerText = data;
+      tr2.appendChild(td);
+    }
+    bdy.appendChild(tbl);
 
   </script>
 </body>
