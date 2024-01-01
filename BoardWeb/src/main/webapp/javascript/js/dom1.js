@@ -33,11 +33,10 @@
       }
   }
 
-  //삭제하기
-  // for(let friend of friends){
-  //   console.log(friend, friend["id"]); 
-  // }
-  
+  /* prop: 속성출력 - obj[prop]: 값 가져오기  
 
-  //+ prop:속성출력 - obj[prop] 값 가져오기  
-  //속성하나의 값 읽어올 때 방법2가지: obj1['id'] or obj1.id / obj1['name'] or obj1.name...
+  < 속성하나의 값 읽어올 때 방법 2가지 > 
+    1. 객체['key']  - ex. obj1['id'], obj1['name']
+    2. 객체.key     - ex. obj1.id, obj1.name...     */
+
+
