@@ -31,18 +31,20 @@
   document.body.addEventListener('click', function(){
       console.log(this);
   });
-  //1.전역영역: window 객체
-  //2.함수: window 객체
-  //3.객체: object
-  //4.이벤트: 이벤트 실행 대상  
-  // console.log(this);
 
-  // let show = 'Hello';
-
-  // function show(){
-  //   console.log('show');
-  // }
+  /* 
+  1.전역영역: window 객체
+  2.함수: window 객체
+  3.객체: object
+  4.이벤트: 이벤트 실행 대상  
   
+  console.log(this);
+
+  let show = 'Hello';
+  function show(){
+    console.log('show');
+  }                         */
+
   // 자바스크립트에서 () : 함수실행.
   let show = function() {
     console.log('show'); 
@@ -70,5 +72,6 @@
     phone: '010-1111'
   }
   friend.phone ='010-2222'; //속성값 바꾸는 건 가능
+  console.log(friend);
   
   // friend={}

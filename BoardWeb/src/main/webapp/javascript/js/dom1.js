@@ -3,7 +3,7 @@
 /* [ 배열 {객체 key: value } ]
    [ {id, name,phone}... ]     */
 
-  //객체생성
+  //객체생성 (user데이터)
   const obj1 = {
     id: 'user1', 
     name: '홍길동', 

@@ -18,19 +18,22 @@ let members = `[{"id":1,"first_name":"Pandora","last_name":"O'Dogherty","email":
 {"id":15,"first_name":"Thedric","last_name":"Yong","email":"tyonge@tinyurl.com","gender":"Male","salary":1055}]`;
 
 /* JSON.parse()
-   : 문자열을 값을 -> 객체로 변환(js에서 쓰기 좋게) */
+   : 문자열의 값을 -> 객체로 변환 (js에서 쓰기 좋게) */
 
+// [{..},{..}] => 여러 개의 객체가 배열에 담긴 memberAry   
 let memberAry = JSON.parse(members); 
-console.log(memberAry[14]);
-// console.log(memberAry[0].first_name);
+console.log(memberAry[14]); //▶Object(안에 해당내용 출력-객체니까 순서X)
+console.log(memberAry[14].first_name);
+// console.log(memberAry);
 
 
 /* < 표 만들기 > */
 
-//태그만들기 위한 데이터
+//<th> 데이터
 let titles = ['아이디', '이름', '성씨', '이메일', '성별', '급여'];
+
 //<th>생성
-function makeHeader(fields=[], pos={}){ //fields에 titles배열받고, position 어느위치에 붙일지 
+function makeHeader(fields=[], pos={}){  //fields에 titles배열받고, position 어느위치에 붙일지 
   let tr = document.createElement('tr');
   fields.forEach(function(field){
     let th = document.createElement('th');
@@ -41,19 +44,21 @@ function makeHeader(fields=[], pos={}){ //fields에 titles배열받고, position
 };  
 makeHeader(titles,document.getElementById('theader')); //function.html파일에 theader에 값 붙일 것
 
-//<td>생성
-function makeBody(data=[], pos={}){ //data=[] : memberAry배열에 looping돌면서 
+//<td>생성 - 위에서 만든 memberAry배열 looping
+function makeBody(data=[], pos={}){ 
   data.forEach(function(item){
+    //<tr>
     let tr = document.createElement('tr');
-    //tr속성(배경색)
+    //속성추가
     if(item.gender == 'Male'){
       tr.setAttribute('style', 'background-color: powderblue');
     }else{
       tr.setAttribute('style', 'background-color: pink');
     }
+    //<td>
     for(let prop in item){
       let td = document.createElement('td');
-      td.innerText = item[prop];
+      td.innerText = item[prop]; //속성 값 넣기
       tr.appendChild(td);
     }
     pos.appendChild(tr);
