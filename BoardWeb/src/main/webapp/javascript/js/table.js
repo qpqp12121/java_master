@@ -1,6 +1,7 @@
 //table.js
 
- // < table 만들기 >
+/* < table 만들기 > */
+
  let table = document.createElement('table');
  //attribute 추가
  table.setAttribute('border',1);  
@@ -11,7 +12,7 @@
  document.querySelector('body').appendChild(table);       
 
 
-//< 이벤트 생성 >
+/* < 이벤트 생성 > */
 
 //1.추가button : input 아이디,이름,연락처 받은 데이터 -> 한 행으로 테이블에 추가
 document.getElementById('addBtn').addEventListener('click', function(){ 
@@ -27,9 +28,11 @@ document.getElementById('addBtn').addEventListener('click', function(){
   let obj = {id, name, phone} //{id: id, name: name, phone: phone} -- 객체의속성: "변수 = 값" 같으면 하나만 적어도 O
   document.querySelector('#list>tbody').appendChild(makeTr(obj)); //list테이블의 하위요소인 tbody에 makeTr(obj)를 붙이겠다
                                                                   //아래에 데이터 한 행 추가하기 위한 함수생성
-  document.getElementById('uid').value = '';  //추가하고 값 비우기
+  //추가하고 값 비우기                                                                
+  document.getElementById('uid').value = '';  
   document.getElementById('uname').value = '';
   document.getElementById('uphone').value = '';
+
   document.getElementById('uid').focus();
 }) 
 
@@ -107,8 +110,8 @@ document.querySelector('#delBtn').addEventListener('click', function(){
       //  document.querySelector('#uid').value = this.children[0].innerText; --위랑 똑같음(괄호에 아이디명)
        document.getElementById('uname').value = this.children[1].innerText; 
        document.getElementById('uphone').value = this.children[2].innerText; 
-
     })
+    
     //td
     for(let prop in obj){ //1.한행데이터가져옴
       let td = document.createElement('td');

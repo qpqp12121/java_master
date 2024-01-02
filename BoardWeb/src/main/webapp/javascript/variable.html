@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>variable.html</title>
+  <style>
+    th, td{
+      text-align: center;
+      padding: 5px;
+    }
+    
+  </style>
+</head>
+<body>
+  <p>Hello</p>
+  <div id="show">
+    <!--나이 3살초과-->
+    <table border="1" style="border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>나이</th>
+        </tr>
+      </thead>
+      <tbody id="list">
+
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- <script src="variable.js"></script> -->
+
+  <script>
+  /* < 데이터 타입 > */
+  //null, undefined.
+  //undefined: 변수선언만 했을 시 / 함수 반환값 없을 시
+  function myfunc(){
+    console.log('myfunc call.');
+    // return undefined; 함수 리턴값 없으면 자동으로 내재 
+    return 'undefined'; //문자열 반환되는
+  }
+  console.log(myfunc());
+
+  let num;
+  console.log(typeof num);
+
+  //undefined vs null 
+  let num1;
+  let num2 = null;
+  console.log(num1 == num2); //값 비교:true
+  console.log(num1 === num2);//데이터타입은 false (undefined vs object)
+  
+  //null / undefined / '' / 0 = false
+  if(!num1){
+    console.log('num값은 false입니다.');
+  }
+
+  /* < 자료형 변환 > */
+  //parseInt, parseFloat, NaN (number타입)
+  num1 = '30';
+  console.log(num1, typeof num1); //js에선 string 참조일수도아닐수도
+
+  num1 = parseInt(num1);
+  console.log(num1, typeof num1);
+
+  //삼항연산자
+  let result = (3 > 2) ? 'true': 'false';
+  console.log(result);
+
+  //논리연산자
+  console.log(!!'문자열'); //값있는지 확인하려고 쓰는 경우 有
+
+  //비트연산자(2진수로 바꿔서 계산)-52p참고
+  //12 => 1100 / 3 => 11
+  console.log(12 & 3);
+  console.log(12 | 3);
+  console.log(12 >> 1); //1100인데 오른쪽으로 1번 shift하겠다 '110' (마지막은 버려짐)
+  console.log(12 >> 2);
+  
+
+  /* < 다양한 for문 > */
+  
+  //for ~ of
+  let friends = [{name:'라이언', age:5}, {name:'어피치', age:4}]
+  for(let friend of friends){
+    console.log('이름: ' + friend.name + ', 나이: ' + friend.age);
+  }
+  
+  //for ~ in (key, value)
+  for(let prop in friends[0]){
+    console.log('속성: ' + prop + ', 값: ' + friends[0][prop]);
+  }
+  
+  //forEach : 배열 전용 메서드
+  //값 담기
+  friends[friends.length] = {name:'콘', age: 2}
+  friends[friends.length] = {name:'무지', age: 3}
+  //전체값 가져오기
+  // friends.forEach(function(friend, idx, friendsAry){ //배열의 개수만큼()매개값으로 오는 걸 반복  
+  //   console.log(friend, idx, friendsAry);            //변수 friend = 배열에 들어있는 요소 하나하나의 값 // idx = 배열의 인덱스 //friendsAry = friends 배열 그 자체
+  // });
+
+  //조건
+  //1. age 3살보다 많은 friends
+  // friends.forEach(function(friend, idx, friendsAry){ 
+  //   if(friend.age > 3){ // or friend['age']
+  //   console.log(friend, idx, friendsAry);         
+  //   }
+  // });
+
+  // //홀수 위치에 있는 값 가져오기 (인덱스값 활용)
+  // friends.forEach(function(friend, idx, friendsAry){ 
+  //   if(idx % 2 == 0){ //인덱스는 0부터 시작이니 0,2,4가 => 1번째,3번째,5,...위치하는 값 가져옴
+  //   console.log(friend, idx, friendsAry);         
+  //   }
+  // });
+  // //제일 마지막 값
+  // friends.forEach(function(friend, idx, friendsAry){ 
+  //   if(idx == friendsAry.length - 1){ //friends.length-1해도 됨(friendsAry가 friends그 자체니까)
+  //   console.log(friend, idx, friendsAry);         
+  //   }
+  // });
+
+  //Dom으로 테이블만들기(3살넘는친구들)
+  //익명함수
+  // let tbd = document.getElementById('list'); 
+  //   friends.forEach(function(friend, idx, friendsAry){ 
+  //     if(friend.age > 3){ // or friend['age']
+  //     console.log(friend, idx, friendsAry);
+  //     let tr = document.createElement('tr');
+  //     for(let prop in friend){
+  //       let td = document.createElement('td');
+  //       td.innerText = friend[prop];
+  //       tr.appendChild(td);
+  //     }
+  //     tbd.appendChild(tr);
+  //     }
+  //   });
+
+  //makeFriend를 forEach안의 매개값으로 대체할 것 (코드 길어져서 이 방법 선호)
+  let tbd = document.getElementById('list'); 
+    friends.forEach(makeFriend); //forEach(매개값으로 함수)
+
+  function makeFriend(friend, idx, friendsAry){ 
+    if(friend['age'] > 3){ // or friend.age
+      console.log(friend, idx, friendsAry);
+      let tr = document.createElement('tr');
+      for(let prop in friend){
+        let td = document.createElement('td');
+        td.innerText = friend[prop];
+        tr.appendChild(td);
+      }
+      tbd.appendChild(tr);
+    }
+  }
+
+
+  </script>
+</body>
+</html>

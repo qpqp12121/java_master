@@ -6,8 +6,8 @@
   <title>todo/20231229.html</title>
   <style>
     #show{
-      width: 350px;
-      height: 250px;
+      width: 260px;
+      height: 350px;
       background-color: aqua;
     }
     span{
@@ -15,27 +15,58 @@
       width: 80px;
       height: 30px;
       background-color: yellow;
+      margin: 2px;
     }
   </style>
 </head>
 
 
 <body>
+  <input type="text" name="userValue" id="userValue">
+  <button id="delBtn">삭제</button>
   <div id="show">
-    <!-- <span>Lorem</span>
-        <span>ipsum,</span> .. 형태로 추가 되도록 -->
+    <!-- <span>Lorem</span><span>ipsum,</span> .. 형태로 추가 되도록 -->
   </div>
 
   <script>
     const words = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus hic quos in commodi nisi officiis ullam totam nihil molestias ea necessitatibus iusto ex cupiditate vel sit, magnam voluptatibus pariatur consequuntur?'
     const wordAry = words.split(' '); //split(): 문자열 잘라 배열로 변환
-
-    let show = document.querySelector('#show');
-    for(let word of wordAry){
+    //화면상에 span 생성.
+    let show = document.getElementById('show');
+    //배열관련 forEach반복문 쓰도록 익히기
+    wordAry.forEach(function(word){
       let span = document.createElement('span');
       span.innerText = word;
       show.appendChild(span);
-    }
+    })
+
+    //삭제버튼(id=delBtn)
+    document.getElementById('delBtn').addEventListener('click', function(){
+      //사용자의 입력값 == 화면상에 span요소 가져와서 하나씩 비교(true-span.remove();)
+      let userInput = document.querySelector('input[name=userValue]').value; // ex.아이디X 속성값으로 => input태그의[속성name=값] //속성은 []배열로 가져올수 있
+      let spanAll = document.querySelectorAll('span'); //querySelectorAll 배열로 여러 건 가져옴.
+      for(let item of spanAll){
+        // console.log(item);
+        if(userInput == item.innerText){ 
+          item.remove();
+        }
+      }
+      //초기화
+      document.querySelector('input[name=userValue]').value = '';
+    })
+
+    // document.getElementById('delBtn').addEventListener('click', function(){
+    //   let userInput = document.querySelector('#userValue').value; 
+    //   let spanAll = document.querySelectorAll('span').forEach(function(item){ 
+    //     if(item.innerText == userInput){
+    //       item.remove();
+    //     }
+    //   });
+    // })
+
+
+
+
   </script>
 
 </body>
