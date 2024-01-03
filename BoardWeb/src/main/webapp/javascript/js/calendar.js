@@ -1,5 +1,7 @@
 //calendar.js
 
+/* < 함수로 달력 만들기 > */
+
 let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
 //마지막날짜 & 시작요일 필요
 let lastDate = getLastDate(1); 

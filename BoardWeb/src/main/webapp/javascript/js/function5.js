@@ -5,6 +5,7 @@ const ary = ['a', 'b', 'c'];
 ary.forEach(function(elem){
   console.log(elem);
 })
+// elem => console.log(elem);
 
 //간단하게 화살표함수로
 ary.forEach((elem) => {

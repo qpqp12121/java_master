@@ -1,10 +1,11 @@
 //function4.js
 
-//달력을 생성하는 객체.
-//calendar.js에서 선언부분과 호출부분만 변경
+/* < 객체로 달력 만들기 > */
+//많이 쓰는 방식
 
 //1.객체생성{}
 const cal = {
+  
   days:  ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'],
 
   makeCalendar: function(month){

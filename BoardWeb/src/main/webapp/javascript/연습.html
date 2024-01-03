@@ -8,23 +8,121 @@
 </head>
 
 <body>
-  <p>Hello</p>
-  <div id="show">
-    <table border="1" style="border-collapse: collapse;">
-      <thead>
-        <tr>
-          <th>이름</th>
-          <th>나이</th>
-        </tr>
-      </thead>
-      <tbody id="list">
+  <table border="1" style="border-collapse: collapse;">
+    <tr>
+      <th>아이디</th>
+      <td><input type="text" id="uid"></td>
+    </tr>
+    <tr>
+      <th>이름</th>
+      <td><input type="text" id="uname"></td>
+    </tr>
+    <tr>
+      <th>연락처</th>
+      <td><input type="text" id="uphone"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <button id="addBtn">추가</button>
+        <button id="editBtn">변경</button>
+        <button id="delBtn">선택삭제</button>
+      </td>
+    </tr>
+  </table>
+  <br>
 
-      </tbody>
-    </table>
-  </div>
+
+
   <script>
+    const obj1 = {
+      id: 'user1',
+      name: '홍길동',
+      phone: '010-1111'
+    };
+
+    const obj2 = {
+      id: 'user2',
+      name: '김민수',
+      phone: '010-2222'
+    };
+
+    const obj3 = {
+      id: 'user3',
+      name: '박철호',
+      phone: '010-3333'
+    };
+
+    const friends = [obj1, obj2, obj3];
+
+
+    let table = document.createElement('table');
+    table.setAttribute('border', 1);
+    table.setAttribute('id', 'list') //id속성추가 = tbody 여러 개일 경우, 구분하여 추가하려고 .appendChild
+
+    table.appendChild(makeHead());
+    table.appendChild(makeBody());
+    document.querySelector('body').appendChild(table);
+
+    //1) thead 생성
+    function makeHead() {
+      let thead = document.createElement('thead');
+      let tr = document.createElement('tr');
+      //th (3개-id,name,phone) 
+      for (let prop in obj1) {
+        let th = document.createElement('th');
+        th.innerText = prop.toUpperCase();
+        tr.appendChild(th);
+      }
+      //삭제칼럼, 선택삭제칼럼 추가
+      let th = document.createElement('th');
+      th.innerText = '삭제';
+      tr.appendChild(th);
+      th = document.createElement('th');
+      th.innerText = '선택삭제';
+
+      tr.appendChild(th);
+      thead.appendChild(tr);
+
+      return thead;
+    }
+
+    //2) tbody 생성
+    function makeBody() {
+      let tbd = document.createElement('tbody');
+      for (let friend of friends) {
+        tbd.appendChild(makeTr(friend));      //makeTr(friend); //: 하나의 tr
+      }
+      return tbd;
+    }
+
+    //3)user데이터tr, td생성  
+    function makeTr(obj = {}){
+      //tr
+      let trb = document.createElement('tr');
+      //td
+      for(let prop in obj){
+        let td =document.createElement('td');
+        td.innerText = obj[prop];
+        trb.appendChild(td);
+      }
     
 
+    //삭제칼럼 데이터로 삭제버튼
+    let td = document.createElement('td');
+    let btn = document.createElement('button');
+    // btn.setAttribute()
+
+    //선택삭제칼럼 체크박스
+    let td2 = document.createElement('td');
+    let chkbox = document.createElement('input');
+    chkbox.setAttribute('type', 'checkbox')
+    
+    trb.appendChild(td)
+    td.appendChild(btn);  
+    trb.appendChild(td2);
+    td2.appendChild(chkbox);
+    return trb;
+  }
 
   </script>
 </body>

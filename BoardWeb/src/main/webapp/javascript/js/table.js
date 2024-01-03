@@ -1,5 +1,7 @@
 //table.js
 
+
+//user데이터 dom2.js에 있음(객체3개)
 /* < user_data 테이블 생성 > */
 
 let table = document.createElement('table');
@@ -62,7 +64,7 @@ document.querySelector('#delBtn').addEventListener('click', function () {
   })
 
 })
-
+/////////////////////////////////////////////////////////////////////////
 //1) thead 생성
 function makeHead() {
   let thead = document.createElement('thead');
@@ -73,8 +75,7 @@ function makeHead() {
     th.innerText = prop.toUpperCase();
     tr.appendChild(th);
   }
-
-  //삭제칼럼, 선택삭제칼럼
+  //삭제칼럼, 선택삭제칼럼 추가
   let th = document.createElement('th');
   th.innerText = '삭제';
   tr.appendChild(th);
