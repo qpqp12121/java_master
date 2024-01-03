@@ -99,6 +99,15 @@
     function makeTr(obj = {}){
       //tr
       let trb = document.createElement('tr');
+      trb.addEventListener('click', function(){
+        console.log(this)
+        console.log(this.children[0].innerText)
+        document.getElementById('uid').value = this.children[0].innerText;
+      })
+      
+
+
+
       //td
       for(let prop in obj){
         let td =document.createElement('td');
@@ -110,15 +119,15 @@
     //삭제칼럼 데이터로 삭제버튼
     let td = document.createElement('td');
     let btn = document.createElement('button');
-    // btn.setAttribute()
+    btn.innerText = '삭제';
+    td.appendChild(btn); 
+    trb.appendChild(td)
+    
 
     //선택삭제칼럼 체크박스
     let td2 = document.createElement('td');
     let chkbox = document.createElement('input');
     chkbox.setAttribute('type', 'checkbox')
-    
-    trb.appendChild(td)
-    td.appendChild(btn);  
     trb.appendChild(td2);
     td2.appendChild(chkbox);
     return trb;

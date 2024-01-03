@@ -1,7 +1,7 @@
 //table.js
 
 
-//user데이터 dom2.js에 있음(객체3개)
+//user데이터 2.dom2.js에 있음(객체3개)
 /* < user_data 테이블 생성 > */
 
 let table = document.createElement('table');
@@ -69,7 +69,7 @@ document.querySelector('#delBtn').addEventListener('click', function () {
 function makeHead() {
   let thead = document.createElement('thead');
   let tr = document.createElement('tr');
-  //th (3개) : for in 써서 반복 ( 굳이 배열쓸 필요X obj123 중 하나를선택해서? )-->
+  //th (3개-id,name,phone) 
   for (let prop in obj1) {
     let th = document.createElement('th');
     th.innerText = prop.toUpperCase();
@@ -98,41 +98,41 @@ function makeBody() {
 }
 
 
-//3) tr, td 생성
+//3) tr, td 생성(user데이터)
 function makeTr(obj = {}) { //위에서 매개값으로 friend 넘겨주기//obj={} 값 안들어오면 초기값으로 쓰겠다
-  let trb = document.createElement('tr'); //trb: tbody의 tr
 
-  // tr 클릭이벤트 (id/name/phone 클릭하면 - 위 빈칸에 그 사람 정보뜨도록)
-  trb.addEventListener('click', function () {
+  //< 1.tr >
+  let trb = document.createElement('tr'); //trb: tbody의 tr
+  //click이벤트 (id/name/phone 클릭하면 - 위 빈칸에 그 사람 정보뜨도록)
+  trb.addEventListener('click', function() {
     document.getElementById('uid').value = this.children[0].innerText; //(this대신 trb)로 해도 됨
     document.getElementById('uname').value = this.children[1].innerText;
     document.getElementById('uphone').value = this.children[2].innerText;
   })
 
-  //td
+
+  //< 2.td >
   for (let prop in obj) { //한행데이터가져옴
     let td = document.createElement('td');
     td.innerText = obj[prop];
     trb.appendChild(td);
   }
-
-  //삭제버튼 생성
+  //(1)button 생성 (삭제)
   let td = document.createElement('td');
   let btn = document.createElement('button');
-
-  //button 이벤트 등록
+  //button 이벤트
   btn.addEventListener('click', function (e) { //이벤트핸들러.
     e.stopPropagation(); //상위요소로 이벤트 전파 차단(버블링)
     console.log(this.parentElement.parentElement.remove()); //여기서 this: 이벤트를 받는 대상(여기선 버튼) => (this) or (btn) 사용O
   });
+
   btn.innerText = '삭제';
   td.appendChild(btn);
   trb.appendChild(td);
 
-  //체크박스 생성
+  //(2)checkbox 생성 (선택삭제)
   let td2 = document.createElement('td');
   td2.setAttribute('align', 'center');
-
   let chkbox = document.createElement('input');
   chkbox.addEventListener('click', function (e) { //function(event값)이 매개값으로 들어오도록 지정해놨음(e로쓴건그냥변수)
     e.stopPropagation();
