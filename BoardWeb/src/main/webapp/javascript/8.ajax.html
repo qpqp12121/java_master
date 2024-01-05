@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax.html</title>
+</head>
+<body>
+
+  <table border="1">
+    <thead id = "theader">
+      <tr>
+        <th>아이디</th>
+        <th>이름</th>
+        <th>이메일</th>
+      </tr>
+    </thead>
+    <tbody id = "tbody"></tbody>
+  </table>
+
+  <script>
+    const fields = ['id', 'first_name', 'email'];
+
+    const xhtp = new XMLHttpRequest(); //비동기방식 가져오는 객체
+    xhtp.open('get', '8.dataset.xml'); // (요청방식,페이지) : 서버에 요청할 페이지 지정
+    xhtp.send(); //요청시작
+
+    xhtp.onload = function(){
+      //xml방식 사용해본 것
+      let doc = xhtp.responseXML;
+      doc.querySelectorAll('record').forEach(record => {
+        console.log(record.children[1].innerHTML); //record하위요소 //이런식으로 xml 가져오는 거 복잡
+      })
+    }
+    
+    //Json데이터
+    function makeJson(){ //onload속성(이벤트)
+      // console.log(xhtp.responseText); //responseText 서버에 있는 텍스트 담는 속성
+      let data = JSON.parse(xhtp.responseText)//이문자열을 js에서 쓰기 좋은 객체타입으로 변경하겠다
+      // console.log(data);
+      let tbody = document.querySelector('#tbody');
+      data.forEach(item => {
+        let tr = document.createElement('tr');
+        fields.forEach(field => {
+          let td = document.createElement('td');
+          td.innerText = item[field];
+          tr.appendChild(td);
+        })
+        tbody.appendChild(tr);
+      })
+    }
+
+  </script>
+</body>
+</html>

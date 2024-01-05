@@ -29,8 +29,8 @@ console.log(ary3);
 /* < 객체 + 객체 > */
 //펼침연산자 : 합쳐서 새로운 객체로 생성
 const obj1 = { name: "Hong", age: 20 };
-const obj2 = { name: "Hwang", height: 170 };
-const obj3 = { ...obj1, ...obj2 }
+const obj2 = { name: "Hwang", height: 170};
+const obj3 = { ...obj1, ...obj2 };
 console.log(obj3); //중복된 속성은 마지막 값으로 / 다른 속성은 그냥 합쳐짐
 
 

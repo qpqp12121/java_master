@@ -3,6 +3,8 @@ package com.yedam.common;
 import com.yedam.member.service.MemberService;
 import com.yedam.member.serviceImpl.MemberServiceImpl;
 import com.yedam.member.vo.MemberVO;
+import com.yedam.reply.service.ReplyService;
+import com.yedam.reply.serviceImpl.ReplyServiceImpl;
 
 public class MainExe {
 //만든 것 실행테스트
@@ -69,19 +71,21 @@ public class MainExe {
 //		}
 		
 		//////////////MemberSErvice테스트
-		MemberService svc = new MemberServiceImpl();
-		MemberVO vo = svc.login("user1", "1111");
-		
-		if(vo != null) {
-			System.out.println(vo);
-			System.out.println("환영" + vo.getName()+"님 권한은 " + vo.getResponsibility());
-		}else {
-			System.out.println("id,pw 확인.");
-		}
-		
-		
+//		MemberService svc = new MemberServiceImpl();
+//		MemberVO vo = svc.login("user1", "1111");
+//		
+//		if(vo != null) {
+//			System.out.println(vo);
+//			System.out.println("환영" + vo.getName()+"님 권한은 " + vo.getResponsibility());
+//		}else {
+//			System.out.println("id,pw 확인.");
+//		}
 		
 		
+		//ReplyService테스트
+		ReplyService svc = new ReplyServiceImpl();
+//		svc.replyList(4).forEach(reply -> System.out.println(reply));
+		svc.replyListPaging(8, 1).forEach(reply -> System.out.println(reply));
 		
 		
 		

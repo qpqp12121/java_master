@@ -23,6 +23,9 @@ import com.yedam.member.command.LoginControl;
 import com.yedam.member.command.LoginFormControl;
 import com.yedam.member.command.LogoutControl;
 import com.yedam.member.command.MemberListControl;
+import com.yedam.reply.command.AddReplyJson;
+import com.yedam.reply.command.DelReplyJson;
+import com.yedam.reply.command.ReplyListJson;
 import com.yedam.student.command.StudInfoCont;
 import com.yedam.student.command.StudentListCont;
 
@@ -72,7 +75,10 @@ public class FrontController extends HttpServlet {
 		map.put("/studentList.do", new StudentListCont());
 		map.put("/studInfo.do", new StudInfoCont()); // studInfo.do?sno=23-002 (파라미터값넣어줘야됨)
 		
-		
+		//reply 관련.(json포맷의 데이터를 생성해서 반환)
+		map.put("/replyListJson.do", new ReplyListJson()); //bno
+		map.put("/delReplyJson.do", new DelReplyJson()); //rno
+		map.put("/addReplyJson.do", new AddReplyJson());
 	}           
 	
 	
