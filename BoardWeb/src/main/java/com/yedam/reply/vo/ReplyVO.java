@@ -12,5 +12,7 @@ public class ReplyVO {
 	private String reply;
 	private String replyer;
 	private Date replyDate;
-	private String name; //댓글목록에 작성자 이름으로 보려고
+	
+	//댓글목록에 작성자 이름으로 보려고 추가함(member2테이블 name필드랑 조인) 
+	private String name; 
 }
