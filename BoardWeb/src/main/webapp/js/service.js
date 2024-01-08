@@ -27,8 +27,11 @@ function makeLi(reply = {}){
 						let result = JSON.parse(delHtp.responseText)
 						if(result.retCode == 'OK'){
 							alert('삭제되었습니다')
-							btn.parentElement.remove(); //2.화면에서 li지우기
-							
+						//2.화면에서 li지우기
+							//btn.parentElement.remove(); --이렇게 하면 버튼만 삭제되어
+							//bno, page => 페이지리스트, 페이징리스트 (getBoard에서 옮겨서 거기선 콜백함수로 사용하도록)
+							showList(pageInfo); //getBoard에 있음
+
 						}else if(result.retCode =='NG'){
 							alert('처리 중 에러.');
 						}

@@ -11,16 +11,9 @@
 		join member2 m
 		on r.replyer = m.id
 		where
-		board_no = #{boardNo} order by 1
+		board_no = #{boardNo} order by reply_no desc
 	</select>
 
-	<select id="selectReply" resultType="reply" parameterType="int">
-		select r.*, m.name name
-		from reply r
-		join member2 m
-		on r.replyer = m.id
-		where reply_no = #{replyNo} order by 1
-	</select>
 
 	<select id="replyListPaging" resultType="reply">
 		select b.* from
@@ -29,8 +22,9 @@
 		from reply r
 		join member2 m
 		on r.replyer = m.id
-		where board_no = #{boardNo}
-		order by 1
+		where board_no =
+		#{boardNo}
+		order by reply_no desc
 		)a)b
 		<![CDATA[
 		where b.rn > (#{page}-1)*5 and b.rn <= #{page}*5
@@ -50,5 +44,26 @@
 		delete from reply where
 		reply_no = #{replyNo}
 	</delete>
+
+	<select id="selectReply" resultType="reply" parameterType="int">
+		select r.*, m.name name
+		from reply r
+		join member2 m
+		on r.replyer = m.id
+		where reply_no = #{replyNo} order by 1
+	</select>
+
+	<select id="selectCount" resultType="int" parameterType="int">
+		select
+		count(*) from reply where board_no = #{boardNo}
+	</select>
+
+	<select id="selectReplyCnt" resultType="hashmap">
+		select name "name", count(*) "cnt"
+		from reply r
+		join member2 m
+		on r.replyer = m.id
+		group by name
+	</select>
 
 </mapper>
