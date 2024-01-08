@@ -48,7 +48,7 @@ xhtp.onload = function(){
 		let tr = document.createElement('tr');
 		tr.addEventListener('click', function(){ //tr누르면 map.do에 매개값 넘기고 =>해당위치지도
 			//location.href = 'map.do?x=' + center.lat + '&y=' + center.lng; 
-			window.open("map.do?x="+ center.lat + "&y=" + center.lng); //새탭에서열기(위방법은현재창에서열림) 
+			window.open("map.do?x="+ center.lat + "&y=" + center.lng + "&org=" + center.org); //새탭에서열기(위방법은현재창에서열림) 
 		})
 		
 		fields.forEach(field => {   //fields안에 보여주고 싶은 필드있으면 위에서 더 추가해주면 됨

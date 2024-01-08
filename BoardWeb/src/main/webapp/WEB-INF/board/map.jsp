@@ -15,6 +15,7 @@
 //위도, 경도 (=>/map.do?x=.&y=. -- 매개값으로 넘겨주면 지도 찍어 줌)
 let x = '${param.x}'
 let y = '${param.y}'
+let org = '${param.org}'
 
 //encodeURI(한글) //한글깨지면 encodeURI()메서드 쓰기
 
@@ -37,7 +38,7 @@ var marker = new kakao.maps.Marker({
 // 마커가 지도 위에 표시되도록 설정합니다
 marker.setMap(map);
 								//Hello World!를 => covid19.do에서 tr누르면 org속성의 '값'으로 뜨도록 변경하기(파라미터한개더추가해서넘기면됨)
-var iwContent = '<div style="padding:5px;">Hello World! <br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+var iwContent = '<div style="padding:5px;">'+org+'<br><a href="https://map.kakao.com/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
     iwPosition = new kakao.maps.LatLng(x,y); //인포윈도우 표시 위치입니다
 
 // 인포윈도우를 생성합니다
