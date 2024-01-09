@@ -11,20 +11,42 @@
 
 
 		$(document).ready(function () {
-			//등록버튼 클릭 이벤트 등록.
+			
 
+			//등록버튼 클릭 이벤트 등록.
 			$('#addBtn').on('click', function () {
 
 				let id = $('input[name="memberId"]').val();
 				let name = $('input[name="memberName"]').val();
 				let phone = $('input[name="phone"]').val();
+				
+						//근데 문제가 다 삭제되면 등록이 안 됨..
+				
+				/*let template = $('<tr />').attr('class', 'template');
+				$('#list').append(template);
+				
+				
+				let info = [ id, name, phone ];
+				info.forEach(item =>{
+					let td = $('<td />')
+					td.text(item);
+					$('.template').eq(1).append(td);					
+				})
+					let box = $('<input />').attr('type', 'checkbox');
+					$('.template').eq(1).append(box);
+				*/	
+				
+				 	
+				
+			
 
 				let template = $('tr.template').clone(); //tr요소 복제
+				
 				template.find('td:first-child').text(id);
 				template.find('td:eq(1)').text(name);
 				template.find('td:eq(2)').text(phone);
 				template.removeClass('template');
-				//console.log(template);
+				//console.log(template);*/
 
 				$('#list').append(template); //prepend()
 
@@ -32,13 +54,13 @@
 				$('input[name="memberName"]').val('');
 				$('input[name="phone"]').val('');
 			})//end 등록이벤트.
-			
-			
+
+
 			//전체선택
 			$('.allCheck').on('click', function () {
 				if ($('.allCheck').prop('checked')) {
 					$('input[type=checkbox]').prop('checked', true);
-				}else{
+				} else {
 					$('input[type=checkbox]').prop('checked', false);
 				}
 			});
@@ -46,11 +68,15 @@
 			//삭제
 			$('#delSelected').on('click', function () {
 				//$(':checked').parent().parent().remove(); //아래랑같음(not제외)		
-					$(':checked').not('.allCheck').parentsUntil('tbody').remove();
-					$('.allCheck').prop('checked', false);
+				$(':checked').not('.allCheck').parentsUntil('tbody').remove();
+				$('.allCheck').prop('checked', false);
+
+
 			})
 
 		})
+
+
 
 	</script>
 </head>
