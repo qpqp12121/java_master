@@ -129,12 +129,12 @@
 		
 		
 	//< Ajax호출 >
-	function showList(page){
+	function showList_backup(page){
 		ul.innerHTML = '';
 		const xhtp = new XMLHttpRequest(); //비동기방식 가져오는 객체
 		xhtp.open('get', 'replyListJson.do?bno=' + bno + "&page=" + page); // (요청방식,페이지) : 서버에 요청할 페이지 지정
 		xhtp.send() //요청시작
-		xhtp.onload = function(){ //이벤트실행
+		xhtp.onload = function(){ //이벤트실행 -콜백함수 정의(응답이 준비되었을 때 실행할 코드 아래 작성)
 			let data = JSON.parse(xhtp.responseText); //json문자열->js의 객체로 변환하여 서버에 전달
 	
 			//< DOM으로 화면 >: 건수만큼 <li>만들기 --- service.js에 makeLi()로 함수 따로 생성
@@ -145,6 +145,25 @@
 		}
 	}
 	//페이지목록 보여주는 함수 호출
+	//showList_backup(pageInfo);
+	
+	//↓
+	//↓
+	
+	//fetch()로 사용
+	function showList(page){
+		ul.innerHTML = '';
+		fetch('replyListJson.do?bno=' + bno + "&page=" + page) //get방식은 매개값 url 1개만 O
+		.then(str => str.json()) //(먼저json데이터반환)-js 객체로 변환
+		.then(result => {
+			result.forEach(reply => {
+				let li = makeLi(reply);
+				ul.appendChild(li);
+			})
+			
+		})
+		.catch(reject => console.log(reject));
+	}
 	showList(pageInfo);
 	
 	
@@ -200,15 +219,42 @@
 	
 	
 	
-	// < 등록버튼 이벤트생성 >
-	//document.querySelector('#addReply').addEventListener('click', function(){});
+	// < 등록버튼 이벤트생성 > --등록 보통 post방식으로(용량많을시 get방식은 제한있음(header에담아서보내니))
+	
+	//=document.querySelector('#addReply').addEventListener('click', function(){});
 	document.querySelector('#addReply').onclick = function(){
 		let reply = document.querySelector('#content').value; //사용자입력input 값 
 		let replyer = '${logId}' //로그인하면 아이디 값 가져오기
 
-		const addAjax = new XMLHttpRequest();
-		addAjax.open('get', 'addReplyJson.do?reply='+reply+'&replyer='+replyer+'&bno='+bno);
-		addAjax.send();
+		//fetch함수로.(비동기방식을 순차적으로 실행할 수 있도록)
+		fetch('addReplyJson.do', {
+			method: 'post',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			body: 'reply='+reply+'&replyer='+replyer+'&bno='+bno
+		})
+		.then(str => str.json()) //받아온 결과json문자열 넘어오면->객체로 변환하고 (return생략)
+		.then(result => { //객체 담음
+			if(result.retCode == 'OK'){
+				alert('처리성공')
+				pageInfo=1;
+				showList(pageInfo);
+				pagingList();
+				
+				document.querySelector('#content').value = '';
+				
+			}else if(result.retCode == 'NG'){
+				alert('처리중 에러')
+			}
+		})
+		.catch(err => console.error(err));
+		
+		//Ajax사용(위에 fetch로 만들었음)
+		/* const addAjax = new XMLHttpRequest();	
+		addAjax.open('post', 'addReplyJson.do');
+		addAjax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+		addAjax.send('reply='+reply+'&replyer='+replyer+'&bno='+bno);
 		addAjax.onload = function(){
 			
 			let result = JSON.parse(addAjax.responseText);
@@ -225,7 +271,8 @@
 			}else if(result.retCode == 'NG'){
 				alert('처리중 에러')
 			}
-		}
-		}
+		}//end of onload. */
+		
+	}//end of click event.
 		
 	</script>

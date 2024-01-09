@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>basic.html</title>
+<!--<script src="../js/jquery-3.7.1.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+	/* 
+	javascript 객체: 속성, 메서드 
+		VS 
+	jQuery 객체: jquery는 거의 모든 것이 메서드 기반 */
+	
+	$(document).ready(function(){ //=document.addEventListener('DOMContentLoaded',function(){})
+	//= $(function(){실행할코드})	
+		const obj = {}
+		
+		/* 1.요소 생성 */
+		
+		//1)jquery 방법 -- $("선택자");
+		let ul = $('<ul />').append($('<li />').text('Apple'),
+								    $('<li />').text('Banana')
+								    ); //메서드체이닝(여러개의메소드연속으로호출o)
+								    
+		ul.attr('class', 'parent') //=setAttribute()
+		
+		$('#show').append(ul);
+		
+		
+		//2)javascript 방법
+		let fruits = ['Apple', 'Banana']
+
+		let ul2 = document.createElement('ul');
+		ul2.setAttribute('class', 'parent2');
+		
+		fruits.forEach(fruit => {
+			let li2 = document.createElement('li');
+			li2.innerText = fruit
+			ul2.appendChild(li2)	
+		});	
+		document.querySelector('#show').appendChild(ul2);
+		
+		
+		/* 2.이벤트 */
+		
+		//jquery
+		$('#show li').on('mouseover', function(){
+			$(this).css('background', 'powderblue');
+		})
+	
+		$('#show li').on('mouseout', function(){
+			$(this).css('background', '');
+		})	
+		
+		
+	});
+	
+	
+	
+	
+</script>
+</head>
+<body>
+
+	<div id="show"></div>
+	
+	
+</body>
+</html>

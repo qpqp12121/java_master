@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>todo/20240104.html</title>
+	<style>
+		#show {
+			width: 260px;
+			height: 400px;
+			background-color: rgb(125, 154, 255);
+		}
+
+		span {
+			display: inline-block;
+			width: 80px;
+			height: 30px;
+			background-color: rgb(253, 254, 190);
+			margin: 2px;
+		}
+	</style>
+	<script>
+		//script head에 넣음
+		//이 페이지의 모든 DOM요소 로드 후 => 실행 (이벤트)  
+		document.addEventListener('DOMContentLoaded', function () {
+			const words = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus hic quos in commodi nisi officiis ullam totam nihil molestias ea necessitatibus iusto ex cupiditate vel sit, magnam voluptatibus pariatur consequuntur?'
+			const wordAry = words.split(' '); //split(): 문자열 잘라 배열로 변환
+
+			//화면상에 span 생성.
+			let show = document.getElementById('show');
+
+			//배열관련 forEach반복문 쓰도록 익히기
+			// wordAry.forEach(function(word){
+			//   let span = document.createElement('span');
+			//   span.innerText = word;
+			//   show.appendChild(span);
+			// })
+
+			//++ reduce()메서드로
+			wordAry.reduce((acc, word) => {
+				let span = document.createElement('span');
+				span.innerText = word
+				acc.appendChild(span);
+				return acc;
+			}, show)
+
+
+
+			//삭제버튼(id=delBtn)
+			document.getElementById('delBtn').addEventListener('click', function () {
+				//사용자의 입력값 == 화면상에 span요소 가져와서 하나씩 비교(true-span.remove();)
+				let userInput = document.querySelector('input[name=userValue]').value; // ex.아이디X 속성값으로 => input태그의[속성name=값] //속성은 []배열로 가져올수 있
+				let spanAll = document.querySelectorAll('span'); //querySelectorAll 배열로 여러 건 가져옴.
+				for (let item of spanAll) {
+					// console.log(item);
+					if (userInput == item.innerText) {
+						item.remove();
+					}
+				}
+				//초기화
+				document.querySelector('input[name=userValue]').value = '';
+			});
+
+
+			//+enter치면 추가됨(keyup이벤트)
+			//input[name=userValue]
+			document.querySelector('input[name=userValue]').addEventListener('keyup', function (e) {
+				//console.log(e);
+				if (e.keyCode == '13') { //13=Enter
+					let userInput = document.querySelector('input[name=userValue]').value;
+					let span = document.createElement('span');
+					span.innerText = userInput;
+					//show.appendChild(span); //뒤에추가
+					show.prepend(span);//앞에추가
+					document.querySelector('input[name=userValue]').value = '';
+				}
+			});
+		});
+
+
+	</script>
+</head>
+
+<body>
+	<h4>2024.01.04 reduce()사용</h4>
+	<input type="text" name="userValue" id="userValue"> <!--keyup이벤트-->
+
+	<button id="delBtn">삭제</button>
+
+	<div id="show">
+		<!-- <span>Lorem</span><span>ipsum,</span> .. 형태로 추가 되도록 -->
+	</div>
+
+
+</body>
+
+</html>

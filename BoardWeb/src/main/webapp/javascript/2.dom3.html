@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>272p - 273p</title>
+</head>
+<body>
+
+	<p>실습</p>
+	
+	<ul id="friends">
+		
+	</ul>
+	
+	<!-- 책 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	<ul id="friends2">
+		<li class="animal">라이언</li>
+		<li class="fruit">어피치</li>
+		<li class="animal">프로도</li>
+		<li class="alien2">콘
+			<ul class="keyword">
+				<li>3세</li>
+				<li>숏다리</li>
+				<li>초록괴수</li>
+			</ul>
+		</li>
+	</ul>
+	<ul class="icons">
+		<li>
+			<span>스몰</span>
+			<span>미디엄</span>
+			<span>거대</span>
+		</li>
+	</ul>
+	<ul id="newfriends"></ul>
+	
+	
+	
+	
+	<script>
+		
+		//책 ul id=friends2
+		
+		//생성
+		let li = document.createElement('li');
+		let litext = document.createTextNode('무지');
+		li.appendChild(litext);
+		
+		let targetul = document.getElementById('friends2');
+		targetul.appendChild(li);
+		
+		//이동할 ele
+		let sourceli = document.querySelector('ul#friends2 li:first-child');
+		//삽입할위치기준ele
+		let targetli = document.querySelector('ul#friends2 li:last-child');
+		targetli.after(sourceli);//중첩된 내부 ul끝에 붙음
+		
+		//문자열가지는 li엘리먼트 생성해 자식 엘리먼트로 붙임
+		var appendli = document.createElement('li');
+		appendli.append('왕눈이');
+		document.querySelector('ul li ul').append(appendli);
+		
+		//마지막차일드엘리먼트선택
+		let selected = document.querySelector('.icons li span:last-child');
+		let newspan = document.createElement('span');
+		let newspantext = document.createTextNode('빅');
+		newspan.appendChild(newspantext);
+		selected.parentNode.insertBefore(newspan,selected);
+		
+		//animal클래스 속성가진 li엘리먼트 선택
+		let items = document.querySelectorAll('.animal');
+		document.querySelector('#newfriends').prepend(...items);
+		
+		
+		
+		
+		///////////////////////////////////////////////////
+		/* 혼자 < ul id=friend > 
+		let body = document.querySelector('body');
+		
+		let friends = ['라이언', '어피치', '프로도', '콘'];
+		
+		let ul = document.querySelector('#friends');
+		friends.forEach(friend => {
+			let li = document.createElement('li');
+			li.innerText = friend;
+			ul.appendChild(li);
+		})
+		body.appendChild(ul);
+		
+		
+		document.querySelectorAll('li')[3].setAttribute('class', 'alien');
+		let conLi = document.querySelector('.alien');
+		let conUl = document.createElement('ul');
+		
+		conLi.appendChild(conUl);
+		
+		let conInfo = ['3세', '숏다리', '초록괴수']
+		
+		conInfo.forEach(con => {
+			let smallLi = document.createElement('li');
+			smallLi.innerText = con;
+			conUl.appendChild(smallLi);
+		})
+
+
+		let size = ['스몰', '미디엄', '거대']
+		
+		let lastUl = document.createElement('ul');
+		lastUl.setAttribute('class', 'icons')
+
+		let lastLi = document.createElement('li');
+		
+		size.forEach(a => {
+			let span = document.createElement('span');
+			span.innerText = a;
+			lastLi.appendChild(span);
+		})
+		lastUl.appendChild(lastLi);
+		body.appendChild(lastUl);
+		
+		*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</body>
+</html>
