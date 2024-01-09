@@ -45,16 +45,9 @@
 
 			//삭제
 			$('#delSelected').on('click', function () {
-				//$(':checked').parent().parent().remove();
-				$(':checked').parentsUntil('tbody').remove();
-
-				//$('input')
+				//$(':checked').parent().parent().remove(); //아래랑같음(not제외)		
+					$(':checked').not('.allCheck').parentsUntil('tbody').remove();
 			})
-
-
-
-
-
 
 		})
 
