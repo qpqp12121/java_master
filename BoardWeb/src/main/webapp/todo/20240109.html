@@ -47,6 +47,7 @@
 			$('#delSelected').on('click', function () {
 				//$(':checked').parent().parent().remove(); //아래랑같음(not제외)		
 					$(':checked').not('.allCheck').parentsUntil('tbody').remove();
+					$('.allCheck').prop('checked', false);
 			})
 
 		})
@@ -73,7 +74,7 @@
 		<tr>
 			<td colspan="2" align="center">
 				<button id="addBtn">등록</button>
-				<button id="delSelected">선택삭제</button>
+				<button id="delSelected">삭제</button>
 			</td>
 		</tr>
 	</table>
