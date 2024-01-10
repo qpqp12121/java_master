@@ -12,37 +12,31 @@
 	<!--Ajax사용-->
 	<script>
 
-		
+
 		const xhtp = new XMLHttpRequest();
 		xhtp.open('get', '../data/data.json');
 		xhtp.send();
-		xhtp.onload = function(){
+		xhtp.onload = function () {
 			//console.log(JSON.parse(xhtp.responseText));
-		
-		
-		let result = JSON.parse(xhtp.responseText);
-		
-		result.forEach(employee => {
-			//console.log(employee);
-			
-			if(employee.gender == 'Female' && employee.salary > 4500){
-				let targetAry = [employee];
-				//console.log(targetAry)
-				
-				targetAry.forEach(answer => {
-					console.log(answer.first_name); //이름만
-					console.log(answer); //전체정보
-				})
-			}
-			
-		})
-		
+
+
+			let result = JSON.parse(xhtp.responseText);
+
+			let targetAry = [];
+			result.forEach(employee => {
+
+				if (employee.gender == 'Female' && employee.salary > 4500) {
+						targetAry.push(employee);
+					}
+			});
+			console.log(targetAry); //전체정보
+
 		}//end onload.
-		
-		
-		
-		
-		
+
+
+
+
+
 	</script>
 </body>
 

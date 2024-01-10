@@ -18,18 +18,15 @@ public class BookListControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		resp.setContentType("text/html;charset=utf-8");
-		
-		BookService svc = new BookServiceImpl();
-		
-		Gson gson = new GsonBuilder().create();
-		
-		List<BookVO> list = svc.bookList();
 		
 		
-		req.setAttribute("bookList", list);
-		
-		
+		 BookService svc = new BookServiceImpl(); 
+		 List<BookVO> list = svc.bookList();
+		 
+		 
+		 resp.setContentType("text/json;charset=utf-8"); 
+		 Gson gson = new GsonBuilder().create();
+
 		
 		try {
 			req.getRequestDispatcher("todo/bookList.jsp").forward(req, resp);

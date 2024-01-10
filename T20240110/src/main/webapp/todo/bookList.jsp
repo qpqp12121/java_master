@@ -5,6 +5,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$.ajax('bookList.do', {
+			method: 'get',
+			dataType: 'json',
+			success: function(result){
+				console.log(result)
+				$(result).each((idx, book) => {
+					let tr = $('<tr />').append($('<td />').text(book.bookCode),
+							 $('<td />').text(book.bookName),
+							 $('<td />').text(book.bookAuthor),
+							 $('<td />').text(book.bookPress),
+							 $('<td />').text(book.bookPrice)
+							);
+							$('.tbody').append(tr);
+				});
+			},
+			error: function(err){
+				console.log(err);
+			}
+		})
+	});
+
+</script>
 </head>
 <body>
 	<h3>책목록</h3>
@@ -21,31 +47,11 @@
 			</tr>
 		</thead>
 		<tbody class="tbody">
-			<tr>
-				
 
-			</tr>
 
 		</tbody>
 	</table>
 
-	<script>
-//데이터불러오기..
-			/*const xhtp = new XMLHttpRequest();
-			xhtp.open('get', 'bookList.do');
-			xhtp.send()
-			xhtp.onload = function(){
-				console.log(JSON.parse(xhtp.responseText));
-				
-			}
-			*/
-			
-			
-
-		
-	
-	
-	</script>
 
 </body>
 </html>
