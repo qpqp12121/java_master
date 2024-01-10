@@ -15,6 +15,16 @@
   <select id="selectOne" resultType="member" parameterType = "String">
    select * from member2 where id=#{id}
    </select>
+   
+   
+  <insert id="insertMember" parameterType="member">
+    insert into member2 values(#{id}, #{pw}, #{name}, #{responsibility}, #{image})
+  </insert>
+  
+  <delete id="deleteMember" parameterType="string">
+  	delete from member2 where id = #{id}
+  </delete>
+  
   
 </mapper>
 

@@ -15,12 +15,16 @@ public interface MemberMapper { //구현클래스가 xml파일
 	public List<MemberVO> selectList();
 	public MemberVO selectOne(String id);
 	
+	//입력,삭제(Ajax로)
+	public int insertMember(MemberVO vo);
+	public int deleteMember(String id);
 	
-		/* < DB에 여러개의 값을 보내줄 때 구분 >
-		  @Param으로 이게 DB어디에 매칭되는 값인지, 명시해 줘야 아래 mapper에 있는 #{ } 부분에 알맞은 값이 들어간다.
-			ex. public MemberVO selectMember(@Param("id") String id, @Param("pw") String pw);
-											(String id, String pw); 에러
-		 */
+	
+	/* < DB에 여러개의 값을 보내줄 때 구분 >
+		@Param으로 이게 DB어디에 매칭되는 값인지, 명시해 줘야 아래 mapper에 있는 #{ } 부분에 알맞은 값이 들어간다.
+		ex. public MemberVO selectMember(@Param("id") String id, @Param("pw") String pw);
+										(String id, String pw); 에러
+	*/
 		
 	
 	

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>test1</title>
+</head>
+
+<body>
+	<!--문제1 -->
+	<!-- data.json파일의 정보를 읽어서 급여가 4500초과, 여성회원을 콘솔에 출력하세요. -->
+	<!--Ajax사용-->
+	<script>
+
+		
+		const xhtp = new XMLHttpRequest();
+		xhtp.open('get', '../data/data.json');
+		xhtp.send();
+		xhtp.onload = function(){
+			//console.log(JSON.parse(xhtp.responseText));
+		
+		
+		let result = JSON.parse(xhtp.responseText);
+		
+		result.forEach(employee => {
+			//console.log(employee);
+			
+			if(employee.gender == 'Female' && employee.salary > 4500){
+				let targetAry = [employee];
+				//console.log(targetAry)
+				
+				targetAry.forEach(answer => {
+					console.log(answer.first_name); //이름만
+					console.log(answer); //전체정보
+				})
+			}
+			
+		})
+		
+		}//end onload.
+		
+		
+		
+		
+		
+	</script>
+</body>
+
+</html>

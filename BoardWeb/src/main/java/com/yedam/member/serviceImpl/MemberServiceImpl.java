@@ -27,4 +27,14 @@ public class MemberServiceImpl implements MemberService{ //MemberService 인터�
 		return mapper.selectOne(id);
 	}
 
+	@Override
+	public boolean addMember(MemberVO vo) {
+		return mapper.insertMember(vo) == 1; //mapper에 insert delete기능 타입 int로해야 값 넘어옴
+	}
+
+	@Override
+	public boolean removeMember(String id) {
+		return mapper.deleteMember(id) == 1;
+	}
+
 }
