@@ -19,13 +19,8 @@ public class BookListControl implements Control {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		
-		
-		 BookService svc = new BookServiceImpl(); 
-		 List<BookVO> list = svc.bookList();
-		 
-		 
 		 resp.setContentType("text/json;charset=utf-8"); 
-		 Gson gson = new GsonBuilder().create();
+		
 
 		
 		try {

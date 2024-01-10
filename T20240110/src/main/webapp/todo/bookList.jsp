@@ -5,31 +5,47 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>
-	$(document).ready(function() {
-		$.ajax('bookList.do', {
-			method: 'get',
-			dataType: 'json',
-			success: function(result){
-				console.log(result)
-				$(result).each((idx, book) => {
-					let tr = $('<tr />').append($('<td />').text(book.bookCode),
-							 $('<td />').text(book.bookName),
-							 $('<td />').text(book.bookAuthor),
-							 $('<td />').text(book.bookPress),
-							 $('<td />').text(book.bookPrice)
-							);
-							$('.tbody').append(tr);
-				});
-			},
-			error: function(err){
-				console.log(err);
-			}
-		})
-	});
 
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+	    const xhtp = new XMLHttpRequest();
+		xhtp.open('get', 'bookListJson.do');
+		xhtp.send();
+		xhtp.onload = function(){
+			let data = JSON.parse(xhtp.responseText);
+			console.log(data)
+			
+			
+			data.forEach(info => {
+					let tr = document.createElement('tr');
+					let td = document.createElement('td');
+					td.innerHTML = info;
+					tr.appendChild(td);
+			}) 
+			document.querySelector('.tbody').appendChild(tr);
+		
+	
+			/* fetch('bookList.do', {
+				headers: {
+					Accept: "application / json",
+				},
+				method: "GET",
+			})
+			.then(str => str.json())
+			.then(data => {
+			
+				data.forEach(info => {
+					let tr = document.createElement('tr');
+					let td = document.createElement('td');
+					td.innerHTML = info;
+					tr.appendChild(td);
+					document.querySelector('.tbody').appendChild(tr);
+				})
+			})
+			.catch(reject => console.log(reject)); */
+			
+		}
+	});//end
 </script>
 </head>
 <body>
